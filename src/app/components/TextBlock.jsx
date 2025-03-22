@@ -5,7 +5,8 @@ export default function TextBlock() {
             color: '#ffaf1b',
             height: '50vh',
             padding: '2rem',
-        }}>
+        }}
+        >
             <h1 style={{fontSize: '2rem', fontWeight: '600'}}>
                 What is Firewatch?
             </h1>

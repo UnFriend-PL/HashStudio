@@ -3,7 +3,7 @@ import TextBlock from "@/app/components/TextBlock";
 
 export default function WelcomeScreen() {
     return (
-        <main>
+        <>
             <ParallaxBanner style={{aspectRatio: '2 / 1', height: '100vh'}}>
                 <ParallaxBannerLayer
                     image="/images/background.png"
@@ -34,10 +34,9 @@ export default function WelcomeScreen() {
                     </div>
                 </ParallaxBannerLayer>
             </ParallaxBanner>
-    <section>
-        <TextBlock/>
-    </section>
-</main>
-)
-    ;
+            <section>
+                <TextBlock/>
+            </section>
+        </>
+    )
 }
