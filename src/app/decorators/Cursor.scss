@@ -1,0 +1,66 @@
+*,
+html,
+body {
+    cursor: none;
+}
+$cursor-color: #16F4B9;
+.custom-cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    opacity: 0;
+
+    .cursor-dot {
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform: translate(-50%, -50%);
+        width: 16px;
+        height: 16px;
+        background: $cursor-color;
+        border-radius: 50%;
+        transition: width 0.5s ease, height 0.5s ease, border-radius 0.5s ease, background-color 0.3s ease;
+
+        &.clickable {
+            width: 24px;
+            height: 24px;
+        }
+
+        &.text {
+            width: 4px;
+            border-radius: 2px;
+        }
+    }
+
+    .cursor-bubble {
+        position: absolute;
+        left: 50%;
+        top: -1rem;
+        background: #000000;
+        color: #ffffff;
+        font-weight: bold;
+        padding: 0.8rem 1.25rem;
+        font-size: 18px;
+        line-height: 1;
+        border-radius: 50px;
+        border: 3px solid $cursor-color;
+        white-space: nowrap;
+        pointer-events: none;
+        transition: transform 0.3s ease, opacity 0.3s ease, background-color 0.3s ease;
+        transform: translate(-50%, 0) scale(0);
+
+        &.visible {
+            opacity: 1;
+            transform: translate(-50%, -5px) scale(1);
+        }
+    }
+
+    &.cursor-bubble {
+        .cursor-dot {
+            opacity: 0;
+        }
+    }
+}

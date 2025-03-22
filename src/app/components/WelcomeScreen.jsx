@@ -19,7 +19,7 @@ export default function WelcomeScreen() {
                     image="/images/jungle1.png"
                     speed={60}
                     style={{backgroundSize: 'cover'}}
-                />
+                ></ParallaxBannerLayer>
 
                 <ParallaxBannerLayer
                     sticky={{start: 0, end: 1}}
