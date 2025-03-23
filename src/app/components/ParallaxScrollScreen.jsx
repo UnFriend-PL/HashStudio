@@ -4,6 +4,7 @@ import React, { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import './ParallaxScrollScreen.scss';
 import VideoCanvasBackground from './VideoCanvasBackground';
+import Fireflies from "@/app/decorators/Fireflies";
 
 const ParallaxScrollScreen = ({ children, videoSrc, className = '' }) => {
     const targetRef = useRef(null);
@@ -17,7 +18,9 @@ const ParallaxScrollScreen = ({ children, videoSrc, className = '' }) => {
 
     return (
         <div ref={targetRef} className={`parallax-scroll-page ${className}` }>
-            {videoSrc && <VideoCanvasBackground src={videoSrc} />}
+            <Fireflies count={40} />
+
+            {/*{videoSrc && <VideoCanvasBackground src={videoSrc} />}*/}
             <motion.div className="sticky-container">
                 <motion.div className="content" style={{ scale, opacity }}>
                     {children}
