@@ -1,39 +1,17 @@
-.firefliesContainer {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-}
+/* Error: Can't find stylesheet to import.
+ *   ,
+ * 1 | @use "@/app/styles/colors" as color;
+ *   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ *   '
+ *   Fireflies.module.scss 1:1  root stylesheet */
 
-.firefly {
-  position: absolute;
-  border-radius: 50%;
-  background-color: #fff;
-  box-shadow: 0 0 8px #fff;
-  animation: flicker 8s infinite ease-in-out;
+body::before {
+  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
+      "Droid Sans Mono", monospace, monospace;
+  white-space: pre;
+  display: block;
+  padding: 1em;
+  margin-bottom: 1em;
+  border-bottom: 2px solid black;
+  content: "Error: Can't find stylesheet to import.\a   \2577 \a 1 \2502  @use \"@/app/styles/colors\" as color;\d\a   \2502  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\a   \2575 \a   Fireflies.module.scss 1:1  root stylesheet";
 }
-
-@keyframes flicker {
-  0% {
-    opacity: 0;
-    transform: translate(0, 0);
-  }
-  25% {
-    opacity: 1;
-    transform: translate(-3px, 2px);
-  }
-  50% {
-    opacity: 0.8;
-    transform: translate(3px, -3px);
-  }
-  75% {
-    opacity: 1;
-    transform: translate(-2px, 4px);
-  }
-  100% {
-    opacity: 0;
-    transform: translate(0, 0);
-  }
-}
-
-/*# sourceMappingURL=Fireflies.module.css.map */
