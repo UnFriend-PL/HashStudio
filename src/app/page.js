@@ -17,7 +17,7 @@ export default function Home() {
                     </div>
                     <Menu/>
                     <div id={"design"}>
-                        <ParallaxScrollScreen videoSrc={"videos/lines.mp4"} >
+                        <ParallaxScrollScreen videoSrc={"videos/hands.mp4"} >
                             This is a parallax scroll screen. The content will scale up and down as you scroll.
                         </ParallaxScrollScreen>
                         <ParallaxScrollScreen>

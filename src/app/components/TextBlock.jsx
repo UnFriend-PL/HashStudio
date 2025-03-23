@@ -3,7 +3,7 @@ export default function TextBlock() {
         <div style={{
             backgroundColor: '#210002',
             color: '#ffaf1b',
-            height: '50vh',
+            minHeight: '50vh',
             padding: '2rem',
         }}
         >
