@@ -1,23 +1,24 @@
 'use client';
 
-import { createRef, useEffect, useRef, useState } from 'react';
+import {createRef, useEffect, useRef, useState} from 'react';
 import gsap from 'gsap';
 import './Menu.scss';
-import { CiMenuBurger } from "react-icons/ci";
-import { IoMdClose } from "react-icons/io";
+import {CiMenuBurger} from "react-icons/ci";
+import {IoMdClose} from "react-icons/io";
 
 const items = [
-    { name: 'Welcome',   color: '#f44336', href: '#welcome',   sectionId: 'welcome' },
-    { name: 'Design',    color: '#e91e63', href: '#design',    sectionId: 'design' },
-    { name: 'Portfolio', color: '#9c27b0', href: '#portfolio', sectionId: 'portfolio' },
-    { name: 'Freelance', color: '#673ab7', href: '#freelance', sectionId: 'freelance' },
-    { name: 'Contact',   color: '#3f51b5', href: '#contact',   sectionId: 'contact' },
+    {name: 'Welcome', color: '#f44336', href: '#welcome', sectionId: 'welcome'},
+    {name: 'Design', color: '#e91e63', href: '#design', sectionId: 'design'},
+    {name: 'Portfolio', color: '#9c27b0', href: '#portfolio', sectionId: 'portfolio'},
+    {name: 'Freelance', color: '#673ab7', href: '#freelance', sectionId: 'freelance'},
+    {name: 'Contact', color: '#3f51b5', href: '#contact', sectionId: 'contact'},
 ];
 
 const AnimatedMenu = () => {
     const rootRef = useRef(null);
     const indicator1Ref = useRef(null);
     const indicator2Ref = useRef(null);
+    const navItemsRef = useRef(null); // <-- Referencja do kontenera z linkami
     const itemRefs = useRef(items.map(() => createRef()));
 
     const [active, setActive] = useState(0);
@@ -32,7 +33,7 @@ const AnimatedMenu = () => {
                     if (index !== -1) setActive(index);
                 }
             },
-            { threshold: 0.1 }
+            {threshold: 0.1}
         );
 
         items.forEach((item) => {
@@ -43,13 +44,13 @@ const AnimatedMenu = () => {
         return () => observer.disconnect();
     }, []);
 
-    const animate = () => {
+    const animateIndicator = () => {
         if (!rootRef.current) return;
         const menuOffset = rootRef.current.getBoundingClientRect();
         const activeItem = itemRefs.current[active].current;
         if (!activeItem) return;
 
-        const { width, height, top, left } = activeItem.getBoundingClientRect();
+        const {width, height, top, left} = activeItem.getBoundingClientRect();
 
         const settings = {
             x: left - menuOffset.x,
@@ -62,22 +63,44 @@ const AnimatedMenu = () => {
         };
 
         gsap.to(indicator1Ref.current, settings);
-        gsap.to(indicator2Ref.current, { ...settings, duration: 1 });
+        gsap.to(indicator2Ref.current, {...settings, duration: 1});
     };
 
     useEffect(() => {
-        animate();
-        window.addEventListener('resize', animate);
-        return () => window.removeEventListener('resize', animate);
+        animateIndicator();
+        window.addEventListener('resize', animateIndicator);
+        return () => window.removeEventListener('resize', animateIndicator);
     }, [active]);
+
+    useEffect(() => {
+        if (window.innerWidth > 650) return;
+
+        if (burger) {
+            gsap.set(navItemsRef.current, {height: 0, opacity: 0});
+            gsap.to(navItemsRef.current, {
+                duration: 0.5,
+                height: 'auto',
+                opacity: 1,
+                ease: 'power2.out'
+            });
+            return;
+        }
+        gsap.to(navItemsRef.current, {
+            duration: 0.4,
+            height: 0,
+            opacity: 0,
+            ease: 'power2.in'
+        });
+
+    }, [burger]);
 
     return (
         <div ref={rootRef} className={`menu ${burger ? 'open' : ''}`}>
-            <div className="burger" onClick={() => setBurger(!burger)}>
-                {burger ? <IoMdClose /> : <CiMenuBurger />}
-            </div>
+            <a className="burger" onClick={() => setBurger(!burger)}>
+                {burger ? <IoMdClose/> : <CiMenuBurger/>}
+            </a>
 
-            <div className="nav-items">
+            <div className="nav-items" ref={navItemsRef}>
                 {items.map((item, index) => (
                     <a
                         key={item.name}
@@ -91,8 +114,8 @@ const AnimatedMenu = () => {
                 ))}
             </div>
 
-            <div ref={indicator1Ref} className="indicator" />
-            <div ref={indicator2Ref} className="indicator" />
+            <div ref={indicator1Ref} className="indicator"/>
+            <div ref={indicator2Ref} className="indicator"/>
         </div>
     );
 };
