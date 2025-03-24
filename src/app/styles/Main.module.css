@@ -1,0 +1,13 @@
+.slogan {
+  font-size: 2rem;
+  color: #eee;
+  text-align: center;
+  width: 30vw;
+}
+@media (max-width: 650px) {
+  .slogan {
+    width: 80vw;
+  }
+}
+
+/*# sourceMappingURL=Main.module.css.map */

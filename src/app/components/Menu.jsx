@@ -2,7 +2,7 @@
 
 import {createRef, useEffect, useRef, useState} from 'react';
 import gsap from 'gsap';
-import './Menu.scss';
+import '../styles/Menu.scss';
 import {CiMenuBurger} from "react-icons/ci";
 import {IoMdClose} from "react-icons/io";
 

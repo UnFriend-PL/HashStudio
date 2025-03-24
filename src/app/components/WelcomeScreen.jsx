@@ -9,6 +9,7 @@ export default function WelcomeScreen() {
                     image="/images/background.png"
                     speed={30}
                     style={{backgroundSize: 'cover'}}
+
                 />
                 <ParallaxBannerLayer
                     image="/images/mountains.png"

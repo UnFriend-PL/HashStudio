@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import styles from "./Fireflies.module.scss";
+import styles from "../styles/Fireflies.module.scss";
 
 export default function Fireflies({ count = 20 }) {
     const [fireflies, setFireflies] = useState([]);

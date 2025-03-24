@@ -1,0 +1,11 @@
+@use "Colors" as color;
+
+.slogan {
+  font-size: 2rem;
+  color: color.$third-color;
+  text-align: center;
+  width: 30vw;
+  @media (max-width: 650px) {
+    width: 80vw;
+  }
+}

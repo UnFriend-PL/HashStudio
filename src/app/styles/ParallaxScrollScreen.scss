@@ -1,7 +1,6 @@
 .parallax-scroll-page {
   position: relative;
-  height: 100vh;
-
+  height: 150vh;
   .video-canvas-bg {
     position: fixed;
     top: 0;
@@ -24,5 +23,6 @@
 
   .content {
     will-change: transform, opacity;
+    position: absolute;
   }
 }
