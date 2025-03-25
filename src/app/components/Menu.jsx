@@ -6,7 +6,7 @@ import '../styles/Menu.scss';
 import {CiMenuBurger} from "react-icons/ci";
 import {IoMdClose} from "react-icons/io";
 
-const items = [
+export const items = [
     {name: 'Welcome', color: '#f44336', href: '#welcome', sectionId: 'welcome'},
     {name: 'Design', color: '#e91e63', href: '#design', sectionId: 'design'},
     {name: 'Portfolio', color: '#9c27b0', href: '#portfolio', sectionId: 'portfolio'},

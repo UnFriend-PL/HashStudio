@@ -17,8 +17,35 @@
   position: absolute;
 }
 
+.pinsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+  max-width: 12%;
+  height: 100%;
+  padding: 3%;
+}
+
+.pin {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2%;
+}
+.pin img {
+  transform: rotate(90deg);
+  max-width: 100%;
+  height: auto;
+}
+
 .waving {
   animation: waving 2s infinite ease-in-out;
+}
+
+.flashing {
+  animation: flashing 3s infinite ease-in-out;
 }
 
 @keyframes waving {
@@ -30,6 +57,32 @@
   }
   100% {
     transform: rotate(0deg) scale(1);
+  }
+}
+@keyframes flashing {
+  0% {
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  30% {
+    opacity: 0.7;
+  }
+  40% {
+    opacity: 0;
+  }
+  60% {
+    opacity: 0.5;
+  }
+  70% {
+    opacity: 0.4;
+  }
+  80% {
+    opacity: 0.6;
+  }
+  90% {
+    opacity: 0.5;
   }
 }
 
