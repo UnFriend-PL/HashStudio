@@ -6,6 +6,8 @@ import ParallaxScrollScreen from "@/app/components/ParallaxScrollScreen";
 import Menu from "@/app/components/Menu";
 import TextFit from "@/app/decorators/TextFit";
 import styles from "@/app/styles/Main.module.scss";
+import TextLine from "@/app/decorators/TextLine";
+
 export default function Home() {
     return (
         <>
@@ -20,15 +22,9 @@ export default function Home() {
                     <div id={"design"}>
                         <ParallaxScrollScreen>
                             <div className={styles.slogan}>
-                                <TextFit minFontSize={10} maxFontSize={150}>
-                                    DESIGN
-                                </TextFit>
-                                <TextFit minFontSize={10} maxFontSize={150}>
-                                    MOJE MARZENIE ZYCIA
-                                </TextFit>
 
                                 <TextFit minFontSize={10} maxFontSize={150}>
-                                    DESIGN TEST
+                                    <TextLine>PRZYCIĄGAJĄCY UWAGĘ</TextLine>
                                 </TextFit>
                             </div>
                         </ParallaxScrollScreen>
@@ -44,7 +40,8 @@ export default function Home() {
                                 <TextFit minFontSize={10} maxFontSize={100}>
                                     DESIGN TEST
                                 </TextFit>
-                            </div>                        </ParallaxScrollScreen>
+                            </div>
+                        </ParallaxScrollScreen>
                     </div>
                 </main>
             </ParallaxProvider>

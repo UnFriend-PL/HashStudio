@@ -23,6 +23,7 @@
 .parallax-scroll-page .content {
   will-change: transform, opacity;
   position: absolute;
+  z-index: 99;
 }
 
 /*# sourceMappingURL=ParallaxScrollScreen.css.map */
