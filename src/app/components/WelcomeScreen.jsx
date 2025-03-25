@@ -1,30 +1,29 @@
 import {ParallaxBanner, ParallaxBannerLayer} from 'react-scroll-parallax';
-import TextBlock from "@/app/components/TextBlock";
 import "@/app/styles/Welcome.scss";
-import Fireflies from "@/app/decorators/Fireflies";
-import VideoCanvasBackground from "@/app/components/VideoCanvasBackground";
+import hand from "@/app/assets/hand.svg"
+import Image from "next/image";
 
 export default function WelcomeScreen() {
     return (
         <>
-            <ParallaxBanner style={{aspectRatio: '2 / 1', height: '100vh'}}>
-
+            <ParallaxBanner style={{ height: '100vh'}}>
                 <ParallaxBannerLayer
-                    sticky={{start: 0, end: 1}}
+                    image="/images/parrallax/guy_without_hand.svg"
+                    speed={-50}
+                    style={{backgroundSize: 'contain', backgroundRepeat: 'no-repeat', backgroundPosition: 'center', display: 'flex', justifyContent: 'center'}}
                 >
-                    <div className="WelcomeContainer">
-                        <div className="WelcomeBlock">
-                            <h1 style={{fontSize: '3rem', color: 'white'}}>Welcome</h1>
-                        </div>
-                        <VideoCanvasBackground src={"/videos/fog.mp4"} />
-                    </div>
+                    <Image src={hand} alt={"animated_hand"} className={"waving"}></Image>
                 </ParallaxBannerLayer>
                 <ParallaxBannerLayer
-                    image="/images/bulb.png"
+                    image="/images/parrallax/girl_long.svg"
                     speed={-80}
-                    style={{backgroundSize: ''}}
+                    style={{backgroundSize: 'contain', backgroundRepeat: 'no-repeat', backgroundPosition: 'center', left: '-3vw'}}
                 />
-
+                <ParallaxBannerLayer
+                    image="/images/parrallax/logo_tagline.svg"
+                    speed={-20}
+                    style={{backgroundSize: 'contain', backgroundRepeat: 'no-repeat', backgroundPosition: 'center',}}
+                />
             </ParallaxBanner>
 
         </>

@@ -3,6 +3,7 @@
   flex-direction: column;
   height: 100vh;
   width: 100vw;
+  background-color: #0a0a0a;
   position: relative;
 }
 
@@ -14,6 +15,22 @@
   width: 100%;
   height: 100%;
   position: absolute;
+}
+
+.waving {
+  animation: waving 2s infinite ease-in-out;
+}
+
+@keyframes waving {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+  50% {
+    transform: rotate(5deg) scaleX(0.99) translateY(20px);
+  }
+  100% {
+    transform: rotate(0deg) scale(1);
+  }
 }
 
 /*# sourceMappingURL=Welcome.css.map */
