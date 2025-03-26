@@ -41,8 +41,12 @@
   }
 }
 
+.logo-tagline{
+
+}
 
 .waving {
+
   animation: waving 2s infinite ease-in-out;
 }
 
@@ -50,18 +54,80 @@
   animation: flashing 3s infinite ease-in-out;
 }
 
+/* Domyślna animacja – dla 1920x1080 */
 @keyframes waving {
   0% {
     transform: rotate(0deg) scale(1);
   }
   50% {
-    transform: rotate(5deg) scaleX(0.99) translateY(20px);
+    transform: rotate(5deg) scaleX(0.99) translateY(1ch);
   }
   100% {
     transform: rotate(0deg) scale(1);
-
   }
 }
+
+/* 1440px – laptopy */
+@media (max-width: 1440px) {
+  @keyframes waving {
+    0% {
+      transform: rotate(0deg) scale(1);
+    }
+    50% {
+      transform: rotate(4deg) scaleX(0.995) translateY(0.8ch);
+    }
+    100% {
+      transform: rotate(0deg) scale(1);
+    }
+  }
+}
+
+/* 1024px – tablety poziomo */
+@media (max-width: 1024px) {
+  @keyframes waving {
+    0% {
+      transform: rotate(0deg) scale(1);
+    }
+    50% {
+      transform: rotate(3deg) scaleX(0.997) translateY(0.6ch);
+    }
+    100% {
+      transform: rotate(0deg) scale(1);
+    }
+  }
+}
+
+/* 768px – tablety pionowo, mniejsze ekrany */
+@media (max-width: 768px) {
+  @keyframes waving {
+    0% {
+      transform: rotate(0deg) scale(1);
+    }
+    50% {
+      transform: rotate(2.5deg) scaleX(0.998) translateY(0.5ch);
+    }
+    100% {
+      transform: rotate(0deg) scale(1);
+    }
+  }
+}
+
+/* 480px – telefony */
+@media (max-width: 480px) {
+  @keyframes waving {
+    0% {
+      transform: rotate(0deg) scale(1);
+    }
+    50% {
+      transform: rotate(2deg) scaleX(0.999) translateY(0.4ch);
+    }
+    100% {
+      transform: rotate(0deg) scale(1);
+    }
+  }
+}
+
+
 @keyframes flashing {
 
   0%{

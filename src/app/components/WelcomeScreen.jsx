@@ -1,100 +1,101 @@
-import {ParallaxBanner, ParallaxBannerLayer} from 'react-scroll-parallax';
+import { ParallaxBanner, ParallaxBannerLayer } from 'react-scroll-parallax';
 import "@/app/styles/Welcome.scss";
-import pin from "@/app/assets/pin.svg"
+import pin from "@/app/assets/pin.svg";
 import Image from "next/image";
 import Fireflies from "@/app/decorators/Fireflies";
-import {items} from "@/app/components/Menu"
+import { items } from "@/app/components/Menu";
+import logo_tagline from "@/app/assets/logo_tagline.svg";
+import windowImg from "@/app/assets/window.svg";
+import handImg from "@/app/assets/hand.svg";
+import flashingWelcomeImg from "@/app/assets/flashing_welcome.svg";
+import guyImg from "@/app/assets/guy.svg";
+import girlLightOffImg from "@/app/assets/girl_light_off.svg";
+import flashingBulbImg from "@/app/assets/flashing_bulb.svg";
 
 export default function WelcomeScreen() {
     return (
-        <>
-            <ParallaxBanner style={{height: '100vh'}}>
-                <Fireflies count={50} />
+        <ParallaxBanner style={{ height: '100vh' }}>
+            <Fireflies count={50} />
 
-                <ParallaxBannerLayer
-                    image="/images/parrallax/window.svg"
-                    speed={-50}
+            <ParallaxBannerLayer speed={-50}>
+                <Image
+                    src={windowImg}
+                    alt="window"
+                    fill
                     style={{
-                        backgroundSize: 'contain',
-                        backgroundRepeat: 'no-repeat',
-                        backgroundPosition: 'center',
-                        display: 'flex',
-                        justifyContent: 'center'
+                        objectFit: 'contain',
+                        objectPosition: 'center',
                     }}
                 />
-                <ParallaxBannerLayer
-                    image="/images/parrallax/hand.svg"
-                    speed={-50}
-                    style={{
-                        backgroundSize: 'contain',
-                        backgroundRepeat: 'no-repeat',
-                        backgroundPosition: 'center',
-                        display: 'flex',
-                        justifyContent: 'center'
+            </ParallaxBannerLayer>
 
+            <ParallaxBannerLayer speed={-50}>
+                <Image
+                    src={flashingWelcomeImg}
+                    alt="welcome"
+                    fill
+                    style={{
+                        objectFit: 'contain',
+                        objectPosition: 'center',
+                    }}
+                />
+            </ParallaxBannerLayer>
+
+            <ParallaxBannerLayer speed={-50}>
+                <Image
+                    src={handImg}
+                    alt="hand"
+                    fill
+                    style={{
+                        objectFit: 'contain',
+                        objectPosition: 'center',
                     }}
                     className={"waving"}
                 />
-                <ParallaxBannerLayer
-                    image="/images/parrallax/flashing_welcome.svg"
-                    speed={-50}
+                <Image
+                    src={guyImg}
+                    alt="guy"
+                    fill
                     style={{
-                        backgroundSize: 'contain',
-                        backgroundRepeat: 'no-repeat',
-                        backgroundPosition: 'center',
-                        display: 'flex',
-                        justifyContent: 'center'
+                        objectFit: 'contain',
+                        objectPosition: 'center',
                     }}
                 />
-                <ParallaxBannerLayer
-                    image="/images/parrallax/guy.svg"
-                    speed={-50}
-                    style={{
-                        backgroundSize: 'contain',
-                        backgroundRepeat: 'no-repeat',
-                        backgroundPosition: 'center',
-                        display: 'flex',
-                        justifyContent: 'center'
-                    }}
-                />
-                <ParallaxBannerLayer
-                    image="/images/parrallax/girl_light_off.svg"
-                    speed={-80}
-                    style={{
-                        backgroundSize: 'contain',
-                        backgroundRepeat: 'no-repeat',
-                        backgroundPosition: 'center',
-                        left: '-3vw'
-                    }}
-                />
-                <ParallaxBannerLayer
-                    image="/images/parrallax/flashing_bulb.svg"
-                    speed={-80}
-                    style={{
-                        backgroundSize: 'contain',
-                        backgroundRepeat: 'no-repeat',
-                        backgroundPosition: 'center',
-                        left: '-3vw'
-                    }}
-                    className={"flashing"}
-                />
-                <ParallaxBannerLayer
-                    image="/images/parrallax/logo_tagline.svg"
-                    speed={-20}
-                    style={{backgroundSize: 'contain', backgroundRepeat: 'no-repeat', backgroundPosition: 'center',}}
-                />
-                <ParallaxBannerLayer>
-                    <div className={"pinsContainer"}>
-                        {items.map((item, index) =>
-                            <div className="pin" key={index}>
-                                <a href={""}> <Image src={pin} alt="pin"/>
-                                </a>
-                            </div>
-                        )}
-                    </div>
-                </ParallaxBannerLayer>
-            </ParallaxBanner>
+            </ParallaxBannerLayer>
 
-        </>
-    )
+            <ParallaxBannerLayer speed={-80}>
+                <div style={{ position: 'relative', width: '100%', height: '100%', left: '-3vw' }}>
+                    <Image
+                        src={girlLightOffImg}
+                        alt="girl"
+                        fill
+                        style={{
+                            objectFit: 'contain',
+                            objectPosition: 'center',
+                        }}
+                    />
+                </div>
+            </ParallaxBannerLayer>
+
+            <ParallaxBannerLayer speed={-80} className="flashing">
+                <div style={{ position: 'relative', width: '100%', height: '100%', left: '-3vw' }}>
+                    <Image
+                        src={flashingBulbImg}
+                        alt="bulb"
+                        fill
+                        style={{
+                            objectFit: 'contain',
+                            objectPosition: 'center',
+                        }}
+                    />
+                </div>
+            </ParallaxBannerLayer>
+
+            <ParallaxBannerLayer>
+                <div className="logo-tagline">
+                    <Image src={logo_tagline} alt="tag_line" />
+                </div>
+            </ParallaxBannerLayer>
+        </ParallaxBanner>
+    );
 }
