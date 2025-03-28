@@ -1,101 +1,63 @@
-import { ParallaxBanner, ParallaxBannerLayer } from 'react-scroll-parallax';
+"use client"
+import {useEffect, useRef} from 'react';
+import GirlLightOffSVG from '@/app/assets/girl_light_off.svg';
+import FlashingBulbSVG from '@/app/assets/flashing_bulb.svg';
+import GuySVG from '@/app/assets/guy.svg';
+import HandSVG from '@/app/assets/hand.svg';
+import FlashingWelcomeSVG from '@/app/assets/flashing_welcome.svg';
+import WindowSvg from '@/app/assets/window.svg';
+import LogoTaglineSVG from '@/app/assets/logo_tagline.svg';
 import "@/app/styles/Welcome.scss";
-import pin from "@/app/assets/pin.svg";
-import Image from "next/image";
 import Fireflies from "@/app/decorators/Fireflies";
-import { items } from "@/app/components/Menu";
-import logo_tagline from "@/app/assets/logo_tagline.svg";
-import windowImg from "@/app/assets/window.svg";
-import handImg from "@/app/assets/hand.svg";
-import flashingWelcomeImg from "@/app/assets/flashing_welcome.svg";
-import guyImg from "@/app/assets/guy.svg";
-import girlLightOffImg from "@/app/assets/girl_light_off.svg";
-import flashingBulbImg from "@/app/assets/flashing_bulb.svg";
 
 export default function WelcomeScreen() {
+    const containerRef = useRef(null);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            const scrollY = window.scrollY;
+
+            containerRef.current.querySelectorAll('.parallax-element').forEach(el => {
+                const speed = parseFloat(el.getAttribute('data-speed')) || 0;
+                const translateY = scrollY * speed;
+                el.style.transform = `translateY(${translateY}px)`;
+            });
+
+            const logoTagline = containerRef.current.querySelector('.logo-tagline');
+            if (logoTagline) {
+                const fadeStart = 0;
+                const fadeEnd = 100;
+                const opacity = scrollY <= fadeStart
+                    ? 1
+                    : Math.max(0, 1 - (scrollY - fadeStart) / (fadeEnd - fadeStart));
+                logoTagline.style.opacity = opacity;
+            }
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
+
     return (
-        <ParallaxBanner style={{ height: '100vh' }}>
-            <Fireflies count={50} />
+        <div ref={containerRef} className="WelcomeContainer">
+            <div className="parallax-element window" data-speed="0.6">
+                <WindowSvg className="base-image"/>
+            </div>
+            <div className="parallax-element guy" data-speed="0.5">
+                <GuySVG className="base-image"/>
+                <HandSVG aria-hidden="true" className="overlay-hand waving"/>
+                <FlashingWelcomeSVG className="overlay-welcome"/>
+            </div>
 
-            <ParallaxBannerLayer speed={-50}>
-                <Image
-                    src={windowImg}
-                    alt="window"
-                    fill
-                    style={{
-                        objectFit: 'contain',
-                        objectPosition: 'center',
-                    }}
-                />
-            </ParallaxBannerLayer>
-
-            <ParallaxBannerLayer speed={-50}>
-                <Image
-                    src={flashingWelcomeImg}
-                    alt="welcome"
-                    fill
-                    style={{
-                        objectFit: 'contain',
-                        objectPosition: 'center',
-                    }}
-                />
-            </ParallaxBannerLayer>
-
-            <ParallaxBannerLayer speed={-50}>
-                <Image
-                    src={handImg}
-                    alt="hand"
-                    fill
-                    style={{
-                        objectFit: 'contain',
-                        objectPosition: 'center',
-                    }}
-                    className={"waving"}
-                />
-                <Image
-                    src={guyImg}
-                    alt="guy"
-                    fill
-                    style={{
-                        objectFit: 'contain',
-                        objectPosition: 'center',
-                    }}
-                />
-            </ParallaxBannerLayer>
-
-            <ParallaxBannerLayer speed={-80}>
-                <div style={{ position: 'relative', width: '100%', height: '100%', left: '-3vw' }}>
-                    <Image
-                        src={girlLightOffImg}
-                        alt="girl"
-                        fill
-                        style={{
-                            objectFit: 'contain',
-                            objectPosition: 'center',
-                        }}
-                    />
-                </div>
-            </ParallaxBannerLayer>
-
-            <ParallaxBannerLayer speed={-80} className="flashing">
-                <div style={{ position: 'relative', width: '100%', height: '100%', left: '-3vw' }}>
-                    <Image
-                        src={flashingBulbImg}
-                        alt="bulb"
-                        fill
-                        style={{
-                            objectFit: 'contain',
-                            objectPosition: 'center',
-                        }}
-                    />
-                </div>
-            </ParallaxBannerLayer>
-
-            <ParallaxBannerLayer>
-                <div className="logo-tagline">
-                    <Image src={logo_tagline} alt="tag_line" />
-                </div>
-            </ParallaxBannerLayer>
-        </ParallaxBanner>
+            <div className="parallax-element woman " data-speed="0.9">
+                <GirlLightOffSVG className="base-image"/>
+                <FlashingBulbSVG aria-hidden="true"
+                                 className="overlay-bulb flashing"/>
+            </div>
+            <div className="parallax-element logo-tagline" data-speed="0.1">
+                <LogoTaglineSVG className="base-image"/>
+            </div>
+            <Fireflies count={50} style={{zIndex: "-1"}}/>
+        </div>
     );
 }

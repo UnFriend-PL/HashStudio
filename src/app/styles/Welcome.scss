@@ -1,56 +1,17 @@
 .WelcomeContainer {
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
   width: 100vw;
+  height: 100vh;
   background-color: #0a0a0a;
+  overflow: hidden;
   position: relative;
 }
 
-.WelcomeBlock {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100%;
-  position: absolute;
-}
-
-.pinsContainer {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  justify-items: center;
-  align-items: center;
-  max-width: 12%;
-  height: 100%;
-  padding: 3%;
-}
-
-.pin {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  margin-bottom: 2%;
-
-  img {
-    transform: rotate(90deg);
-    max-width: 100%;
-    height: auto;
-  }
-}
-
-.logo-tagline{
-
-}
-
+/* Animacje */
 .waving {
-
   animation: waving 2s infinite ease-in-out;
 }
 
-.flashing{
+.flashing {
   animation: flashing 3s infinite ease-in-out;
 }
 
@@ -127,31 +88,144 @@
   }
 }
 
-
 @keyframes flashing {
-
-  0%{
+  0% {
     opacity: 0;
   }
-  10%{
+  10% {
     opacity: 1;
   }
-  30%{
+  30% {
     opacity: 0.7;
   }
-  40%{
+  40% {
     opacity: 0;
   }
-  60%{
+  60% {
     opacity: 0.5;
   }
-  70%{
+  70% {
     opacity: 0.4;
   }
-  80%{
+  80% {
     opacity: 0.6;
   }
-  90%{
+  90% {
     opacity: 0.5;
   }
+  100% {
+    opacity: 0;
+  }
 }
+
+.parallax-element {
+  position: absolute;
+  z-index: 1;
+}
+
+.overlay-hand {
+  position: absolute;
+  top: 16%;
+  left: 20%;
+  width: 30%;
+  z-index: -1;
+}
+
+.overlay-welcome {
+  position: absolute;
+  top: -6%;
+  left: -6%;
+  width: 100%;
+  z-index: -1;
+  animation: flashing 10s infinite ease-in-out;
+}
+
+.guy {
+  width: 20%;
+  left: 30%;
+  top: 20%;
+  z-index: 1;
+  @media (max-width: 1440px) {
+    width: 23%;
+    top: 22%;
+  }
+  @media (max-width: 1024px) {
+    width: 26%;
+    top: 25%;
+  }
+  @media (max-width: 768px) {
+    width: 42%;
+    left: 42%;
+    top: 17%
+  }
+}
+
+.window {
+  width: 35%;
+  overflow: hidden;
+  left: 15%;
+  top: 37%;
+  @media (max-width: 1440px) {
+    width: 38%;
+  }
+  @media (max-width: 1024px) {
+    width: 44%;
+    left: 11%;
+  }
+  @media (max-width: 768px) {
+    width: 75%;
+    left: 12.5%;
+    top: 30%;
+  }
+}
+
+.woman {
+  width: 12%;
+  overflow: hidden;
+  left: 15%;
+  @media (max-width: 1440px) {
+    width: 15%;
+  }
+  @media (max-width: 1024px) {
+    width: 20%;
+    left: 10%;
+  }
+  @media (max-width: 768px) {
+    width: 25%;
+    left: 12.5%;
+  }
+}
+
+.logo-tagline {
+  top: 45%;
+  left: 60%;
+  width: 25%;
+  z-index: 1;
+  transition: opacity 0.3s ease-out;
+
+  @media (max-width: 1440px) {
+    width: 28%;
+  }
+  @media (max-width: 1024px) {
+    width: 31%;
+  }
+  @media (max-width: 768px) {
+    width: 50%;
+    left: 25%;
+    top: 70%;
+  }
+}
+.overlay-bulb {
+  position: absolute;
+  bottom: 0;
+  left: 10%;
+  width: 90%;
+}
+
+.base-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  z-index: 2;
+}
+
