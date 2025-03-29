@@ -9,3 +9,22 @@
     width: 80vw;
   }
 }
+
+#portfolio {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+
+  .portfolioSection {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    width: 40%;
+    @media (max-width: 768px) {
+      width: 10%;
+    }
+  }
+}
