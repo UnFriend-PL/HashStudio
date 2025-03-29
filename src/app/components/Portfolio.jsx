@@ -24,7 +24,7 @@ const Portfolio = ({images, topImageSrc, links}) => {
             {links && (
                 <div className={styles.Links}>
                     {links.map((link, index) => (
-                        <a key={index} href={link.link}>{link.ico}</a>
+                        <a target="_blank" key={index} href={link.link}>{link.ico}</a>
                     ))}
                 </div>
             )}

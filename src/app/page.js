@@ -17,10 +17,11 @@ import studioIMG from "@/app/assets/studio_kobiet.jpg";
 import bankIMG from "@/app/assets/bank.jpg";
 import inz from "@/app/assets/inz.png";
 import { FaGithub } from "react-icons/fa";
+import { FaLinkedin } from "react-icons/fa";
 
 const portfolioData1 = [
     {src: studioIMG.src, alt: 'Strona 1', dataFollowText: 'Strona 1', description: 'Opis 1', ico: <FaGithub />, link: "https://github.com/UnFriend-PL"},
-    {src: bankIMG.src, alt: 'Strona 2', dataFollowText: 'Strona 2', description: 'Opis 2', ico: <FaGithub />, link: "https://github.com/UnFriend-PL"},
+    {src: bankIMG.src, alt: 'Bank Symulator', dataFollowText: 'Strona 2', description: 'Opis 2', ico: <FaGithub />, link: "https://github.com/UnFriend-PL"},
     {src: inz.src, alt: 'Strona 3', dataFollowText: 'Strona 3', description: 'Opis 3', ico: <FaGithub />, link: "https://github.com/UnFriend-PL"}
 ];
 const Links1 = [
@@ -31,8 +32,8 @@ const Links1 = [
     },
     {
         name: 'Github',
-        ico: <FaGithub />,
-        link: "https://github.com/UnFriend-PL"
+        ico: <FaLinkedin />,
+        link: "https://www.linkedin.com/in/smarcinkowski/"
     }
 ]
 export default function Home() {
