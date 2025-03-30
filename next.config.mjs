@@ -1,4 +1,7 @@
 /** @type {import('next').NextConfig} */
+import createNextIntlPlugin from "next-intl/plugin";
+const withNextIntl = createNextIntlPlugin();
+
 const nextConfig = {
     experimental: {
         turbo: {
@@ -9,9 +12,12 @@ const nextConfig = {
                 },
             },
         },
+        i18n: {
+            locales: ['en-US', 'pl-PL', 'pl'],
+            defaultLocale: 'en-US',
+        },
     },
     webpack(config) {
-        // Skip Webpack config when Turbopack is active
         if (process.env.NEXT_DEV_TURBOPACK) return config;
 
         config.module.rules.push({
@@ -23,4 +29,4 @@ const nextConfig = {
     },
 };
 
-export default nextConfig;
+export default withNextIntl(nextConfig);

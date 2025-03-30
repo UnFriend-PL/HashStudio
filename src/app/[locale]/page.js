@@ -2,20 +2,20 @@
 
 import {useEffect, useState} from 'react';
 import {ParallaxProvider} from "react-scroll-parallax";
-import WelcomeScreen from "@/app/components/WelcomeScreen";
-import Cursor from "@/app/decorators/Cursor";
-import ParallaxScrollScreen from "@/app/components/ParallaxScrollScreen";
-import Menu from "@/app/components/Menu";
+import WelcomeScreen from "@/app/[locale]/components/WelcomeScreen";
+import Cursor from "@/app/[locale]/decorators/Cursor";
+import ParallaxScrollScreen from "@/app/[locale]/components/ParallaxScrollScreen";
+import Menu from "@/app/[locale]/components/Menu";
 import {usePathname} from 'next/navigation';
 
-import TextFit from "@/app/decorators/TextFit";
-import styles from "@/app/styles/Main.module.scss";
-import Preloader from '@/app/components/Preloader';
-import Portfolio from "@/app/components/Portfolio";
+import TextFit from "@/app/[locale]/decorators/TextFit";
+import styles from "@/app/[locale]/styles/Main.module.scss";
+import Preloader from '@/app/[locale]/components/Preloader';
+import Portfolio from "@/app/[locale]/components/Portfolio";
 
-import studioIMG from "@/app/assets/studio_kobiet.jpg";
-import bankIMG from "@/app/assets/bank.jpg";
-import inz from "@/app/assets/inz.png";
+import studioIMG from "@/app/[locale]/assets/studio_kobiet.jpg";
+import bankIMG from "@/app/[locale]/assets/bank.jpg";
+import inz from "@/app/[locale]/assets/inz.png";
 import { FaGithub } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
 

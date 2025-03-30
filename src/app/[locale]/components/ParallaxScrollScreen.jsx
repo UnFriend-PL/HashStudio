@@ -2,8 +2,8 @@
 
 import React, {useRef} from 'react';
 import {motion, useScroll, useTransform} from 'framer-motion';
-import '../styles/ParallaxScrollScreen.scss';
-import Fireflies from "@/app/decorators/Fireflies";
+import '@/app/[locale]/styles/ParallaxScrollScreen.scss';
+import Fireflies from "@/app/[locale]/decorators/Fireflies";
 
 const ParallaxScrollScreen = ({children, videoSrc, className = ''}) => {
     const targetRef = useRef(null);

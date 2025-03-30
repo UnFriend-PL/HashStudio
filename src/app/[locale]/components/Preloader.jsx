@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import '@/app/styles/Preloader.scss';
+import '@/app/[locale]/styles/Preloader.scss';
 
 export default function Preloader() {
     return (

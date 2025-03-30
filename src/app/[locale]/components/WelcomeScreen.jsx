@@ -1,14 +1,14 @@
 "use client"
 import {useEffect, useRef} from 'react';
-import GirlLightOffSVG from '@/app/assets/girl_light_off.svg';
-import FlashingBulbSVG from '@/app/assets/flashing_bulb.svg';
-import GuySVG from '@/app/assets/guy.svg';
-import HandSVG from '@/app/assets/hand.svg';
-import FlashingWelcomeSVG from '@/app/assets/flashing_welcome.svg';
-import WindowSvg from '@/app/assets/window.svg';
-import LogoTaglineSVG from '@/app/assets/logo_tagline.svg';
-import "@/app/styles/Welcome.scss";
-import Fireflies from "@/app/decorators/Fireflies";
+import GirlLightOffSVG from '@/app/[locale]/assets/girl_light_off.svg';
+import FlashingBulbSVG from '@/app/[locale]/assets/flashing_bulb.svg';
+import GuySVG from '@/app/[locale]/assets/guy.svg';
+import HandSVG from '@/app/[locale]/assets/hand.svg';
+import FlashingWelcomeSVG from '@/app/[locale]/assets/flashing_welcome.svg';
+import WindowSvg from '@/app/[locale]/assets/window.svg';
+import LogoTaglineSVG from '@/app/[locale]/assets/logo_tagline.svg';
+import "@/app/[locale]/styles/Welcome.scss";
+import Fireflies from "@/app/[locale]/decorators/Fireflies";
 
 export default function WelcomeScreen() {
     const containerRef = useRef(null);

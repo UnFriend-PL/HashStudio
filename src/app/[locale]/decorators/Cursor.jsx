@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
-import "../styles/Cursor.scss";
+import "@/app/[locale]/styles/Cursor.scss";
 
 const Cursor = () => {
     const cursorRef = useRef(null);

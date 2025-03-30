@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
-import styles from "@/app/styles/Portfolio.module.scss";
-import defaultImage from "@/app/assets/cats.png";
+import styles from "@/app/[locale]/styles/Portfolio.module.scss";
+import defaultImage from "@/app/[locale]/assets/cats.png";
 import {FaChevronLeft, FaChevronRight} from "react-icons/fa";
 import {IoClose} from "react-icons/io5";
 
