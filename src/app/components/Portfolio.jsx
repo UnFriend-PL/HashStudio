@@ -3,8 +3,9 @@ import styles from "@/app/styles/Portfolio.module.scss";
 import defaultImage from "@/app/assets/cats.png";
 import {FaChevronLeft, FaChevronRight} from "react-icons/fa";
 import {IoClose} from "react-icons/io5";
+import Pill from "@/app/components/partials/Pill";
 
-const Portfolio = ({images, topImageSrc, links}) => {
+const Portfolio = ({images, topImageSrc, links, skills}) => {
     const [selectedIndex, setSelectedIndex] = useState(null);
 
     const openModal = (index) => setSelectedIndex(index);
@@ -22,7 +23,7 @@ const Portfolio = ({images, topImageSrc, links}) => {
                 className={styles.topGraphic}
             />
             {links && (
-                <div className={styles.Links}>
+                <div className={`${styles.Links}`}>
                     {links.map((link, index) => (
                         <a target="_blank" key={index} href={link.link}>{link.ico}</a>
                     ))}
@@ -41,13 +42,22 @@ const Portfolio = ({images, topImageSrc, links}) => {
                             data-follow={image.dataFollowText}
                             loading="lazy"
                         />
-                        <div className={styles.linkIcon}>
+                        <div className={`${styles.linkIcon} ${styles.noMobile}`}>
                             <a target="_blank" key={index} href={image.link}>{image.ico}</a>
                         </div>
                     </div>
                 ))}
             </div>
 
+            {skills && (
+                <div className={styles.pills}>
+                    {skills.map((skill, index) => (
+                        <Pill key={index} color={skill.color}>
+                            {skill}
+                        </Pill>
+                    ))}
+                </div>
+            )}
             {selectedImage && (
                 <div className={styles.modal} onClick={closeModal}>
                     <div
@@ -64,10 +74,13 @@ const Portfolio = ({images, topImageSrc, links}) => {
                                 <div className={styles.linkIcon}>
                                     <a target="_blank" href={selectedImage?.link}>{selectedImage?.ico}</a>
                                 </div>)
-                            })
+                            }
                         </div>
-                        <p>{selectedImage.dataFollowText}</p>
-                        <p>{selectedImage.description}</p>
+                        <div className={styles.details}>
+                            <div className={styles.title}>{selectedImage.dataFollowText}</div>
+                            <p>{selectedImage.description}</p>
+                        </div>
+
                         <div className={styles.modalControls}>
                             <button onClick={prevImage}><FaChevronLeft/></button>
                             <button onClick={nextImage}><FaChevronRight/></button>

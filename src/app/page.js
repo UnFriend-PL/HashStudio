@@ -16,15 +16,21 @@ import Portfolio from "@/app/components/Portfolio";
 import studioIMG from "@/app/assets/studio_kobiet.jpg";
 import bankIMG from "@/app/assets/bank.jpg";
 import inz from "@/app/assets/inz.png";
+import smarcinkowski from "@/app/assets/smarcinkowski.png";
 import { FaGithub } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
+import { TbWorldWww } from "react-icons/tb";
 
 const portfolioData1 = [
-    {src: studioIMG.src, alt: 'Strona 1', dataFollowText: 'Strona 1', description: 'Opis 1', ico: <FaGithub />, link: "https://github.com/UnFriend-PL"},
-    {src: bankIMG.src, alt: 'Bank Symulator', dataFollowText: 'Strona 2', description: 'Opis 2', ico: <FaGithub />, link: "https://github.com/UnFriend-PL"},
-    {src: inz.src, alt: 'Strona 3', dataFollowText: 'Strona 3', description: 'Opis 3', ico: <FaGithub />, link: "https://github.com/UnFriend-PL"}
+    {src: studioIMG.src, alt: 'Studio Kobiet Włocławek', dataFollowText: 'Studio Kobiet Włocławek', description: 'Strona wizytówka w połączeniu z sekcją prezentacji oferty wykonana dla studia kobiet we Włocławku.', ico: <FaGithub />, link: "https://github.com/UnFriend-PL"},
+    {src: bankIMG.src, alt: 'Bank Symulator', dataFollowText: 'Bank Symulator', description: 'Symulator bankowości online. Aplikacja została napisana z użyciem React + Vite + .Net, oferuje funkcjonalności takie jak: Panel admina, przelewy między kontrami, przewalutowania, tworzenei kont, kont walutowych, kont wspólnych, akceptacja wniosków i wysyłanie wiadomości.', ico: <FaGithub />, link: "https://github.com/UnFriend-PL"},
+    {src: inz.src, alt: 'FizjoPanel', dataFollowText: 'FizjoPanel', description: 'Aplikacja ułatwiająca prace fizjoteraputów poprzez planner wizyt, prowadzenie historii leczenia, wizualizacje bólu partii ciała oraz możliwość prowadzenia bloga. Utworzona z użyciem React + Nextjs + .Net', ico: <FaGithub />, link: "https://github.com/UnFriend-PL"},
+    {src: smarcinkowski.src, alt: 'Strona CV', dataFollowText: 'Strona CV', description: 'Aplikacja utworzona w NextJs. Strona mająca na celu stworzenie CV w wersji online.', ico: <TbWorldWww />, link: "https:/smarcinkowski.pl/"}
 ];
-const Links1 = [
+
+const skills = [".Net", "C#", "React", "NextJs", "SQL", "Docker", "CI/CD", "Azure"]
+
+const links1 = [
     {
         name: 'Github',
         ico: <FaGithub />,
@@ -81,7 +87,7 @@ export default function Home() {
                         </section>
                         <section id={"portfolio"}>
                             <div className={styles.portfolioSection}>
-                                <Portfolio images={portfolioData1} links={Links1}/>
+                                <Portfolio images={portfolioData1} links={links1} skills={skills}/>
                             </div>
                             <div className={styles.portfolioSection}>
                                 <Portfolio images={portfolioData1} />
