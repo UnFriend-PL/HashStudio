@@ -19,7 +19,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 18
+          node-version: 22
           cache: 'npm'
 
       - name: Install dependencies
@@ -30,16 +30,11 @@ jobs:
 
       - name: Prepare standalone output
         run: |
-          mkdir -p output
-          cp -r .next/standalone/* output/
-          # jeśli .next/standalone/.next/static istnieje, kopiuj go
-          if [ -d ".next/standalone/.next/static" ]; then
-            mkdir -p output/.next
-            cp -r .next/standalone/.next/static output/.next/
-          fi
-          cp -r public output/public || true
-          cp package.json output/
-          cp -r node_modules output/node_modules || true
+        mkdir -p output
+        cp -r .next output/.next
+        cp -r public output/public || true
+        cp package.json output/
+        cp -r node_modules output/node_modules || true
 
       - name: Upload artifact for deployment
         uses: actions/upload-artifact@v4
