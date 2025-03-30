@@ -32,8 +32,12 @@ jobs:
         run: |
           mkdir -p output
           cp -r .next/standalone/* output/
-          cp -r .next/static output/.next/static
-          cp -r public output/public
+          # jeśli .next/standalone/.next/static istnieje, kopiuj go
+          if [ -d ".next/standalone/.next/static" ]; then
+            mkdir -p output/.next
+            cp -r .next/standalone/.next/static output/.next/
+          fi
+          cp -r public output/public || true
           cp package.json output/
           cp -r node_modules output/node_modules || true
 
