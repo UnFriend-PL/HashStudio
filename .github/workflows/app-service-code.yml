@@ -1,4 +1,4 @@
-name: Hash Studio
+name: Deploy Hash Studio to Azure
 
 on:
   push:
@@ -20,23 +20,28 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 18
-          cache: "npm"
+          cache: 'npm'
 
-      - name: npm install and build
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build Next.js app
+        run: npm run build
+
+      - name: Prepare standalone output
         run: |
-          npm ci
-          npm run build
+          mkdir -p output
+          cp -r .next/standalone/* output/
+          cp -r .next/static output/.next/static
+          cp -r public output/public
+          cp package.json output/
+          cp -r node_modules output/node_modules || true
 
-      - name: Copy static files
-        run: |
-          cp -R ./public ./.next/standalone/public
-          cp -R ./.next/static ./.next/standalone/.next/static
-
-      - name: Upload artifact for deployment job
+      - name: Upload artifact for deployment
         uses: actions/upload-artifact@v4
         with:
           name: app
-          path: ./.next/standalone
+          path: output
 
   deploy:
     runs-on: ubuntu-latest
@@ -47,16 +52,16 @@ jobs:
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
 
     steps:
-      - name: Download artifact from build job
+      - name: Download build artifact
         uses: actions/download-artifact@v4
         with:
           name: app
 
-      - name: "Deploy to Azure Web App"
+      - name: Deploy to Azure Web App
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v3
         with:
           app-name: ${{ env.AZURE_WEBAPP_NAME }}
-          slot-name: "Production"
+          slot-name: 'Production'
           publish-profile: ${{ secrets.PUBLISH_PROFILE }}
           package: .
