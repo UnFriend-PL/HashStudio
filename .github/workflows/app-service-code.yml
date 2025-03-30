@@ -1,0 +1,40 @@
+name: Deploy Next.js 15 to Azure Web App
+
+on:
+  push:
+    branches: [master]
+  workflow_dispatch:
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    env:
+      AZURE_WEBAPP_NAME: "web-hash-studio" # Nazwa aplikacji Azure Web App
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Use Node.js 22.x
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22.x"
+          cache: "npm" # (Opcjonalnie) cache npm dla przyspieszenia
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build Next.js app (SSR)
+        run: |
+          npm run build
+          mv ./build/static ./build/standalone/build
+          mv ./public ./build/standalone
+      # Po tych operacjach folder build/standalone zawiera server.js, minimalne node_modules,
+      # oraz dołączone statyczne zasoby i public, gotowe do wdrożenia.
+
+      - name: Deploy to Azure Web App
+        uses: azure/webapps-deploy@v3
+        with:
+          app-name: ${{ env.AZURE_WEBAPP_NAME }}
+          slot-name: "Production"
+          publish-profile: ${{ secrets.PUBLISH_PROFILE }}
+          package: ./build/standalone
