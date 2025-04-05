@@ -23,6 +23,15 @@ const Portfolio = ({images, links, skills, avatar, aboutMeTextList}) => {
                     <p key={index} className={styles.text}> {text} </p>
                 )))}
             </AboutMe>
+            {skills && (
+                <div className={styles.pills}>
+                    {skills.map((skill, index) => (
+                        <Pill key={index} color={skill.color}>
+                            {skill}
+                        </Pill>
+                    ))}
+                </div>
+            )}
             <div className={styles.imageGrid}>
                 {images.map((image, index) => (
                     <div
@@ -43,15 +52,6 @@ const Portfolio = ({images, links, skills, avatar, aboutMeTextList}) => {
                 ))}
             </div>
 
-            {skills && (
-                <div className={styles.pills}>
-                    {skills.map((skill, index) => (
-                        <Pill key={index} color={skill.color}>
-                            {skill}
-                        </Pill>
-                    ))}
-                </div>
-            )}
             {selectedImage && (
                 <div className={styles.modal} onClick={closeModal}>
                     <div

@@ -9,7 +9,6 @@ export default function AboutMe({children, links, avatar}) {
             <div className={styles.content}>
                 <div className={styles.avatarImage}>
                     {avatar && (<Image src={avatar} alt={"avatar"} loading={"lazy"}/>)}
-                    {/*{avatar}*/}
                 </div>
                 <div className={styles.text}>
                     {children}

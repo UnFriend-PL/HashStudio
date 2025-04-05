@@ -17,33 +17,61 @@ import studioIMG from "@/app/assets/studio_kobiet.jpg";
 import bankIMG from "@/app/assets/bank.jpg";
 import inz from "@/app/assets/inz.png";
 import smarcinkowski from "@/app/assets/smarcinkowski.png";
-import { FaGithub } from "react-icons/fa";
-import { FaLinkedin } from "react-icons/fa";
-import { TbWorldWww } from "react-icons/tb"
+import {FaGithub} from "react-icons/fa";
+import {FaLinkedin} from "react-icons/fa";
+import {TbWorldWww} from "react-icons/tb"
 import avatar from "@/app/assets/avatar_szymon.png"
+
 const portfolioData1 = [
-    {src: studioIMG.src, alt: 'Studio Kobiet Włocławek', dataFollowText: 'Studio Kobiet Włocławek', description: 'Strona wizytówka w połączeniu z sekcją prezentacji oferty wykonana dla studia kobiet we Włocławku.', ico: <FaGithub />, link: "https://github.com/UnFriend-PL"},
-    {src: bankIMG.src, alt: 'Bank Symulator', dataFollowText: 'Bank Symulator', description: 'Symulator bankowości online. Aplikacja została napisana z użyciem React + Vite + .Net, oferuje funkcjonalności takie jak: Panel admina, przelewy między kontrami, przewalutowania, tworzenei kont, kont walutowych, kont wspólnych, akceptacja wniosków i wysyłanie wiadomości.', ico: <FaGithub />, link: "https://github.com/UnFriend-PL"},
-    {src: inz.src, alt: 'FizjoPanel', dataFollowText: 'FizjoPanel', description: 'Aplikacja ułatwiająca prace fizjoteraputów poprzez planner wizyt, prowadzenie historii leczenia, wizualizacje bólu partii ciała oraz możliwość prowadzenia bloga. Utworzona z użyciem React + Nextjs + .Net', ico: <FaGithub />, link: "https://github.com/UnFriend-PL"},
-    {src: smarcinkowski.src, alt: 'Strona CV', dataFollowText: 'Strona CV', description: 'Aplikacja utworzona w NextJs. Strona mająca na celu stworzenie CV w wersji online.', ico: <TbWorldWww />, link: "https:/smarcinkowski.pl/"}
+    {
+        src: studioIMG.src,
+        alt: 'Studio Kobiet Włocławek',
+        dataFollowText: 'Studio Kobiet Włocławek',
+        description: 'Strona wizytówka w połączeniu z sekcją prezentacji oferty wykonana dla studia kobiet we Włocławku.',
+        ico: <FaGithub/>,
+        link: "https://github.com/UnFriend-PL"
+    },
+    {
+        src: bankIMG.src,
+        alt: 'Bank Symulator',
+        dataFollowText: 'Bank Symulator',
+        description: 'Symulator bankowości online. Aplikacja została napisana z użyciem React + Vite + .Net, oferuje funkcjonalności takie jak: Panel admina, przelewy między kontrami, przewalutowania, tworzenei kont, kont walutowych, kont wspólnych, akceptacja wniosków i wysyłanie wiadomości.',
+        ico: <FaGithub/>,
+        link: "https://github.com/UnFriend-PL"
+    },
+    {
+        src: inz.src,
+        alt: 'FizjoPanel',
+        dataFollowText: 'FizjoPanel',
+        description: 'Aplikacja ułatwiająca prace fizjoteraputów poprzez planner wizyt, prowadzenie historii leczenia, wizualizacje bólu partii ciała oraz możliwość prowadzenia bloga. Utworzona z użyciem React + Nextjs + .Net',
+        ico: <FaGithub/>,
+        link: "https://github.com/UnFriend-PL"
+    },
+    {
+        src: smarcinkowski.src,
+        alt: 'Strona CV',
+        dataFollowText: 'Strona CV',
+        description: 'Aplikacja utworzona w NextJs. Strona mająca na celu stworzenie CV w wersji online.',
+        ico: <TbWorldWww/>,
+        link: "https:/smarcinkowski.pl/"
+    }
 ];
 
 const aboutMeTextList = [
-    "Jestem programistą z pasją do tworzenia innowacyjnych rozwiązań. Moje doświadczenie obejmuje szeroki zakres technologii, w tym .NET, React i Next.js.",
-    "W ciągu ostatnich kilku lat miałem przyjemność pracować nad różnorodnymi projektami, które pozwoliły mi rozwijać swoje umiejętności i zdobywać cenne doświadczenie. Moje podejście do programowania opiera się na ciągłym doskonaleniu i poszukiwaniu nowych wyzwań.",
-    "Jestem osobą otwartą na nowe pomysły i chętnie współpracuję z innymi, aby osiągnąć wspólne cele. Wierzę, że najlepsze rozwiązania powstają w wyniku współpracy i wymiany doświadczeń."
+    "Jestem fullstack developerem z doświadczeniem w tworzeniu aplikacji webowych.",
+    "Posiadam umiejętności zarówno w zakresie front-endu, jak i back-endu, co pozwala mi na kompleksowe podejście do projektów.",
 ];
 const skills = [".Net", "C#", "React", "NextJs", "SQL", "Docker", "CI/CD", "Azure"]
 
 const links1 = [
     {
         name: 'Github',
-        ico: <FaGithub />,
+        ico: <FaGithub/>,
         link: "https://github.com/UnFriend-PL"
     },
     {
         name: 'Github',
-        ico: <FaLinkedin />,
+        ico: <FaLinkedin/>,
         link: "https://www.linkedin.com/in/smarcinkowski/"
     }
 ]
@@ -92,10 +120,11 @@ export default function Home() {
                         </section>
                         <section id={"portfolio"}>
                             <div className={styles.portfolioSection}>
-                                <Portfolio images={portfolioData1} links={links1} skills={skills} avatar={avatar} aboutMeTextList={aboutMeTextList}/>
+                                <Portfolio images={portfolioData1} links={links1} skills={skills} avatar={avatar}
+                                           aboutMeTextList={aboutMeTextList}/>
                             </div>
                             <div className={styles.portfolioSection}>
-                                <Portfolio images={portfolioData1} />
+                                <Portfolio images={portfolioData1}/>
                             </div>
                         </section>
                     </main>
