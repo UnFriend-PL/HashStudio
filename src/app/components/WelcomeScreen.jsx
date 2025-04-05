@@ -27,10 +27,9 @@ export default function WelcomeScreen() {
             if (logoTagline) {
                 const fadeStart = 0;
                 const fadeEnd = 100;
-                const opacity = scrollY <= fadeStart
+                logoTagline.style.opacity = scrollY <= fadeStart
                     ? 1
                     : Math.max(0, 1 - (scrollY - fadeStart) / (fadeEnd - fadeStart));
-                logoTagline.style.opacity = opacity;
             }
         };
 

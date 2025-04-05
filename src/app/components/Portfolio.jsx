@@ -1,11 +1,11 @@
 import React, {useState} from 'react';
 import styles from "@/app/styles/Portfolio.module.scss";
-import defaultImage from "@/app/assets/cats.png";
 import {FaChevronLeft, FaChevronRight} from "react-icons/fa";
 import {IoClose} from "react-icons/io5";
 import Pill from "@/app/components/partials/Pill";
+import AboutMe from "@/app/components/partials/AbouotMe";
 
-const Portfolio = ({images, topImageSrc, links, skills}) => {
+const Portfolio = ({images, links, skills, avatar, aboutMeTextList}) => {
     const [selectedIndex, setSelectedIndex] = useState(null);
 
     const openModal = (index) => setSelectedIndex(index);
@@ -17,18 +17,12 @@ const Portfolio = ({images, topImageSrc, links, skills}) => {
 
     return (
         <section className={styles.portfolioContainer}>
-            <img
-                src={topImageSrc || defaultImage.src}
-                alt="character"
-                className={styles.topGraphic}
-            />
-            {links && (
-                <div className={`${styles.Links}`}>
-                    {links.map((link, index) => (
-                        <a target="_blank" key={index} href={link.link}>{link.ico}</a>
-                    ))}
-                </div>
-            )}
+
+            <AboutMe links={links} avatar={avatar} aboutMeTextList={aboutMeTextList}>
+                {aboutMeTextList && (aboutMeTextList.map((text, index) => (
+                    <p key={index} className={styles.text}> {text} </p>
+                )))}
+            </AboutMe>
             <div className={styles.imageGrid}>
                 {images.map((image, index) => (
                     <div
