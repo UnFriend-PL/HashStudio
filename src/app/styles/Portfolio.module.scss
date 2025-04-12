@@ -61,7 +61,6 @@
 .imageItem {
   break-inside: avoid;
   margin-bottom: 1rem;
-  cursor: pointer;
   transition: transform 0.3s ease, opacity 0.3s ease;
   opacity: 0;
   animation: fadeIn 0.5s forwards;
@@ -121,7 +120,6 @@
   align-items: center;
   justify-content: center;
   z-index: 1000;
-  cursor: zoom-out;
 }
 
 .modalContent {
@@ -198,7 +196,6 @@
     padding: 0.5rem 1rem;
     font-size: 1.2rem;
     border-radius: 0.5rem;
-    cursor: pointer;
     transition: background 0.2s;
 
     &:hover {

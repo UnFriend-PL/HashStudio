@@ -58,8 +58,9 @@ const portfolioData1 = [
 ];
 
 const aboutMeTextList = [
-    "Jestem fullstack developerem z doświadczeniem w tworzeniu aplikacji webowych.",
-    "Posiadam umiejętności zarówno w zakresie front-endu, jak i back-endu, co pozwala mi na kompleksowe podejście do projektów.",
+    "Lorem Ipsum is simply dummy text of the printing and typesetting industry. ",
+    "Lorem Ipsum is simply dummy text of the printing and typesetting industry. ",
+    "Lorem Ipsum is simply dummy text of the printing and typesetting industry. ",
 ];
 const skills = [".Net", "C#", "React", "NextJs", "SQL", "Docker", "CI/CD", "Azure"]
 
