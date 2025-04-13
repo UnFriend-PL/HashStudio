@@ -8,9 +8,10 @@ const Cursor = () => {
     const bubbleRef = useRef(null);
 
     // State for hover modes
-    const [isTextMode, setIsTextMode] = useState(false);      // over text content
-    const [isClickable, setIsClickable] = useState(false);    // over clickable (no follow text)
-    const [bubbleText, setBubbleText] = useState("");         // text to show in bubble (if any)
+    const [isTextMode, setIsTextMode] = useState(false);
+    const [isClickable, setIsClickable] = useState(false);
+    const [bubbleText, setBubbleText] = useState("");
+    const [isTouchDevice, setIsTouchDevice] = useState(false);
 
     // Only render the cursor after we're on the client (Next.js SSR safety)
     const [mounted, setMounted] = useState(false);
@@ -22,55 +23,29 @@ const Cursor = () => {
         const dotElem = dotRef.current;
         const bubbleElem = bubbleRef.current;
 
-        // Hide the native cursor
-        document.body.style.cursor = "none";
-
         // Set initial style (hidden until first movement)
         cursorElem.style.opacity = "0";
 
-        // Variables for smooth trailing motion
-        let currentX = 0, currentY = 0;
-        let targetX = currentX, targetY = currentY;
-        let cursorVisible = false;  // track if we've shown the custom cursor yet
+        // Hide or show native cursor based on touch detection
+        document.body.style.cursor = isTouchDevice ? "auto" : "none";
 
-        // Utility: check if a point (x,y) lies over a text node's content
-        function getTextHeightUnderPoint(x, y) {
-            const elem = document.elementFromPoint(x, y);
-            if (!elem) return null;
-            // Check each text node child of the element
-            for (const node of elem.childNodes) {
-                if (node.nodeType === Node.TEXT_NODE) {
-                    const text = node.textContent;
-                    if (!text || text.trim() === "") continue;  // skip empty text nodes
-                    const range = document.createRange();
-                    range.selectNode(node);
-                    const rects = range.getClientRects();
-                    for (const rect of rects) {
-                        if (
-                            x >= rect.left && x <= rect.right &&
-                            y >= rect.top && y <= rect.bottom
-                        ) {
-                            // Point is within this text node's rect
-                            return rect.bottom - rect.top;  // height of the text line
-                        }
-                    }
-                }
-            }
-            return null;
-        }
+        // Touch detection
+        let lastTouchTime = 0;
+        const TOUCH_TIMEOUT = 1000; // Time to wait before re-enabling mouse mode
 
-        // Animation loop for cursor trailing effect
-        const animateCursor = () => {
-            // Lerp towards target position for smooth lag
-            currentX += (targetX - currentX) * 0.2;
-            currentY += (targetY - currentY) * 0.2;
-            cursorElem.style.transform = `translate3d(${currentX}px, ${currentY}px, 0)`;
-            requestAnimationFrame(animateCursor);
+        const handleTouchStart = () => {
+            lastTouchTime = new Date().getTime();
+            setIsTouchDevice(true);
         };
-        requestAnimationFrame(animateCursor);
 
-        // Mouse move handler
-        const onMouseMove = (e) => {
+        const handleMouseMove = (e) => {
+            // If mouse movement happens after touch timeout, re-enable cursor
+            if (isTouchDevice && new Date().getTime() - lastTouchTime > TOUCH_TIMEOUT) {
+                setIsTouchDevice(false);
+            }
+
+            if (isTouchDevice) return; // Skip processing when touch device is detected
+
             targetX = e.clientX;
             targetY = e.clientY;
             // Show cursor element after first movement (fade-in)
@@ -127,9 +102,9 @@ const Cursor = () => {
             }
 
             // Update state for modes if changed
-            setBubbleText(newBubbleText);               // text to display in bubble (empty string if none)
+            setBubbleText(newBubbleText);
             setIsTextMode(newTextMode);
-            setIsClickable(newBubbleText ? false : newClickable);  // if showing bubble, do not mark as clickable
+            setIsClickable(newBubbleText ? false : newClickable);
 
             // Update the cursor dot element style for text height if in text mode
             if (newTextMode && textHeight) {
@@ -139,20 +114,67 @@ const Cursor = () => {
             }
         };
 
-        window.addEventListener("mousemove", onMouseMove);
+        // Variables for smooth trailing motion
+        let currentX = 0, currentY = 0;
+        let targetX = currentX, targetY = currentY;
+        let cursorVisible = false;  // track if we've shown the custom cursor yet
+
+        // Utility: check if a point (x,y) lies over a text node's content
+        function getTextHeightUnderPoint(x, y) {
+            const elem = document.elementFromPoint(x, y);
+            if (!elem) return null;
+            // Check each text node child of the element
+            for (const node of elem.childNodes) {
+                if (node.nodeType === Node.TEXT_NODE) {
+                    const text = node.textContent;
+                    if (!text || text.trim() === "") continue;  // skip empty text nodes
+                    const range = document.createRange();
+                    range.selectNode(node);
+                    const rects = range.getClientRects();
+                    for (const rect of rects) {
+                        if (
+                            x >= rect.left && x <= rect.right &&
+                            y >= rect.top && y <= rect.bottom
+                        ) {
+                            // Point is within this text node's rect
+                            return rect.bottom - rect.top;  // height of the text line
+                        }
+                    }
+                }
+            }
+            return null;
+        }
+
+        // Animation loop for cursor trailing effect
+        const animateCursor = () => {
+            if (!isTouchDevice) {
+                // Lerp towards target position for smooth lag
+                currentX += (targetX - currentX) * 0.2;
+                currentY += (targetY - currentY) * 0.2;
+                cursorElem.style.transform = `translate3d(${currentX}px, ${currentY}px, 0)`;
+            }
+            requestAnimationFrame(animateCursor);
+        };
+        requestAnimationFrame(animateCursor);
+
+        // Add event listeners
+        window.addEventListener("mousemove", handleMouseMove);
+        window.addEventListener("touchstart", handleTouchStart);
+
         // Clean up on unmount
         return () => {
             document.body.style.cursor = "auto";  // restore default cursor
-            window.removeEventListener("mousemove", onMouseMove);
+            window.removeEventListener("mousemove", handleMouseMove);
+            window.removeEventListener("touchstart", handleTouchStart);
         };
-    }, [mounted]);
+    }, [mounted, isTouchDevice]);
 
-    // Render the cursor elements via portal to body
-    if (!mounted) return null;
+    // Don't render custom cursor for touch devices
+    if (!mounted || isTouchDevice) return null;
+
     return createPortal(
         <div ref={cursorRef} className={`custom-cursor ${isTextMode ? "text-mode" : ""}`}>
             <div ref={dotRef} className={`cursor-dot${isClickable ? " clickable" : ""}${isTextMode ? " text" : ""}`}></div>
-            {/* Bubble text element (visible when bubbleText is non-empty) */}
             <div ref={bubbleRef} className={`cursor-bubble${bubbleText ? " visible" : ""}`}>
                 {bubbleText}
             </div>

@@ -17,65 +17,71 @@ import studioIMG from "@/app/assets/studio_kobiet.jpg";
 import bankIMG from "@/app/assets/bank.jpg";
 import inz from "@/app/assets/inz.png";
 import smarcinkowski from "@/app/assets/smarcinkowski.png";
-import {FaGithub} from "react-icons/fa";
-import {FaLinkedin} from "react-icons/fa";
+import {FaGithub, FaLinkedin} from "react-icons/fa";
 import {TbWorldWww} from "react-icons/tb"
 import avatar from "@/app/assets/avatar_szymon.png"
 
-const portfolioData1 = [
-    {
-        src: studioIMG.src,
-        alt: 'Studio Kobiet Włocławek',
-        dataFollowText: 'Studio Kobiet Włocławek',
-        description: 'Strona wizytówka w połączeniu z sekcją prezentacji oferty wykonana dla studia kobiet we Włocławku.',
-        ico: <FaGithub/>,
-        link: "https://github.com/UnFriend-PL"
+const portfolioData = {
+    images: [
+        {
+            src: studioIMG.src,
+            alt: "Studio Kobiet Włocławek",
+            dataFollowText: "Studio Kobiet Włocławek",
+            description:
+                "Strona wizytówka w połączeniu z sekcją prezentacji oferty wykonana dla studia kobiet we Włocławku.",
+            ico: <FaGithub/>,
+            link: "https://github.com/UnFriend-PL",
+        },
+        {
+            src: bankIMG.src,
+            alt: "Bank Symulator",
+            dataFollowText: "Bank Symulator",
+            description:
+                "Symulator bankowości online. Aplikacja została napisana z użyciem React + Vite + .Net, oferuje funkcjonalności takie jak: Panel admina, przelewy między kontami, przewalutowania, tworzenie kont, kont walutowych, kont wspólnych, akceptacja wniosków i wysyłanie wiadomości.",
+            ico: <FaGithub/>,
+            link: "https://github.com/UnFriend-PL",
+        },
+        {
+            src: inz.src,
+            alt: "FizjoPanel",
+            dataFollowText: "FizjoPanel",
+            description:
+                "Aplikacja ułatwiająca pracę fizjoterapeutów – planner wizyt, prowadzenie historii leczenia, wizualizacja bólu oraz możliwość prowadzenia bloga. Utworzona z użyciem React + Next.js + .Net.",
+            ico: <FaGithub/>,
+            link: "https://github.com/UnFriend-PL",
+        },
+        {
+            src: smarcinkowski.src,
+            alt: "Strona CV",
+            dataFollowText: "Strona CV",
+            description:
+                "Aplikacja utworzona w Next.js. Strona służąca jako CV w wersji online.",
+            ico: <TbWorldWww/>,
+            link: "https://smarcinkowski.pl/",
+        },
+    ],
+    about: {
+        textList: [
+            "Hi!🚀 I'm here to come up with and execute innovative solutions for you in the digital world.",
+            "I specialize in .NET and React technologies, constantly pushing the boundaries to make our projects even better."
+        ],
+        links: [
+            {
+                name: "Github",
+                ico: <FaGithub/>,
+                link: "https://github.com/UnFriend-PL",
+            },
+            {
+                name: "LinkedIn",
+                ico: <FaLinkedin/>,
+                link: "https://www.linkedin.com/in/smarcinkowski/",
+            },
+        ],
+        avatar: avatar,
     },
-    {
-        src: bankIMG.src,
-        alt: 'Bank Symulator',
-        dataFollowText: 'Bank Symulator',
-        description: 'Symulator bankowości online. Aplikacja została napisana z użyciem React + Vite + .Net, oferuje funkcjonalności takie jak: Panel admina, przelewy między kontrami, przewalutowania, tworzenei kont, kont walutowych, kont wspólnych, akceptacja wniosków i wysyłanie wiadomości.',
-        ico: <FaGithub/>,
-        link: "https://github.com/UnFriend-PL"
-    },
-    {
-        src: inz.src,
-        alt: 'FizjoPanel',
-        dataFollowText: 'FizjoPanel',
-        description: 'Aplikacja ułatwiająca prace fizjoteraputów poprzez planner wizyt, prowadzenie historii leczenia, wizualizacje bólu partii ciała oraz możliwość prowadzenia bloga. Utworzona z użyciem React + Nextjs + .Net',
-        ico: <FaGithub/>,
-        link: "https://github.com/UnFriend-PL"
-    },
-    {
-        src: smarcinkowski.src,
-        alt: 'Strona CV',
-        dataFollowText: 'Strona CV',
-        description: 'Aplikacja utworzona w NextJs. Strona mająca na celu stworzenie CV w wersji online.',
-        ico: <TbWorldWww/>,
-        link: "https:/smarcinkowski.pl/"
-    }
-];
+    skills: [".Net", "C#", "React", "Next.js", "SQL", "Docker", "CI/CD", "Azure"],
+};
 
-const aboutMeTextList = [
-    "Lorem Ipsum is simply dummy text of the printing and typesetting industry. ",
-    "Lorem Ipsum is simply dummy text of the printing and typesetting industry. ",
-    "Lorem Ipsum is simply dummy text of the printing and typesetting industry. ",
-];
-const skills = [".Net", "C#", "React", "NextJs", "SQL", "Docker", "CI/CD", "Azure"]
-
-const links1 = [
-    {
-        name: 'Github',
-        ico: <FaGithub/>,
-        link: "https://github.com/UnFriend-PL"
-    },
-    {
-        name: 'Github',
-        ico: <FaLinkedin/>,
-        link: "https://www.linkedin.com/in/smarcinkowski/"
-    }
-]
 export default function Home() {
     const [loading, setLoading] = useState(true);
     const pathname = usePathname();
@@ -121,11 +127,7 @@ export default function Home() {
                         </section>
                         <section id={"portfolio"}>
                             <div className={styles.portfolioSection}>
-                                <Portfolio images={portfolioData1} links={links1} skills={skills} avatar={avatar}
-                                           aboutMeTextList={aboutMeTextList}/>
-                            </div>
-                            <div className={styles.portfolioSection}>
-                                <Portfolio images={portfolioData1}/>
+                                <Portfolio data={portfolioData}/>
                             </div>
                         </section>
                     </main>

@@ -1,10 +1,18 @@
 import styles from "@/app/styles/partials/AboutMe.module.scss"
 import Image from "next/image";
 import {useState} from "react";
+import Modal from "@/app/components/partials/Modal";
 
-export default function AboutMe({children, links, avatar}) {
-
+export default function AboutMe({children, links, avatar, moreComponent}) {
     const [isModalOpen, setIsModalOpen] = useState(false);
+
+    const openModal = () => {
+        setIsModalOpen(true);
+    };
+
+    const closeModal = () => {
+        setIsModalOpen(false);
+    };
 
     return (
         <section className={styles.aboutMe}>
@@ -14,9 +22,9 @@ export default function AboutMe({children, links, avatar}) {
                         {avatar && (<Image src={avatar} alt={"avatar"} loading={"lazy"}/>)}
                     </div>
                 </div>
-                <div className={styles.getMore}>
-                    <a>Dowiedz się więcej...</a>
-                </div>
+                {/*<div className={styles.getMore} onClick={openModal}>*/}
+                {/*    <a>Dowiedz się więcej...</a>*/}
+                {/*</div>*/}
                 <div className={styles.text}>
                     {children}
                 </div>
