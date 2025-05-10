@@ -39,6 +39,7 @@
     justify-content: space-around;
     align-items: center;
     font-size: 110%;
+
     p {
       flex-basis: 90%;
       margin: 3% 0;
@@ -94,7 +95,7 @@
   flex-wrap: wrap;
   align-items: center;
   gap: 1rem;
-  background-color: transparentize(color.$third-color, 0.9);
+  background-color: rgba(color.$third-color, 0.1);
 
   .link {
     flex-basis: 100%;

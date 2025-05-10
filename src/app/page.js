@@ -20,6 +20,7 @@ import smarcinkowski from "@/app/assets/smarcinkowski.png";
 import {FaGithub, FaLinkedin} from "react-icons/fa";
 import {TbWorldWww} from "react-icons/tb"
 import avatar from "@/app/assets/avatar_szymon.png"
+import OfferScreen from "@/app/components/OfferScreen";
 
 const portfolioData = {
     images: [
@@ -129,6 +130,9 @@ export default function Home() {
                             <div className={styles.portfolioSection}>
                                 <Portfolio data={portfolioData}/>
                             </div>
+                        </section>
+                        <section id={"offer"}>
+                            <OfferScreen />
                         </section>
                     </main>
                 </ParallaxProvider>

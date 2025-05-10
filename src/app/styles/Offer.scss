@@ -1,0 +1,94 @@
+@use "@/app/styles/Colors" as color;
+
+.OfferScreen {
+  min-width: 100vw;
+  min-height: 100vh;
+  background-color: color.$fourth-color;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+
+  .OfferPanel {
+    flex-basis: 80%;
+    display: flex;
+    flex-wrap: wrap;
+
+    .Product {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      justify-items: center;
+      flex-basis: 50%;
+      font-size: 1.2rem;
+      text-align: center;
+      color: color.$primary-color;
+
+      .Select {
+        flex-basis: 20%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 300%;
+        transition: 0.3s;
+        &:hover{
+          transform: scale(1.15);
+        }
+      }
+
+      .Title {
+        flex-basis: 70%;
+        display: flex;
+        justify-content: flex-start;
+        font-weight: bold;
+        color: color.$third-color;
+        font-size: 1.6rem;
+        align-items: center;
+      }
+
+      .ShowDescription {
+        flex-basis: 10%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 300%;
+        &:hover{
+
+        }
+      }
+
+      .Description {
+        flex-basis: 100%;
+        position: relative;
+        padding-top: 2%;
+        margin-top: 2%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        &::before {
+          content: '';
+          position: absolute;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          top: 0;
+          height: 2px;
+          background-color: color.$third-color;
+          width: 0%;
+          animation: widthChange 1s forwards ease-in-out;
+
+        }
+      }
+    }
+  }
+}
+
+@keyframes widthChange {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+}
