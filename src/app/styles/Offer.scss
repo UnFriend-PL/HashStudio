@@ -7,88 +7,141 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
+  padding: 2rem;
 
   .OfferPanel {
     flex-basis: 80%;
     display: flex;
-    flex-wrap: wrap;
-
-    .Product {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      justify-items: center;
-      flex-basis: 50%;
-      font-size: 1.2rem;
-      text-align: center;
-      color: color.$primary-color;
-
-      .Select {
-        flex-basis: 20%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-size: 300%;
-        transition: 0.3s;
-        &:hover{
-          transform: scale(1.15);
-        }
-      }
-
-      .Title {
-        flex-basis: 70%;
-        display: flex;
-        justify-content: flex-start;
-        font-weight: bold;
-        color: color.$third-color;
-        font-size: 1.6rem;
-        align-items: center;
-      }
-
-      .ShowDescription {
-        flex-basis: 10%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-size: 300%;
-        &:hover{
-
-        }
-      }
-
-      .Description {
-        flex-basis: 100%;
-        position: relative;
-        padding-top: 2%;
-        margin-top: 2%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-
-        &::before {
-          content: '';
-          position: absolute;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          top: 0;
-          height: 2px;
-          background-color: color.$third-color;
-          width: 0%;
-          animation: widthChange 1s forwards ease-in-out;
-
-        }
-      }
-    }
+    flex-direction: column;
+    gap: 1rem;
   }
 }
 
-@keyframes widthChange {
-  0% {
-    width: 0%;
+.ServiceCategory {
+  background-color: color.$secondary-color;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
+
+  .CategoryHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem;
+    border-bottom: 2px solid color.$fourth-color;
+    transition: all 0.3s ease-in-out;
+    user-select: none;
+
+    &:hover {
+      background-color: rgba(color.$primary-color, 0.1);
+    }
+
+    &.expanded {
+      border-bottom-color: color.$primary-color;
+    }
+
+    h2 {
+      margin: 0;
+      color: color.$third-color;
+      font-size: 1.5rem;
+    }
+
+    svg {
+      font-size: 1.5rem;
+      color: color.$primary-color;
+      transition: transform 0.3s ease;
+      pointer-events: none;
+    }
+
+    &.expanded svg {
+      transform: rotate(0deg);
+    }
+
+    &:not(.expanded) svg {
+      transform: rotate(-90deg);
+    }
   }
-  100% {
-    width: 100%;
+
+  .PackagesGrid {
+    max-height: 0;
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
+    overflow: hidden;
+
+    &.expanded {
+      max-height: 2000px;
+      opacity: 1;
+      padding: 1.5rem;
+    }
+
+    .PackageHeaders {
+      display: grid;
+      grid-template-columns: 2fr repeat(3, 1fr);
+      gap: 1rem;
+      margin-bottom: 2rem;
+
+      .PackageCell {
+        text-align: center;
+        padding: 1rem;
+        background-color: rgba(color.$primary-color, 0.1);
+        border-radius: 8px;
+        transition: transform 0.3s ease;
+
+        &:hover {
+          transform: translateY(-5px);
+        }
+
+        h3 {
+          margin: 0;
+          color: color.$third-color;
+          font-size: 1.25rem;
+          margin-bottom: 0.5rem;
+        }
+
+        .Price {
+          font-size: 1.5rem;
+          font-weight: bold;
+          color: color.$primary-color;
+        }
+      }
+    }
+
+    .Features {
+      .FeatureRow {
+        display: grid;
+        grid-template-columns: 2fr repeat(3, 1fr);
+        gap: 1rem;
+        align-items: center;
+        padding: 0.75rem 0;
+        border-bottom: 1px solid rgba(color.$third-color, 0.1);
+
+        &:last-child {
+          border-bottom: none;
+        }
+
+        .FeatureCell {
+          color: color.$third-color;
+        }
+
+        .PackageCell {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          svg {
+            font-size: 1.25rem;
+
+            &.included {
+              color: color.$primary-color;
+            }
+
+            &.not-included {
+              color: rgba(color.$third-color, 0.3);
+            }
+          }
+        }
+      }
+    }
   }
 }
