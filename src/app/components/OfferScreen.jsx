@@ -261,43 +261,42 @@ export default function OfferScreen() {
                 return newState;
             }
             // Otherwise, select the new package
-            return { ...prev, [categoryId]: packageIndex };
+            return {
+                ...prev,
+                [categoryId]: packageIndex
+            };
         });
     };
 
-    // Create an array of selected services for the contact form
-    const selectedServices = Object.entries(selectedPackages).map(([categoryId, packageIndex]) => {
-        const category = offerData[categoryId].category;
-        const packageData = offerData[categoryId].packages[packageIndex];
-        return {
-            category,
-            packageName: packageData.name,
-            price: packageData.price
-        };
-    });
+    const selectedServices = Object.entries(selectedPackages)
+        .map(([categoryId, packageIndex]) => ({
+            category: offerData[categoryId].category,
+            packageName: offerData[categoryId].packages[packageIndex].name,
+            price: offerData[categoryId].packages[packageIndex].price
+        }));
 
     return (
-        <div className="OfferScreenContainer">
-            <div className="Services">
+        <div className="OfferScreen">
+            <div className="OfferPanel">
+                <div className="OfferTitle">
+                    <h1>{t('offer.title')}</h1>
+                    <p>{t('offer.subtitle')}</p>
+                    <p className="SelectionGuide">{t('offer.selectionGuide')}</p>
+                    <p className="PriceDisclaimer">{t(priceDisclaimer)}</p>
+                </div>
                 {Object.entries(offerData).map(([categoryId, categoryData]) => (
-                    <ServiceCategory
-                        key={categoryId}
+                    <ServiceCategory 
+                        key={categoryId} 
                         data={categoryData}
-                        isSelected={categoryId in selectedPackages}
+                        isSelected={selectedPackages[categoryId] !== undefined}
                         selectedPackageIndex={selectedPackages[categoryId]}
                         onPackageSelect={(packageIndex) => handlePackageSelection(categoryId, packageIndex)}
                     />
                 ))}
-                <div className="PriceDisclaimer">
-                    {t(priceDisclaimer)}
-                </div>
-            </div>
-            
-            {selectedServices.length > 0 && (
-                <div className="ContactFormContainer">
+                {selectedServices.length > 0 && (
                     <ContactForm selectedServices={selectedServices} />
-                </div>
-            )}
+                )}
+            </div>
         </div>
     );
 }

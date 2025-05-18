@@ -34,6 +34,9 @@
     }
   },
   "offer": {
+    "title": "Nasze usługi",
+    "subtitle": "Wybierz z naszej kompleksowej oferty usług",
+    "selectionGuide": "Kliknij na wariant pakietu, aby wybrać/odznaczyć usługę",
     "website": {
       "category": "Strony Internetowe",
       "features": {

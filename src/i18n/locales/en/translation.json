@@ -34,6 +34,9 @@
     }
   },
   "offer": {
+    "title": "Our Services",
+    "subtitle": "Choose from our comprehensive range of services",
+    "selectionGuide": "Click on a package variant to select/unselect a service",
     "website": {
       "category": "Websites",
       "features": {
