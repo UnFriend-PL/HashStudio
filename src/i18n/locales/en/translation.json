@@ -1,0 +1,129 @@
+{
+  "menu": {
+    "welcome": "Welcome",
+    "design": "Design",
+    "portfolio": "Portfolio",
+    "freelance": "Freelance",
+    "contact": "Contact"
+  },
+  "portfolio": {
+    "about": {
+      "text1": "Hi!🚀 I'm here to come up with and execute innovative solutions for you in the digital world.",
+      "text2": "I specialize in .NET and React technologies, constantly pushing the boundaries to make our projects even better."
+    },
+    "skills": {
+      "title": "Skills"
+    },
+    "projects": {
+      "studio": {
+        "title": "Women's Studio Włocławek",
+        "description": "A business card website combined with an offer presentation section made for a women's studio in Włocławek."
+      },
+      "bank": {
+        "title": "Bank Simulator",
+        "description": "Online banking simulator. The application was written using React + Vite + .Net, offering functionalities such as: Admin panel, transfers between accounts, currency conversions, account creation, currency accounts, joint accounts, application approvals and messaging."
+      },
+      "fizjo": {
+        "title": "PhysioPanel",
+        "description": "An application facilitating the work of physiotherapists - appointment planner, treatment history management, pain visualization and the ability to run a blog. Created using React + Next.js + .Net."
+      },
+      "cv": {
+        "title": "CV Website",
+        "description": "Application created in Next.js. A website serving as an online CV."
+      }
+    }
+  },
+  "offer": {
+    "website": {
+      "category": "Websites",
+      "features": {
+        "onePage": "One Page Website",
+        "responsive": "Responsive Design",
+        "revisions2": "2 Revision Rounds",
+        "revisions4": "4 Revision Rounds",
+        "basicSeo": "Basic SEO",
+        "advancedSeo": "Advanced SEO",
+        "premiumSeo": "Premium SEO",
+        "contactForm": "Contact Form",
+        "advancedForms": "Advanced Forms",
+        "hosting1": "Hosting (1 year)",
+        "hosting2": "Hosting (2 years)",
+        "customGraphics": "Custom Graphics",
+        "cms": "CMS System",
+        "pages3": "Up to 3 Subpages",
+        "pagesUnlimited": "Unlimited Subpages"
+      }
+    },
+    "graphics": {
+      "category": "Graphic Services",
+      "features": {
+        "banners3": "Advertising Banners (3 pcs)",
+        "banners5": "Advertising Banners (5 pcs)",
+        "banners10": "Advertising Banners (10 pcs)",
+        "socialMedia5": "Social Media Graphics (5 pcs)",
+        "socialMedia10": "Social Media Graphics (10 pcs)",
+        "socialMedia20": "Social Media Graphics (20 pcs)",
+        "revisions2": "2 Revision Rounds",
+        "revisions4": "4 Revision Rounds",
+        "sourceFiles": "Source Files",
+        "facebookPosts": "Facebook Posts",
+        "facebookPostsMonthly": "Facebook Posts (monthly package)",
+        "facebookPosts3Monthly": "Facebook Posts (3-month package)",
+        "websiteGraphics": "Website Graphics",
+        "logoAndBranding": "Logo and Branding",
+        "brandBook": "Brand Book"
+      }
+    },
+    "customSolutions": {
+      "category": "Custom Solutions",
+      "features": {
+        "needsAnalysis": "Needs Analysis",
+        "businessAnalysis": "Comprehensive Business Analysis",
+        "strategyAnalysis": "Full Analysis and Strategy",
+        "uiuxBasic": "UI/UX Design",
+        "uiuxAdvanced": "Advanced UI/UX Design",
+        "uiuxComplex": "Comprehensive UI/UX Design",
+        "basicFunctionality": "Basic Functionality",
+        "extendedFunctionality": "Extended Functionality",
+        "unlimitedFunctionality": "Unlimited Functionality",
+        "revisions2": "2 Revision Rounds",
+        "revisions4": "4 Revision Rounds",
+        "documentation": "Documentation",
+        "extendedDocumentation": "Extended Documentation",
+        "support1month": "Technical Support (1 month)",
+        "support3months": "Technical Support (3 months)",
+        "support6months": "Technical Support (6 months)",
+        "externalSystems": "Integrations with External Systems",
+        "teamTraining": "Team Training",
+        "teamTrainingSupport": "Team Training and Support"
+      }
+    },
+    "packageNames": {
+      "mini": "Mini",
+      "standard": "Standard",
+      "pro": "Pro",
+      "startup": "Startup",
+      "business": "Business",
+      "enterprise": "Enterprise"
+    },
+    "priceDisclaimer": "* The prices shown are indicative and may change depending on the specifics of the project. Contact us to receive an accurate quote.",
+    "contactForm": {
+      "title": "Contact Us",
+      "selectedServices": "Selected services:",
+      "total": "Total:",
+      "name": "Your name:",
+      "email": "Your email:",
+      "phone": "Phone number:",
+      "message": "Additional message:",
+      "send": "Send Inquiry",
+      "sending": "Sending...",
+      "sent": "Sent Successfully!"
+    },
+    "features": "Features"
+  },
+  "langSwitcher": {
+    "pl": "Polish",
+    "en": "English",
+    "chooseLanguage": "Choose language"
+  }
+} 

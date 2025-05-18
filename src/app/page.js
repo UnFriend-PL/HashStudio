@@ -7,6 +7,7 @@ import Cursor from "@/app/decorators/Cursor";
 import ParallaxScrollScreen from "@/app/components/ParallaxScrollScreen";
 import Menu from "@/app/components/Menu";
 import {usePathname} from 'next/navigation';
+import { useTranslation } from 'react-i18next';
 
 import TextFit from "@/app/decorators/TextFit";
 import styles from "@/app/styles/Main.module.scss";
@@ -22,70 +23,67 @@ import {TbWorldWww} from "react-icons/tb"
 import avatar from "@/app/assets/avatar_szymon.png"
 import OfferScreen from "@/app/components/OfferScreen";
 
-const portfolioData = {
-    images: [
-        {
-            src: studioIMG.src,
-            alt: "Studio Kobiet Włocławek",
-            dataFollowText: "Studio Kobiet Włocławek",
-            description:
-                "Strona wizytówka w połączeniu z sekcją prezentacji oferty wykonana dla studia kobiet we Włocławku.",
-            ico: <FaGithub/>,
-            link: "https://github.com/UnFriend-PL",
-        },
-        {
-            src: bankIMG.src,
-            alt: "Bank Symulator",
-            dataFollowText: "Bank Symulator",
-            description:
-                "Symulator bankowości online. Aplikacja została napisana z użyciem React + Vite + .Net, oferuje funkcjonalności takie jak: Panel admina, przelewy między kontami, przewalutowania, tworzenie kont, kont walutowych, kont wspólnych, akceptacja wniosków i wysyłanie wiadomości.",
-            ico: <FaGithub/>,
-            link: "https://github.com/UnFriend-PL",
-        },
-        {
-            src: inz.src,
-            alt: "FizjoPanel",
-            dataFollowText: "FizjoPanel",
-            description:
-                "Aplikacja ułatwiająca pracę fizjoterapeutów – planner wizyt, prowadzenie historii leczenia, wizualizacja bólu oraz możliwość prowadzenia bloga. Utworzona z użyciem React + Next.js + .Net.",
-            ico: <FaGithub/>,
-            link: "https://github.com/UnFriend-PL",
-        },
-        {
-            src: smarcinkowski.src,
-            alt: "Strona CV",
-            dataFollowText: "Strona CV",
-            description:
-                "Aplikacja utworzona w Next.js. Strona służąca jako CV w wersji online.",
-            ico: <TbWorldWww/>,
-            link: "https://smarcinkowski.pl/",
-        },
-    ],
-    about: {
-        textList: [
-            "Hi!🚀 I'm here to come up with and execute innovative solutions for you in the digital world.",
-            "I specialize in .NET and React technologies, constantly pushing the boundaries to make our projects even better."
-        ],
-        links: [
+export default function Home() {
+    const { t } = useTranslation();
+    const [loading, setLoading] = useState(true);
+    const pathname = usePathname();
+
+    const portfolioData = {
+        images: [
             {
-                name: "Github",
+                src: studioIMG.src,
+                alt: t('portfolio.projects.studio.title'),
+                dataFollowText: t('portfolio.projects.studio.title'),
+                description: t('portfolio.projects.studio.description'),
                 ico: <FaGithub/>,
                 link: "https://github.com/UnFriend-PL",
             },
             {
-                name: "LinkedIn",
-                ico: <FaLinkedin/>,
-                link: "https://www.linkedin.com/in/smarcinkowski/",
+                src: bankIMG.src,
+                alt: t('portfolio.projects.bank.title'),
+                dataFollowText: t('portfolio.projects.bank.title'),
+                description: t('portfolio.projects.bank.description'),
+                ico: <FaGithub/>,
+                link: "https://github.com/UnFriend-PL",
+            },
+            {
+                src: inz.src,
+                alt: t('portfolio.projects.fizjo.title'),
+                dataFollowText: t('portfolio.projects.fizjo.title'),
+                description: t('portfolio.projects.fizjo.description'),
+                ico: <FaGithub/>,
+                link: "https://github.com/UnFriend-PL",
+            },
+            {
+                src: smarcinkowski.src,
+                alt: t('portfolio.projects.cv.title'),
+                dataFollowText: t('portfolio.projects.cv.title'),
+                description: t('portfolio.projects.cv.description'),
+                ico: <TbWorldWww/>,
+                link: "https://smarcinkowski.pl/",
             },
         ],
-        avatar: avatar,
-    },
-    skills: [".Net", "C#", "React", "Next.js", "SQL", "Docker", "CI/CD", "Azure"],
-};
-
-export default function Home() {
-    const [loading, setLoading] = useState(true);
-    const pathname = usePathname();
+        about: {
+            textList: [
+                t('portfolio.about.text1'),
+                t('portfolio.about.text2')
+            ],
+            links: [
+                {
+                    name: "Github",
+                    ico: <FaGithub/>,
+                    link: "https://github.com/UnFriend-PL",
+                },
+                {
+                    name: "LinkedIn",
+                    ico: <FaLinkedin/>,
+                    link: "https://www.linkedin.com/in/smarcinkowski/",
+                },
+            ],
+            avatar: avatar,
+        },
+        skills: [".Net", "C#", "React", "Next.js", "SQL", "Docker", "CI/CD", "Azure"],
+    };
 
     useEffect(() => {
         const handleInitialLoad = () => {

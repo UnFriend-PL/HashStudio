@@ -5,20 +5,24 @@ import gsap from 'gsap';
 import '../styles/Menu.scss';
 import {CiMenuBurger} from "react-icons/ci";
 import {IoMdClose} from "react-icons/io";
-
-const items = [
-    {name: 'Welcome', color: '#f44336', href: '#welcome', sectionId: 'welcome'},
-    {name: 'Design', color: '#e91e63', href: '#design', sectionId: 'design'},
-    {name: 'Portfolio', color: '#9c27b0', href: '#portfolio', sectionId: 'portfolio'},
-    {name: 'Freelance', color: '#673ab7', href: '#freelance', sectionId: 'freelance'},
-    {name: 'Contact', color: '#3f51b5', href: '#contact', sectionId: 'contact'},
-];
+import { useTranslation } from 'react-i18next';
+import LanguageSwitcher from './LanguageSwitcher';
 
 const AnimatedMenu = () => {
+    const { t } = useTranslation();
     const rootRef = useRef(null);
     const indicator1Ref = useRef(null);
     const indicator2Ref = useRef(null);
-    const navItemsRef = useRef(null); // <-- Referencja do kontenera z linkami
+    const navItemsRef = useRef(null);
+    
+    const items = [
+        {name: t('menu.welcome'), color: '#f44336', href: '#welcome', sectionId: 'welcome'},
+        {name: t('menu.design'), color: '#e91e63', href: '#design', sectionId: 'design'},
+        {name: t('menu.portfolio'), color: '#9c27b0', href: '#portfolio', sectionId: 'portfolio'},
+        {name: t('menu.freelance'), color: '#673ab7', href: '#freelance', sectionId: 'freelance'},
+        {name: t('menu.contact'), color: '#3f51b5', href: '#contact', sectionId: 'contact'},
+    ];
+    
     const itemRefs = useRef(items.map(() => createRef()));
 
     const [active, setActive] = useState(0);
@@ -42,7 +46,7 @@ const AnimatedMenu = () => {
         });
 
         return () => observer.disconnect();
-    }, []);
+    }, [items]);
 
     const animateIndicator = () => {
         if (!rootRef.current) return;
@@ -113,6 +117,8 @@ const AnimatedMenu = () => {
                     </a>
                 ))}
             </div>
+            
+            <LanguageSwitcher />
 
             <div ref={indicator1Ref} className="indicator"/>
             <div ref={indicator2Ref} className="indicator"/>
