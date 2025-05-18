@@ -1,0 +1,90 @@
+@use "@/app/styles/Colors" as color;
+
+.PackageCell {
+  text-align: center;
+  padding: 1rem;
+  background-color: rgba(color.$primary-color, 0.1);
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  position: relative;
+  cursor: pointer;
+
+  &:hover {
+    transform: translateY(-5px);
+    background-color: rgba(color.$primary-color, 0.2);
+  }
+
+  &.selected {
+    background-color: rgba(color.$primary-color, 0.3);
+    transform: translateY(-5px);
+    box-shadow: 0 4px 12px rgba(color.$primary-color, 0.2);
+
+    &:hover {
+      background-color: rgba(color.$primary-color, 0.35);
+    }
+
+    .SelectedMark {
+      position: absolute;
+      top: 0.5rem;
+      right: 0.5rem;
+      color: color.$primary-color;
+      font-size: 1.2rem;
+    }
+  }
+
+  h3 {
+    margin: 0;
+    color: color.$third-color;
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .Price {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: color.$primary-color;
+  }
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .PackageCell {
+    padding: 0.75rem 0.5rem;
+    
+    h3 {
+      font-size: 1rem;
+      margin-bottom: 0.25rem;
+    }
+    
+    .Price {
+      font-size: 1.2rem;
+    }
+    
+    .SelectedMark {
+      font-size: 1rem !important;
+    }
+  }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+  .PackageCell {
+    padding: 0.5rem 0.25rem;
+    
+    h3 {
+      font-size: 0.85rem;
+    }
+    
+    .Price {
+      font-size: 1rem;
+    }
+    
+    &:hover {
+      transform: translateY(-3px); /* Smaller hover effect on small screens */
+    }
+    
+    &.selected {
+      transform: translateY(-3px);
+    }
+  }
+} 

@@ -1,0 +1,71 @@
+@use "@/app/styles/Colors" as color;
+
+.FeatureRow {
+  display: grid;
+  grid-template-columns: 2fr repeat(3, 1fr);
+  gap: 1rem;
+  align-items: center;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid rgba(color.$third-color, 0.1);
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  .FeatureCell {
+    color: color.$third-color;
+  }
+
+  .PackageCell {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
+
+    &.highlighted {
+      background-color: rgba(color.$primary-color, 0.1);
+      border-radius: 4px;
+    }
+
+    svg {
+      font-size: 1.25rem;
+
+      &.included {
+        color: color.$primary-color;
+      }
+
+      &.not-included {
+        color: rgba(color.$third-color, 0.3);
+      }
+    }
+  }
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .FeatureRow {
+    grid-template-columns: 1.5fr repeat(3, 1fr);
+    gap: 0.5rem;
+    padding: 0.5rem 0;
+    
+    .FeatureCell {
+      font-size: 0.9rem;
+    }
+    
+    .PackageCell svg {
+      font-size: 1.1rem;
+    }
+  }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+  .FeatureRow {
+    grid-template-columns: 1.2fr repeat(3, 1fr);
+    font-size: 0.8rem;
+    
+    .PackageCell svg {
+      font-size: 0.9rem;
+    }
+  }
+} 

@@ -1,0 +1,16 @@
+@use "@/app/styles/Colors" as color;
+
+.ServiceCategory {
+  background-color: color.$secondary-color;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
+  margin-bottom: 1rem;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .ServiceCategory {
+    border-radius: 8px;
+  }
+} 

@@ -1,0 +1,124 @@
+@use "@/app/styles/Colors" as color;
+
+@import "./CategoryHeader.scss";
+@import "./PackageGrid.scss";
+@import "./PackageHeader.scss";
+@import "./FeatureRow.scss";
+@import "./ServiceCategory.scss";
+@import "./ContactForm.scss";
+
+.OfferScreen {
+  min-width: 100vw;
+  min-height: 100vh;
+  background-color: color.$fourth-color;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 2rem;
+
+  .OfferPanel {
+    flex-basis: 80%;
+    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    .OfferTitle {
+      text-align: center;
+      color: color.$third-color;
+      margin-bottom: 2rem;
+
+      h1 {
+        font-size: 2.5rem;
+        margin-bottom: 0.5rem;
+        background: linear-gradient(45deg, color.$primary-color, color.$accent-color);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      p {
+        font-size: 1.2rem;
+        color: color.$third-color;
+        opacity: 0.8;
+      }
+
+      .SelectionGuide {
+        font-size: 1rem;
+        color: color.$primary-color;
+        margin-top: 0.5rem;
+        font-style: italic;
+      }
+
+      .PriceDisclaimer {
+        font-size: 0.9rem;
+        color: color.$third-color;
+        margin-top: 1rem;
+        opacity: 0.7;
+        font-style: italic;
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
+  }
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .OfferScreen {
+    padding: 1rem;
+    
+    .OfferPanel {
+      flex-basis: 95%;
+      
+      .OfferTitle {
+        margin-bottom: 1.5rem;
+        
+        h1 {
+          font-size: 2rem;
+        }
+        
+        p {
+          font-size: 1rem;
+        }
+        
+        .SelectionGuide {
+          font-size: 0.9rem;
+        }
+        
+        .PriceDisclaimer {
+          font-size: 0.8rem;
+        }
+      }
+    }
+  }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+  .OfferScreen {
+    padding: 0.75rem;
+    
+    .OfferPanel {
+      flex-basis: 100%;
+      
+      .OfferTitle {
+        margin-bottom: 1rem;
+        
+        h1 {
+          font-size: 1.7rem;
+        }
+        
+        p {
+          font-size: 0.9rem;
+        }
+        
+        .SelectionGuide, .PriceDisclaimer {
+          font-size: 0.75rem;
+        }
+      }
+    }
+  }
+} 
