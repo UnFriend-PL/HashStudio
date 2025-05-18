@@ -5,22 +5,20 @@ on:
     branches: [master]
   workflow_dispatch:
 
-env:
-  AZURE_WEBAPP_NAME: "web-hash-studio"
-  NODE_VERSION: "22.x"
-
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
-    
+    env:
+      AZURE_WEBAPP_NAME: "web-hash-studio"
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Use Node.js ${{ env.NODE_VERSION }}
+      - name: Use Node.js 22.x
         uses: actions/setup-node@v4
         with:
-          node-version: ${{ env.NODE_VERSION }}
+          node-version: "22.x"
           cache: "npm"
 
       - name: Install dependencies
@@ -32,7 +30,7 @@ jobs:
           echo "GMAIL_APP_PASSWORD=${{ secrets.GMAIL_APP_PASSWORD }}" >> .env
           echo "RECIPIENT_EMAIL=${{ secrets.RECIPIENT_EMAIL }}" >> .env
 
-      - name: Build Next.js app
+      - name: Build Next.js app (SSR)
         run: |
           npm run build
           mv ./build/static ./build/standalone/build
@@ -42,15 +40,10 @@ jobs:
           GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
           RECIPIENT_EMAIL: ${{ secrets.RECIPIENT_EMAIL }}
 
-      - name: Login to Azure
-        uses: azure/login@v1
-        with:
-          creds: ${{ secrets.AZURE_CREDENTIALS }}
-
       - name: Deploy to Azure Web App
         uses: azure/webapps-deploy@v3
         with:
           app-name: ${{ env.AZURE_WEBAPP_NAME }}
           slot-name: "Production"
-          publish-profile: ${{ secrets.AZURE_PUBLISH_PROFILE }}
+          publish-profile: ${{ secrets.PUBLISH_PROFILE }}
           package: ./build/standalone
