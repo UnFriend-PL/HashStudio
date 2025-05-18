@@ -5,36 +5,49 @@ on:
     branches: [master]
   workflow_dispatch:
 
+env:
+  AZURE_WEBAPP_NAME: "web-hash-studio"
+  NODE_VERSION: "22.x"
+
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
-    env:
-      AZURE_WEBAPP_NAME: "web-hash-studio" # Nazwa aplikacji Azure Web App
+    
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Use Node.js 22.x
+      - name: Use Node.js ${{ env.NODE_VERSION }}
         uses: actions/setup-node@v4
         with:
-          node-version: "22.x"
-          cache: "npm" # (Opcjonalnie) cache npm dla przyspieszenia
+          node-version: ${{ env.NODE_VERSION }}
+          cache: "npm"
 
       - name: Install dependencies
         run: npm ci
 
-      - name: Build Next.js app (SSR)
+      - name: Create .env file
         run: |
-          npm run build
+          echo "GMAIL_USER=${{ secrets.GMAIL_USER }}" >> .env
+          echo "GMAIL_APP_PASSWORD=${{ secrets.GMAIL_APP_PASSWORD }}" >> .env
+          echo "RECIPIENT_EMAIL=${{ secrets.RECIPIENT_EMAIL }}" >> .env
+
+      - name: Build Next.js app
+        run: npm run build
+        env:
+          GMAIL_USER: ${{ secrets.GMAIL_USER }}
+          GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
+          RECIPIENT_EMAIL: ${{ secrets.RECIPIENT_EMAIL }}
+
+      - name: Prepare for deployment
+        run: |
           mv ./build/static ./build/standalone/build
           mv ./public ./build/standalone
-      # Po tych operacjach folder build/standalone zawiera server.js, minimalne node_modules,
-      # oraz dołączone statyczne zasoby i public, gotowe do wdrożenia.
 
       - name: Deploy to Azure Web App
         uses: azure/webapps-deploy@v3
         with:
           app-name: ${{ env.AZURE_WEBAPP_NAME }}
           slot-name: "Production"
-          publish-profile: ${{ secrets.PUBLISH_PROFILE }}
+          publish-profile: ${{ secrets.AZURE_PUBLISH_PROFILE }}
           package: ./build/standalone

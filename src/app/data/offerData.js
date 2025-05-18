@@ -1,125 +1,146 @@
 export const offerData = {
     website: {
-        category: "Company Website",
+        category: "Strony Internetowe",
         packages: [
             {
                 name: "Mini",
-                price: "999",
+                price: "2499",
                 features: [
-                    { name: "Responsive Design", included: true },
-                    { name: "Up to 5 Subpages", included: true },
-                    { name: "Basic SEO", included: true },
-                    { name: "Contact Form", included: true },
-                    { name: "Custom Design", included: false },
-                    { name: "CMS System", included: false },
+                    { name: "Strona One Page", included: true },
+                    { name: "Responsywny Design", included: true },
+                    { name: "2 Rundy Poprawek", included: true },
+                    { name: "Podstawowe SEO", included: true },
+                    { name: "Formularz Kontaktowy", included: true },
+                    { name: "Hosting (1 rok)", included: true },
+                    { name: "Indywidualne Grafiki", included: false },
+                    { name: "System CMS", included: false },
                 ]
             },
             {
                 name: "Standard",
-                price: "1999",
+                price: "4999",
                 features: [
-                    { name: "Responsive Design", included: true },
-                    { name: "Up to 10 Subpages", included: true },
-                    { name: "Advanced SEO", included: true },
-                    { name: "Contact Form", included: true },
-                    { name: "Custom Design", included: true },
-                    { name: "CMS System", included: true },
+                    { name: "Do 3 Podstron", included: true },
+                    { name: "Responsywny Design", included: true },
+                    { name: "2 Rundy Poprawek", included: true },
+                    { name: "Zaawansowane SEO", included: true },
+                    { name: "Formularz Kontaktowy", included: true },
+                    { name: "Hosting (1 rok)", included: true },
+                    { name: "Indywidualne Grafiki", included: true },
+                    { name: "System CMS", included: true },
                 ]
             },
             {
                 name: "Pro",
-                price: "3999",
+                price: "7999",
                 features: [
-                    { name: "Responsive Design", included: true },
-                    { name: "Unlimited Subpages", included: true },
+                    { name: "Nielimitowana Liczba Podstron", included: true },
+                    { name: "Responsywny Design", included: true },
+                    { name: "4 Rundy Poprawek", included: true },
                     { name: "Premium SEO", included: true },
-                    { name: "Advanced Forms", included: true },
-                    { name: "Custom Design", included: true },
-                    { name: "CMS System", included: true },
+                    { name: "Zaawansowane Formularze", included: true },
+                    { name: "Hosting (2 lata)", included: true },
+                    { name: "Indywidualne Grafiki", included: true },
+                    { name: "System CMS", included: true },
                 ]
             }
         ]
     },
-    uiDesign: {
-        category: "UI Design",
+    graphics: {
+        category: "Usługi Graficzne",
         packages: [
             {
-                name: "Basic",
-                price: "799",
-                features: [
-                    { name: "Homepage Design", included: true },
-                    { name: "Mobile Responsive", included: true },
-                    { name: "2 Revision Rounds", included: true },
-                    { name: "Source Files", included: true },
-                    { name: "Interactive Prototype", included: false },
-                    { name: "Design System", included: false },
-                ]
-            },
-            {
-                name: "Advanced",
+                name: "Mini",
                 price: "1499",
                 features: [
-                    { name: "Homepage Design", included: true },
-                    { name: "Mobile Responsive", included: true },
-                    { name: "Unlimited Revisions", included: true },
-                    { name: "Source Files", included: true },
-                    { name: "Interactive Prototype", included: true },
-                    { name: "Design System", included: false },
+                    { name: "Bannery Reklamowe (3 szt)", included: true },
+                    { name: "Grafiki na Social Media (5 szt)", included: true },
+                    { name: "2 Rundy Poprawek", included: true },
+                    { name: "Pliki Źródłowe", included: true },
+                    { name: "Posty na Facebook", included: false },
+                    { name: "Oprawa Graficzna Strony", included: false },
+                    { name: "Logo i Branding", included: false },
+                    { name: "Księga Znaku", included: false },
                 ]
             },
             {
-                name: "Premium",
-                price: "2499",
+                name: "Standard",
+                price: "2999",
                 features: [
-                    { name: "Homepage Design", included: true },
-                    { name: "Mobile Responsive", included: true },
-                    { name: "Unlimited Revisions", included: true },
-                    { name: "Source Files", included: true },
-                    { name: "Interactive Prototype", included: true },
-                    { name: "Design System", included: true },
+                    { name: "Bannery Reklamowe (5 szt)", included: true },
+                    { name: "Grafiki na Social Media (10 szt)", included: true },
+                    { name: "2 Rundy Poprawek", included: true },
+                    { name: "Pliki Źródłowe", included: true },
+                    { name: "Posty na Facebook (miesięczny pakiet)", included: true },
+                    { name: "Oprawa Graficzna Strony", included: true },
+                    { name: "Logo i Branding", included: false },
+                    { name: "Księga Znaku", included: false },
+                ]
+            },
+            {
+                name: "Pro",
+                price: "4999",
+                features: [
+                    { name: "Bannery Reklamowe (10 szt)", included: true },
+                    { name: "Grafiki na Social Media (20 szt)", included: true },
+                    { name: "4 Rundy Poprawek", included: true },
+                    { name: "Pliki Źródłowe", included: true },
+                    { name: "Posty na Facebook (3-miesięczny pakiet)", included: true },
+                    { name: "Oprawa Graficzna Strony", included: true },
+                    { name: "Logo i Branding", included: true },
+                    { name: "Księga Znaku", included: true },
                 ]
             }
         ]
     },
-    webSystem: {
-        category: "Web Systems",
+    customSolutions: {
+        category: "Rozwiązania Dedykowane",
         packages: [
             {
-                name: "Starter",
-                price: "2999",
+                name: "Startup",
+                price: "9999",
                 features: [
-                    { name: "User Authentication", included: true },
-                    { name: "Basic Database", included: true },
-                    { name: "API Integration", included: true },
-                    { name: "Basic Analytics", included: true },
-                    { name: "Custom Features", included: false },
-                    { name: "Advanced Security", included: false },
+                    { name: "Analiza Potrzeb", included: true },
+                    { name: "Projekt UI/UX", included: true },
+                    { name: "Podstawowa Funkcjonalność", included: true },
+                    { name: "2 Rundy Poprawek", included: true },
+                    { name: "Dokumentacja", included: true },
+                    { name: "Wsparcie Techniczne (1 miesiąc)", included: true },
+                    { name: "Integracje z Zewnętrznymi Systemami", included: false },
+                    { name: "Szkolenie Zespołu", included: false },
                 ]
             },
             {
                 name: "Business",
-                price: "4999",
+                price: "19999",
                 features: [
-                    { name: "User Authentication", included: true },
-                    { name: "Advanced Database", included: true },
-                    { name: "API Integration", included: true },
-                    { name: "Advanced Analytics", included: true },
-                    { name: "Custom Features", included: true },
-                    { name: "Advanced Security", included: false },
+                    { name: "Kompleksowa Analiza Biznesowa", included: true },
+                    { name: "Zaawansowany Projekt UI/UX", included: true },
+                    { name: "Rozszerzona Funkcjonalność", included: true },
+                    { name: "2 Rundy Poprawek", included: true },
+                    { name: "Dokumentacja", included: true },
+                    { name: "Wsparcie Techniczne (3 miesiące)", included: true },
+                    { name: "Integracje z Zewnętrznymi Systemami", included: true },
+                    { name: "Szkolenie Zespołu", included: true },
                 ]
             },
             {
                 name: "Enterprise",
-                price: "9999",
+                price: "od 29999",
                 features: [
-                    { name: "User Authentication", included: true },
-                    { name: "Advanced Database", included: true },
-                    { name: "API Integration", included: true },
-                    { name: "Advanced Analytics", included: true },
-                    { name: "Custom Features", included: true },
-                    { name: "Advanced Security", included: true },
+                    { name: "Pełna Analiza i Strategia", included: true },
+                    { name: "Kompleksowy Projekt UI/UX", included: true },
+                    { name: "Nielimitowana Funkcjonalność", included: true },
+                    { name: "4 Rundy Poprawek", included: true },
+                    { name: "Rozszerzona Dokumentacja", included: true },
+                    { name: "Wsparcie Techniczne (6 miesięcy)", included: true },
+                    { name: "Integracje z Zewnętrznymi Systemami", included: true },
+                    { name: "Szkolenie i Wsparcie Zespołu", included: true },
                 ]
             }
         ]
     }
-}; 
+};
+
+// Dodaj informację o orientacyjnych cenach
+export const priceDisclaimer = "* Przedstawione ceny są orientacyjne i mogą ulec zmianie w zależności od specyfiki projektu. Skontaktuj się z nami, aby otrzymać dokładną wycenę."; 
