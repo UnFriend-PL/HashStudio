@@ -53,7 +53,7 @@ const Portfolio = ({ data }) => {
     );
     return (
         <section className={styles.portfolioContainer}>
-            <AboutMe links={about.links} avatar={about.avatar}>
+            <AboutMe links={about.links} avatar={about.avatar} skills={skills}>
                 {about.textList &&
                     about.textList.map((text, index) => (
                         <p key={index} className={styles.text}>
@@ -61,16 +61,6 @@ const Portfolio = ({ data }) => {
                         </p>
                     ))}
             </AboutMe>
-
-            {skills && (
-                <div className={styles.pills}>
-                    {skills.map((skill, index) => (
-                        <Pill key={index}>
-                            {skill}
-                        </Pill>
-                    ))}
-                </div>
-            )}
 
             <div className={styles.imageGrid}>
                 {images.map((image, index) => (
