@@ -1,141 +1,141 @@
 export const offerData = {
     website: {
-        category: "Strony Internetowe",
+        category: "offer.website.category",
         packages: [
             {
-                name: "Mini",
+                name: "offer.packageNames.mini",
                 price: "2499",
                 features: [
-                    { name: "Strona One Page", included: true },
-                    { name: "Responsywny Design", included: true },
-                    { name: "2 Rundy Poprawek", included: true },
-                    { name: "Podstawowe SEO", included: true },
-                    { name: "Formularz Kontaktowy", included: true },
-                    { name: "Hosting (1 rok)", included: true },
-                    { name: "Indywidualne Grafiki", included: false },
-                    { name: "System CMS", included: false },
+                    { name: "offer.website.features.onePage", included: true },
+                    { name: "offer.website.features.responsive", included: true },
+                    { name: "offer.website.features.revisions2", included: true },
+                    { name: "offer.website.features.basicSeo", included: true },
+                    { name: "offer.website.features.contactForm", included: true },
+                    { name: "offer.website.features.hosting1", included: true },
+                    { name: "offer.website.features.customGraphics", included: false },
+                    { name: "offer.website.features.cms", included: false },
                 ]
             },
             {
-                name: "Standard",
+                name: "offer.packageNames.standard",
                 price: "4999",
                 features: [
-                    { name: "Do 3 Podstron", included: true },
-                    { name: "Responsywny Design", included: true },
-                    { name: "2 Rundy Poprawek", included: true },
-                    { name: "Zaawansowane SEO", included: true },
-                    { name: "Formularz Kontaktowy", included: true },
-                    { name: "Hosting (1 rok)", included: true },
-                    { name: "Indywidualne Grafiki", included: true },
-                    { name: "System CMS", included: true },
+                    { name: "offer.website.features.pages3", included: true },
+                    { name: "offer.website.features.responsive", included: true },
+                    { name: "offer.website.features.revisions2", included: true },
+                    { name: "offer.website.features.advancedSeo", included: true },
+                    { name: "offer.website.features.contactForm", included: true },
+                    { name: "offer.website.features.hosting1", included: true },
+                    { name: "offer.website.features.customGraphics", included: true },
+                    { name: "offer.website.features.cms", included: true },
                 ]
             },
             {
-                name: "Pro",
+                name: "offer.packageNames.pro",
                 price: "7999",
                 features: [
-                    { name: "Nielimitowana Liczba Podstron", included: true },
-                    { name: "Responsywny Design", included: true },
-                    { name: "4 Rundy Poprawek", included: true },
-                    { name: "Premium SEO", included: true },
-                    { name: "Zaawansowane Formularze", included: true },
-                    { name: "Hosting (2 lata)", included: true },
-                    { name: "Indywidualne Grafiki", included: true },
-                    { name: "System CMS", included: true },
+                    { name: "offer.website.features.pagesUnlimited", included: true },
+                    { name: "offer.website.features.responsive", included: true },
+                    { name: "offer.website.features.revisions4", included: true },
+                    { name: "offer.website.features.premiumSeo", included: true },
+                    { name: "offer.website.features.advancedForms", included: true },
+                    { name: "offer.website.features.hosting2", included: true },
+                    { name: "offer.website.features.customGraphics", included: true },
+                    { name: "offer.website.features.cms", included: true },
                 ]
             }
         ]
     },
     graphics: {
-        category: "Usługi Graficzne",
+        category: "offer.graphics.category",
         packages: [
             {
-                name: "Mini",
+                name: "offer.packageNames.mini",
                 price: "1499",
                 features: [
-                    { name: "Bannery Reklamowe (3 szt)", included: true },
-                    { name: "Grafiki na Social Media (5 szt)", included: true },
-                    { name: "2 Rundy Poprawek", included: true },
-                    { name: "Pliki Źródłowe", included: true },
-                    { name: "Posty na Facebook", included: false },
-                    { name: "Oprawa Graficzna Strony", included: false },
-                    { name: "Logo i Branding", included: false },
-                    { name: "Księga Znaku", included: false },
+                    { name: "offer.graphics.features.banners3", included: true },
+                    { name: "offer.graphics.features.socialMedia5", included: true },
+                    { name: "offer.graphics.features.revisions2", included: true },
+                    { name: "offer.graphics.features.sourceFiles", included: true },
+                    { name: "offer.graphics.features.facebookPosts", included: false },
+                    { name: "offer.graphics.features.websiteGraphics", included: false },
+                    { name: "offer.graphics.features.logoAndBranding", included: false },
+                    { name: "offer.graphics.features.brandBook", included: false },
                 ]
             },
             {
-                name: "Standard",
+                name: "offer.packageNames.standard",
                 price: "2999",
                 features: [
-                    { name: "Bannery Reklamowe (5 szt)", included: true },
-                    { name: "Grafiki na Social Media (10 szt)", included: true },
-                    { name: "2 Rundy Poprawek", included: true },
-                    { name: "Pliki Źródłowe", included: true },
-                    { name: "Posty na Facebook (miesięczny pakiet)", included: true },
-                    { name: "Oprawa Graficzna Strony", included: true },
-                    { name: "Logo i Branding", included: false },
-                    { name: "Księga Znaku", included: false },
+                    { name: "offer.graphics.features.banners5", included: true },
+                    { name: "offer.graphics.features.socialMedia10", included: true },
+                    { name: "offer.graphics.features.revisions2", included: true },
+                    { name: "offer.graphics.features.sourceFiles", included: true },
+                    { name: "offer.graphics.features.facebookPostsMonthly", included: true },
+                    { name: "offer.graphics.features.websiteGraphics", included: true },
+                    { name: "offer.graphics.features.logoAndBranding", included: false },
+                    { name: "offer.graphics.features.brandBook", included: false },
                 ]
             },
             {
-                name: "Pro",
+                name: "offer.packageNames.pro",
                 price: "4999",
                 features: [
-                    { name: "Bannery Reklamowe (10 szt)", included: true },
-                    { name: "Grafiki na Social Media (20 szt)", included: true },
-                    { name: "4 Rundy Poprawek", included: true },
-                    { name: "Pliki Źródłowe", included: true },
-                    { name: "Posty na Facebook (3-miesięczny pakiet)", included: true },
-                    { name: "Oprawa Graficzna Strony", included: true },
-                    { name: "Logo i Branding", included: true },
-                    { name: "Księga Znaku", included: true },
+                    { name: "offer.graphics.features.banners10", included: true },
+                    { name: "offer.graphics.features.socialMedia20", included: true },
+                    { name: "offer.graphics.features.revisions4", included: true },
+                    { name: "offer.graphics.features.sourceFiles", included: true },
+                    { name: "offer.graphics.features.facebookPosts3Monthly", included: true },
+                    { name: "offer.graphics.features.websiteGraphics", included: true },
+                    { name: "offer.graphics.features.logoAndBranding", included: true },
+                    { name: "offer.graphics.features.brandBook", included: true },
                 ]
             }
         ]
     },
     customSolutions: {
-        category: "Rozwiązania Dedykowane",
+        category: "offer.customSolutions.category",
         packages: [
             {
-                name: "Startup",
+                name: "offer.packageNames.startup",
                 price: "9999",
                 features: [
-                    { name: "Analiza Potrzeb", included: true },
-                    { name: "Projekt UI/UX", included: true },
-                    { name: "Podstawowa Funkcjonalność", included: true },
-                    { name: "2 Rundy Poprawek", included: true },
-                    { name: "Dokumentacja", included: true },
-                    { name: "Wsparcie Techniczne (1 miesiąc)", included: true },
-                    { name: "Integracje z Zewnętrznymi Systemami", included: false },
-                    { name: "Szkolenie Zespołu", included: false },
+                    { name: "offer.customSolutions.features.needsAnalysis", included: true },
+                    { name: "offer.customSolutions.features.uiuxBasic", included: true },
+                    { name: "offer.customSolutions.features.basicFunctionality", included: true },
+                    { name: "offer.customSolutions.features.revisions2", included: true },
+                    { name: "offer.customSolutions.features.documentation", included: true },
+                    { name: "offer.customSolutions.features.support1month", included: true },
+                    { name: "offer.customSolutions.features.externalSystems", included: false },
+                    { name: "offer.customSolutions.features.teamTraining", included: false },
                 ]
             },
             {
-                name: "Business",
+                name: "offer.packageNames.business",
                 price: "19999",
                 features: [
-                    { name: "Kompleksowa Analiza Biznesowa", included: true },
-                    { name: "Zaawansowany Projekt UI/UX", included: true },
-                    { name: "Rozszerzona Funkcjonalność", included: true },
-                    { name: "2 Rundy Poprawek", included: true },
-                    { name: "Dokumentacja", included: true },
-                    { name: "Wsparcie Techniczne (3 miesiące)", included: true },
-                    { name: "Integracje z Zewnętrznymi Systemami", included: true },
-                    { name: "Szkolenie Zespołu", included: true },
+                    { name: "offer.customSolutions.features.businessAnalysis", included: true },
+                    { name: "offer.customSolutions.features.uiuxAdvanced", included: true },
+                    { name: "offer.customSolutions.features.extendedFunctionality", included: true },
+                    { name: "offer.customSolutions.features.revisions2", included: true },
+                    { name: "offer.customSolutions.features.documentation", included: true },
+                    { name: "offer.customSolutions.features.support3months", included: true },
+                    { name: "offer.customSolutions.features.externalSystems", included: true },
+                    { name: "offer.customSolutions.features.teamTraining", included: true },
                 ]
             },
             {
-                name: "Enterprise",
+                name: "offer.packageNames.enterprise",
                 price: "od 29999",
                 features: [
-                    { name: "Pełna Analiza i Strategia", included: true },
-                    { name: "Kompleksowy Projekt UI/UX", included: true },
-                    { name: "Nielimitowana Funkcjonalność", included: true },
-                    { name: "4 Rundy Poprawek", included: true },
-                    { name: "Rozszerzona Dokumentacja", included: true },
-                    { name: "Wsparcie Techniczne (6 miesięcy)", included: true },
-                    { name: "Integracje z Zewnętrznymi Systemami", included: true },
-                    { name: "Szkolenie i Wsparcie Zespołu", included: true },
+                    { name: "offer.customSolutions.features.strategyAnalysis", included: true },
+                    { name: "offer.customSolutions.features.uiuxComplex", included: true },
+                    { name: "offer.customSolutions.features.unlimitedFunctionality", included: true },
+                    { name: "offer.customSolutions.features.revisions4", included: true },
+                    { name: "offer.customSolutions.features.extendedDocumentation", included: true },
+                    { name: "offer.customSolutions.features.support6months", included: true },
+                    { name: "offer.customSolutions.features.externalSystems", included: true },
+                    { name: "offer.customSolutions.features.teamTrainingSupport", included: true },
                 ]
             }
         ]
@@ -143,4 +143,4 @@ export const offerData = {
 };
 
 // Dodaj informację o orientacyjnych cenach
-export const priceDisclaimer = "* Przedstawione ceny są orientacyjne i mogą ulec zmianie w zależności od specyfiki projektu. Skontaktuj się z nami, aby otrzymać dokładną wycenę."; 
+export const priceDisclaimer = "offer.priceDisclaimer"; 

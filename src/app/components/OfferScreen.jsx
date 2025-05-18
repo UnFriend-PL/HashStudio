@@ -1,26 +1,31 @@
 import "@/app/styles/Offer.scss"
 import { useState } from "react";
+import { useTranslation } from 'react-i18next';
 import { MdOutlineExpandMore, MdOutlineExpandLess } from "react-icons/md";
 import { BsCheckLg, BsXLg } from "react-icons/bs";
 import { offerData, priceDisclaimer } from "@/app/data/offerData";
 
-const PackageHeader = ({ name, price, isSelected, onSelect }) => (
-    <div 
-        className={`PackageCell ${isSelected ? 'selected' : ''}`}
-        onClick={onSelect}
-        role="button"
-    >
-        <h3>{name}</h3>
-        <div className="Price">${price}</div>
-        {isSelected && <div className="SelectedMark"><BsCheckLg /></div>}
-    </div>
-);
+const PackageHeader = ({ name, price, isSelected, onSelect }) => {
+    const { t } = useTranslation();
+    return (
+        <div 
+            className={`PackageCell ${isSelected ? 'selected' : ''}`}
+            onClick={onSelect}
+            role="button"
+        >
+            <h3>{t(name)}</h3>
+            <div className="Price">${price}</div>
+            {isSelected && <div className="SelectedMark"><BsCheckLg /></div>}
+        </div>
+    );
+};
 
 const FeatureRow = ({ featureIndex, packages, selectedPackageIndex }) => {
+    const { t } = useTranslation();
     const featureName = packages[0].features[featureIndex].name;
     return (
         <div className="FeatureRow">
-            <div className="FeatureCell">{featureName}</div>
+            <div className="FeatureCell">{t(featureName)}</div>
             {packages.map((pkg, index) => (
                 <div key={index} className={`PackageCell ${index === selectedPackageIndex ? 'highlighted' : ''}`}>
                     {pkg.features[featureIndex].included ? 
@@ -32,45 +37,51 @@ const FeatureRow = ({ featureIndex, packages, selectedPackageIndex }) => {
     );
 };
 
-const CategoryHeader = ({ title, isExpanded, onToggle, isSelected }) => (
-    <div className="CategoryHeaderWrapper">
-        <div 
-            className={`CategoryHeader ${isExpanded ? 'expanded' : ''} ${isSelected ? 'selected' : ''}`} 
-            onClick={onToggle}
-            role="button"
-        >
-            <h2>{title}</h2>
-            {isExpanded ? <MdOutlineExpandLess /> : <MdOutlineExpandMore />}
+const CategoryHeader = ({ title, isExpanded, onToggle, isSelected }) => {
+    const { t } = useTranslation();
+    return (
+        <div className="CategoryHeaderWrapper">
+            <div 
+                className={`CategoryHeader ${isExpanded ? 'expanded' : ''} ${isSelected ? 'selected' : ''}`} 
+                onClick={onToggle}
+                role="button"
+            >
+                <h2>{t(title)}</h2>
+                {isExpanded ? <MdOutlineExpandLess /> : <MdOutlineExpandMore />}
+            </div>
         </div>
-    </div>
-);
+    );
+};
 
-const PackageGrid = ({ packages, isExpanded, selectedPackageIndex, onPackageSelect }) => (
-    <div className={`PackagesGrid ${isExpanded ? 'expanded' : ''}`}>
-        <div className="PackageHeaders">
-            <div className="FeatureCell">Features</div>
-            {packages.map((pkg, index) => (
-                <PackageHeader 
-                    key={index} 
-                    name={pkg.name} 
-                    price={pkg.price}
-                    isSelected={index === selectedPackageIndex}
-                    onSelect={() => onPackageSelect(index)}
-                />
-            ))}
+const PackageGrid = ({ packages, isExpanded, selectedPackageIndex, onPackageSelect }) => {
+    const { t } = useTranslation();
+    return (
+        <div className={`PackagesGrid ${isExpanded ? 'expanded' : ''}`}>
+            <div className="PackageHeaders">
+                <div className="FeatureCell">{t("offer.features")}</div>
+                {packages.map((pkg, index) => (
+                    <PackageHeader 
+                        key={index} 
+                        name={pkg.name} 
+                        price={pkg.price}
+                        isSelected={index === selectedPackageIndex}
+                        onSelect={() => onPackageSelect(index)}
+                    />
+                ))}
+            </div>
+            <div className="Features">
+                {packages[0].features.map((_, featureIndex) => (
+                    <FeatureRow 
+                        key={featureIndex} 
+                        featureIndex={featureIndex}
+                        packages={packages}
+                        selectedPackageIndex={selectedPackageIndex}
+                    />
+                ))}
+            </div>
         </div>
-        <div className="Features">
-            {packages[0].features.map((_, featureIndex) => (
-                <FeatureRow 
-                    key={featureIndex} 
-                    featureIndex={featureIndex}
-                    packages={packages}
-                    selectedPackageIndex={selectedPackageIndex}
-                />
-            ))}
-        </div>
-    </div>
-);
+    );
+};
 
 const ServiceCategory = ({ data, isSelected, selectedPackageIndex, onPackageSelect }) => {
     const [isExpanded, setIsExpanded] = useState(false);
@@ -94,6 +105,7 @@ const ServiceCategory = ({ data, isSelected, selectedPackageIndex, onPackageSele
 };
 
 const ContactForm = ({ selectedServices }) => {
+    const { t } = useTranslation();
     const [formData, setFormData] = useState({
         name: '',
         email: '',
@@ -162,22 +174,22 @@ const ContactForm = ({ selectedServices }) => {
 
     return (
         <form className="ContactForm" onSubmit={handleSubmit}>
-            <h3>Contact Us About Selected Services</h3>
+            <h3>{t('offer.contactForm.title')}</h3>
             <div className="SelectedServices">
-                <h4>Selected Services:</h4>
+                <h4>{t('offer.contactForm.selectedServices')}</h4>
                 <ul>
                     {selectedServices.map((service, index) => (
                         <li key={index}>
-                            {service.category} - {service.packageName} (${service.price})
+                            {t(service.category)} - {t(service.packageName)} (${service.price})
                         </li>
                     ))}
                 </ul>
                 <div className="TotalPrice">
-                    Total: ${selectedServices.reduce((sum, service) => sum + parseInt(service.price), 0)}
+                    {t('offer.contactForm.total')} ${selectedServices.reduce((sum, service) => sum + parseInt(service.price), 0)}
                 </div>
             </div>
             <div className="FormGroup">
-                <label htmlFor="name">Your Name:</label>
+                <label htmlFor="name">{t('offer.contactForm.name')}</label>
                 <input
                     type="text"
                     id="name"
@@ -188,7 +200,7 @@ const ContactForm = ({ selectedServices }) => {
                 />
             </div>
             <div className="FormGroup">
-                <label htmlFor="email">Your Email:</label>
+                <label htmlFor="email">{t('offer.contactForm.email')}</label>
                 <input
                     type="email"
                     id="email"
@@ -199,7 +211,7 @@ const ContactForm = ({ selectedServices }) => {
                 />
             </div>
             <div className="FormGroup">
-                <label htmlFor="phone">Phone Number:</label>
+                <label htmlFor="phone">{t('offer.contactForm.phone')}</label>
                 <input
                     type="tel"
                     id="phone"
@@ -209,7 +221,7 @@ const ContactForm = ({ selectedServices }) => {
                 />
             </div>
             <div className="FormGroup">
-                <label htmlFor="message">Additional Message:</label>
+                <label htmlFor="message">{t('offer.contactForm.message')}</label>
                 <textarea
                     id="message"
                     name="message"
@@ -223,9 +235,9 @@ const ContactForm = ({ selectedServices }) => {
                 className={`SubmitButton ${formData.status}`}
                 disabled={formData.status === 'sending'}
             >
-                {formData.status === 'sending' ? 'Sending...' : 
-                 formData.status === 'success' ? 'Sent Successfully!' : 
-                 'Send Inquiry'}
+                {formData.status === 'sending' ? t('offer.contactForm.sending') : 
+                 formData.status === 'success' ? t('offer.contactForm.sent') : 
+                 t('offer.contactForm.send')}
             </button>
             {formData.error && (
                 <div className="ErrorMessage">
@@ -237,6 +249,7 @@ const ContactForm = ({ selectedServices }) => {
 };
 
 export default function OfferScreen() {
+    const { t } = useTranslation();
     const [selectedPackages, setSelectedPackages] = useState({});
 
     const handlePackageSelection = (categoryId, packageIndex) => {
@@ -266,10 +279,10 @@ export default function OfferScreen() {
         <div className="OfferScreen">
             <div className="OfferPanel">
                 <div className="OfferTitle">
-                    <h1>Our Services</h1>
-                    <p>Choose from our comprehensive range of services</p>
-                    <p className="SelectionGuide">Click on a package variant to select/unselect a service</p>
-                    <p className="PriceDisclaimer">{priceDisclaimer}</p>
+                    <h1>{t('offer.title')}</h1>
+                    <p>{t('offer.subtitle')}</p>
+                    <p className="SelectionGuide">{t('offer.selectionGuide')}</p>
+                    <p className="PriceDisclaimer">{t(priceDisclaimer)}</p>
                 </div>
                 {Object.entries(offerData).map(([categoryId, categoryData]) => (
                     <ServiceCategory 

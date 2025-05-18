@@ -1,0 +1,132 @@
+{
+  "menu": {
+    "welcome": "Witaj",
+    "design": "Design",
+    "portfolio": "Portfolio",
+    "freelance": "Freelance",
+    "contact": "Kontakt"
+  },
+  "portfolio": {
+    "about": {
+      "text1": "Cześć!🚀 Jestem tutaj, aby tworzyć i wdrażać innowacyjne rozwiązania dla Ciebie w świecie cyfrowym.",
+      "text2": "Specjalizuję się w technologiach .NET i React, nieustannie przesuwając granice, aby nasze projekty były jeszcze lepsze."
+    },
+    "skills": {
+      "title": "Umiejętności"
+    },
+    "projects": {
+      "studio": {
+        "title": "Studio Kobiet Włocławek",
+        "description": "Strona wizytówka w połączeniu z sekcją prezentacji oferty wykonana dla studia kobiet we Włocławku."
+      },
+      "bank": {
+        "title": "Bank Symulator",
+        "description": "Symulator bankowości online. Aplikacja została napisana z użyciem React + Vite + .Net, oferuje funkcjonalności takie jak: Panel admina, przelewy między kontami, przewalutowania, tworzenie kont, kont walutowych, kont wspólnych, akceptacja wniosków i wysyłanie wiadomości."
+      },
+      "fizjo": {
+        "title": "FizjoPanel",
+        "description": "Aplikacja ułatwiająca pracę fizjoterapeutów – planner wizyt, prowadzenie historii leczenia, wizualizacja bólu oraz możliwość prowadzenia bloga. Utworzona z użyciem React + Next.js + .Net."
+      },
+      "cv": {
+        "title": "Strona CV",
+        "description": "Aplikacja utworzona w Next.js. Strona służąca jako CV w wersji online."
+      }
+    }
+  },
+  "offer": {
+    "title": "Nasze usługi",
+    "subtitle": "Wybierz z naszej kompleksowej oferty usług",
+    "selectionGuide": "Kliknij na wariant pakietu, aby wybrać/odznaczyć usługę",
+    "website": {
+      "category": "Strony Internetowe",
+      "features": {
+        "onePage": "Strona One Page",
+        "responsive": "Responsywny Design",
+        "revisions2": "2 Rundy Poprawek",
+        "revisions4": "4 Rundy Poprawek",
+        "basicSeo": "Podstawowe SEO",
+        "advancedSeo": "Zaawansowane SEO",
+        "premiumSeo": "Premium SEO",
+        "contactForm": "Formularz Kontaktowy",
+        "advancedForms": "Zaawansowane Formularze",
+        "hosting1": "Hosting (1 rok)",
+        "hosting2": "Hosting (2 lata)",
+        "customGraphics": "Indywidualne Grafiki",
+        "cms": "System CMS",
+        "pages3": "Do 3 Podstron",
+        "pagesUnlimited": "Nielimitowana Liczba Podstron"
+      }
+    },
+    "graphics": {
+      "category": "Usługi Graficzne",
+      "features": {
+        "banners3": "Bannery Reklamowe (3 szt)",
+        "banners5": "Bannery Reklamowe (5 szt)",
+        "banners10": "Bannery Reklamowe (10 szt)",
+        "socialMedia5": "Grafiki na Social Media (5 szt)",
+        "socialMedia10": "Grafiki na Social Media (10 szt)",
+        "socialMedia20": "Grafiki na Social Media (20 szt)",
+        "revisions2": "2 Rundy Poprawek",
+        "revisions4": "4 Rundy Poprawek",
+        "sourceFiles": "Pliki Źródłowe",
+        "facebookPosts": "Posty na Facebook",
+        "facebookPostsMonthly": "Posty na Facebook (miesięczny pakiet)",
+        "facebookPosts3Monthly": "Posty na Facebook (3-miesięczny pakiet)",
+        "websiteGraphics": "Oprawa Graficzna Strony",
+        "logoAndBranding": "Logo i Branding",
+        "brandBook": "Księga Znaku"
+      }
+    },
+    "customSolutions": {
+      "category": "Rozwiązania Dedykowane",
+      "features": {
+        "needsAnalysis": "Analiza Potrzeb",
+        "businessAnalysis": "Kompleksowa Analiza Biznesowa",
+        "strategyAnalysis": "Pełna Analiza i Strategia",
+        "uiuxBasic": "Projekt UI/UX",
+        "uiuxAdvanced": "Zaawansowany Projekt UI/UX",
+        "uiuxComplex": "Kompleksowy Projekt UI/UX",
+        "basicFunctionality": "Podstawowa Funkcjonalność",
+        "extendedFunctionality": "Rozszerzona Funkcjonalność",
+        "unlimitedFunctionality": "Nielimitowana Funkcjonalność",
+        "revisions2": "2 Rundy Poprawek",
+        "revisions4": "4 Rundy Poprawek",
+        "documentation": "Dokumentacja",
+        "extendedDocumentation": "Rozszerzona Dokumentacja",
+        "support1month": "Wsparcie Techniczne (1 miesiąc)",
+        "support3months": "Wsparcie Techniczne (3 miesiące)",
+        "support6months": "Wsparcie Techniczne (6 miesięcy)",
+        "externalSystems": "Integracje z Zewnętrznymi Systemami",
+        "teamTraining": "Szkolenie Zespołu",
+        "teamTrainingSupport": "Szkolenie i Wsparcie Zespołu"
+      }
+    },
+    "packageNames": {
+      "mini": "Mini",
+      "standard": "Standard",
+      "pro": "Pro",
+      "startup": "Startup",
+      "business": "Business",
+      "enterprise": "Enterprise"
+    },
+    "priceDisclaimer": "* Przedstawione ceny są orientacyjne i mogą ulec zmianie w zależności od specyfiki projektu. Skontaktuj się z nami, aby otrzymać dokładną wycenę.",
+    "contactForm": {
+      "title": "Skontaktuj się z nami",
+      "selectedServices": "Wybrane usługi:",
+      "total": "Suma:",
+      "name": "Twoje imię:",
+      "email": "Twój email:",
+      "phone": "Numer telefonu:",
+      "message": "Dodatkowa wiadomość:",
+      "send": "Wyślij zapytanie",
+      "sending": "Wysyłanie...",
+      "sent": "Wysłano pomyślnie!"
+    },
+    "features": "Funkcje"
+  },
+  "langSwitcher": {
+    "pl": "Polski",
+    "en": "Angielski",
+    "chooseLanguage": "Wybierz język"
+  }
+} 
