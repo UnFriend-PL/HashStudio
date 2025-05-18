@@ -33,16 +33,19 @@ jobs:
           echo "RECIPIENT_EMAIL=${{ secrets.RECIPIENT_EMAIL }}" >> .env
 
       - name: Build Next.js app
-        run: npm run build
+        run: |
+          npm run build
+          mv ./build/static ./build/standalone/build
+          mv ./public ./build/standalone
         env:
           GMAIL_USER: ${{ secrets.GMAIL_USER }}
           GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
           RECIPIENT_EMAIL: ${{ secrets.RECIPIENT_EMAIL }}
 
-      - name: Prepare for deployment
-        run: |
-          mv ./build/static ./build/standalone/build
-          mv ./public ./build/standalone
+      - name: Login to Azure
+        uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
 
       - name: Deploy to Azure Web App
         uses: azure/webapps-deploy@v3

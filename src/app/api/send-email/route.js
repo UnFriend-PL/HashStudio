@@ -1,30 +1,57 @@
 import { NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
 
-if (!process.env.GMAIL_USER || !process.env.GMAIL_APP_PASSWORD) {
-    throw new Error('Missing email configuration. Please set GMAIL_USER and GMAIL_APP_PASSWORD environment variables.');
-}
+// Add environment variable validation
+const validateEnvVariables = () => {
+    const requiredVars = ['GMAIL_USER', 'GMAIL_APP_PASSWORD'];
+    const missing = requiredVars.filter(varName => !process.env[varName]);
+    
+    if (missing.length > 0) {
+        throw new Error(`Missing required environment variables: ${missing.join(', ')}`);
+    }
+};
 
 // Create reusable transporter object using SMTP transport
-const transporter = nodemailer.createTransport({
-    service: 'gmail',
-    auth: {
-        user: process.env.GMAIL_USER,
-        pass: process.env.GMAIL_APP_PASSWORD
-    }
-});
+const createTransporter = () => {
+    validateEnvVariables();
+    
+    return nodemailer.createTransport({
+        service: 'gmail',
+        auth: {
+            user: process.env.GMAIL_USER,
+            pass: process.env.GMAIL_APP_PASSWORD
+        },
+        debug: true, // Enable debug logs
+    });
+};
 
 // Verify transporter configuration
-transporter.verify(function(error, success) {
-    if (error) {
-        console.error('SMTP connection error:', error);
-    } else {
+const verifyTransporter = async (transporter) => {
+    try {
+        await transporter.verify();
         console.log('SMTP connection is ready to take messages');
+        return true;
+    } catch (error) {
+        console.error('SMTP connection error:', {
+            message: error.message,
+            code: error.code,
+            command: error.command,
+            response: error.response
+        });
+        return false;
     }
-});
+};
 
 export async function POST(req) {
     try {
+        // Create and verify transporter
+        const transporter = createTransporter();
+        const isValid = await verifyTransporter(transporter);
+        
+        if (!isValid) {
+            throw new Error('Failed to establish SMTP connection. Please check your email configuration.');
+        }
+
         const data = await req.json();
         const { name, email, phone, message, selectedServices } = data;
 
@@ -92,7 +119,7 @@ export async function POST(req) {
         // Send email
         const mailOptions = {
             from: `"HashStudio Contact" <${process.env.GMAIL_USER}>`,
-            to: process.env.RECIPIENT_EMAIL || 'szymonecki1233@gmail.com',
+            to: process.env.RECIPIENT_EMAIL || process.env.GMAIL_USER,
             replyTo: email,
             subject: `New Service Inquiry from ${name}`,
             html: htmlContent,
@@ -100,8 +127,14 @@ export async function POST(req) {
 
         try {
             await transporter.sendMail(mailOptions);
+            console.log('Email sent successfully');
         } catch (emailError) {
-            console.error('Failed to send email:', emailError);
+            console.error('Failed to send email:', {
+                message: emailError.message,
+                code: emailError.code,
+                command: emailError.command,
+                response: emailError.response
+            });
             throw new Error('Failed to send email. Please try again later.');
         }
 
