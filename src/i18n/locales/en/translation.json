@@ -34,9 +34,18 @@
     }
   },
   "offer": {
-    "title": "Our Services",
-    "subtitle": "Choose from our comprehensive range of services",
-    "selectionGuide": "Click on a package variant to select/unselect a service",
+    "title": "Your Digital Partner",
+    "subtitle": "We create solutions that make your business stand out in the digital world",
+    "selectionGuide": "Choose the package that best fits your needs",
+    "features": "What's included?",
+    "packageNames": {
+      "mini": "Start",
+      "standard": "Business",
+      "pro": "Premium",
+      "startup": "Startup",
+      "business": "Business",
+      "enterprise": "Enterprise"
+    },
     "website": {
       "category": "Websites",
       "features": {
@@ -58,7 +67,7 @@
       }
     },
     "graphics": {
-      "category": "Graphic Services",
+      "category": "Graphic Design",
       "features": {
         "banners3": "Advertising Banners (3 pcs)",
         "banners5": "Advertising Banners (5 pcs)",
@@ -101,28 +110,19 @@
         "teamTrainingSupport": "Team Training and Support"
       }
     },
-    "packageNames": {
-      "mini": "Mini",
-      "standard": "Standard",
-      "pro": "Pro",
-      "startup": "Startup",
-      "business": "Business",
-      "enterprise": "Enterprise"
-    },
-    "priceDisclaimer": "* The prices shown are indicative and may change depending on the specifics of the project. Contact us to receive an accurate quote.",
+    "priceDisclaimer": "* Prices are indicative and may vary depending on project specifics. Contact us for a personalized quote.",
     "contactForm": {
-      "title": "Contact Us",
+      "title": "Start Your Project",
       "selectedServices": "Selected services:",
       "total": "Total:",
       "name": "Your name:",
       "email": "Your email:",
       "phone": "Phone number:",
-      "message": "Additional message:",
+      "message": "Additional information:",
       "send": "Send Inquiry",
       "sending": "Sending...",
       "sent": "Sent Successfully!"
-    },
-    "features": "Features"
+    }
   },
   "langSwitcher": {
     "pl": "Polish",

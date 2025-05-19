@@ -34,9 +34,18 @@
     }
   },
   "offer": {
-    "title": "Nasze usługi",
-    "subtitle": "Wybierz z naszej kompleksowej oferty usług",
-    "selectionGuide": "Kliknij na wariant pakietu, aby wybrać/odznaczyć usługę",
+    "title": "Twój Cyfrowy Partner",
+    "subtitle": "Tworzymy rozwiązania, które wyróżniają Twój biznes w świecie cyfrowym",
+    "selectionGuide": "Wybierz pakiet, który najlepiej odpowiada Twoim potrzebom",
+    "features": "Co zawiera pakiet?",
+    "packageNames": {
+      "mini": "Start",
+      "standard": "Business",
+      "pro": "Premium",
+      "startup": "Startup",
+      "business": "Business",
+      "enterprise": "Enterprise"
+    },
     "website": {
       "category": "Strony Internetowe",
       "features": {
@@ -58,7 +67,7 @@
       }
     },
     "graphics": {
-      "category": "Usługi Graficzne",
+      "category": "Projektowanie Graficzne",
       "features": {
         "banners3": "Bannery Reklamowe (3 szt)",
         "banners5": "Bannery Reklamowe (5 szt)",
@@ -101,28 +110,19 @@
         "teamTrainingSupport": "Szkolenie i Wsparcie Zespołu"
       }
     },
-    "packageNames": {
-      "mini": "Mini",
-      "standard": "Standard",
-      "pro": "Pro",
-      "startup": "Startup",
-      "business": "Business",
-      "enterprise": "Enterprise"
-    },
-    "priceDisclaimer": "* Przedstawione ceny są orientacyjne i mogą ulec zmianie w zależności od specyfiki projektu. Skontaktuj się z nami, aby otrzymać dokładną wycenę.",
+    "priceDisclaimer": "* Ceny są orientacyjne i mogą się różnić w zależności od specyfiki projektu. Skontaktuj się z nami, aby otrzymać spersonalizowaną ofertę.",
     "contactForm": {
-      "title": "Skontaktuj się z nami",
+      "title": "Rozpocznij Współpracę",
       "selectedServices": "Wybrane usługi:",
       "total": "Suma:",
       "name": "Twoje imię:",
       "email": "Twój email:",
       "phone": "Numer telefonu:",
-      "message": "Dodatkowa wiadomość:",
+      "message": "Dodatkowe informacje:",
       "send": "Wyślij zapytanie",
       "sending": "Wysyłanie...",
       "sent": "Wysłano pomyślnie!"
-    },
-    "features": "Funkcje"
+    }
   },
   "langSwitcher": {
     "pl": "Polski",
