@@ -2,17 +2,41 @@ import { useState, useRef, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { BsSend, BsRobot, BsPerson } from 'react-icons/bs';
 import { GoogleGenerativeAI } from '@google/generative-ai';
+import { marked } from 'marked';
 
 const AIChat = ({ offerData }) => {
-    const { t } = useTranslation();
+    const { t, i18n } = useTranslation();
     const [messages, setMessages] = useState([]);
     const [input, setInput] = useState('');
     const [isLoading, setIsLoading] = useState(false);
     const messagesEndRef = useRef(null);
     const [selectedServices, setSelectedServices] = useState([]);
 
-    // Initialize Gemini with environment variable
-    const genAI = new GoogleGenerativeAI(process.env.NEXT_PUBLIC_GEMINI_API_KEY);
+    const apiKey = process.env.NEXT_PUBLIC_GEMINI_API_KEY;
+    
+    if (!apiKey) {
+        console.error('Gemini API key is not configured. Please add NEXT_PUBLIC_GEMINI_API_KEY to your .env file');
+        return (
+            <div className="AIChat">
+                <div className="ChatHeader">
+                    <h3>{t('offer.chat.title')}</h3>
+                    <p>{t('offer.chat.subtitle')}</p>
+                </div>
+                <div className="MessagesContainer">
+                    <div className="Message ai">
+                        <div className="MessageIcon">
+                            <BsRobot />
+                        </div>
+                        <div className="MessageContent">
+                            {t('offer.chat.configuration_error')}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        );
+    }
+
+    const genAI = new GoogleGenerativeAI(apiKey);
 
     const scrollToBottom = () => {
         messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -25,31 +49,21 @@ const AIChat = ({ offerData }) => {
     const generatePrompt = (userInput) => {
         const servicesDescription = offerData.categories.map(category => ({
             name: category.name,
-            description: category.description,
             packages: category.packages.map(pkg => ({
                 name: pkg.name,
-                price: pkg.price,
-                features: pkg.features
+                price: pkg.price
             }))
         }));
 
-        return `You are a helpful AI assistant helping users find the right services for their needs. 
-        Based on the following available services and the user's needs, suggest the most appropriate packages.
-        
-        Available services:
-        ${JSON.stringify(servicesDescription, null, 2)}
-        
-        User's needs: ${userInput}
-        
-        Please analyze the user's needs and:
-        1. Suggest specific packages that would best match their requirements
-        2. Explain why these packages are recommended
-        3. Provide a brief summary of what they would get
-        4. Format your response in a clear, structured way
-        5. If the user's needs are unclear, ask for more specific information
-        6. Consider the user's budget and timeline if mentioned
-        
-        Respond in the same language as the user's input.`;
+        return `You are an assistant helping users choose the best service packages for their needs. 
+Based on the user's message and the available categories and packages, recommend the best matching package(s) by name and category, and briefly explain your choice in 2-3 sentences. 
+At the end, list the selected packages in the format: Selected packages: [category name] - [package name], [category name] - [package name], ...
+Do not list package features. Do not repeat these instructions. Respond in the user's language (${i18n.language}). Use Markdown.
+
+Available services:
+${JSON.stringify(servicesDescription, null, 2)}
+
+User's message: ${userInput}`;
     };
 
     const handleSend = async () => {
@@ -65,20 +79,51 @@ const AIChat = ({ offerData }) => {
         setIsLoading(true);
 
         try {
-            const model = genAI.getGenerativeModel({ model: "gemini-pro" });
+            if (!apiKey) {
+                throw new Error('API key is not configured');
+            }
+
+            const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash" });
             const prompt = generatePrompt(input);
+            console.log('Sending prompt to Gemini API...');
             const result = await model.generateContent(prompt);
             const response = await result.response;
             const text = response.text();
 
+            // Extract selected packages from the AI response
+            let newSelectedServices = [];
+            const selectedMatch = text.match(/Selected packages?:\s*([\s\S]*)/i);
+            if (selectedMatch && selectedMatch[1]) {
+                // Split by comma, then by dash
+                newSelectedServices = selectedMatch[1]
+                    .split(',')
+                    .map(item => item.trim())
+                    .map(item => {
+                        const parts = item.split(' - ');
+                        if (parts.length === 2) {
+                            return { category: parts[0].trim(), package: parts[1].trim() };
+                        }
+                        return null;
+                    })
+                    .filter(Boolean);
+            }
+            setSelectedServices(newSelectedServices);
+
+            const html = marked.parse(text);
             const aiMessage = {
                 type: 'ai',
-                content: text
+                content: html
             };
 
             setMessages(prev => [...prev, aiMessage]);
         } catch (error) {
-            console.error('Error:', error);
+            console.error('Full error object:', error);
+            console.error('Error details:', {
+                message: error.message,
+                status: error.status,
+                statusText: error.statusText,
+                response: error.response
+            });
             const errorMessage = {
                 type: 'ai',
                 content: t('offer.chat.error')
@@ -109,9 +154,11 @@ const AIChat = ({ offerData }) => {
                         <div className="MessageIcon">
                             {message.type === 'ai' ? <BsRobot /> : <BsPerson />}
                         </div>
-                        <div className="MessageContent">
-                            {message.content}
-                        </div>
+                        {message.type === 'ai' ? (
+                            <div className="MessageContent" dangerouslySetInnerHTML={{ __html: message.content }} />
+                        ) : (
+                            <div className="MessageContent">{message.content}</div>
+                        )}
                     </div>
                 ))}
                 {isLoading && (

@@ -20,7 +20,7 @@ const FreelanceScreen = () => {
                     <p className="PriceDisclaimer">{t('offer.priceDisclaimer')}</p>
                 </div>
 
-                <AIChat offerData={offerData} />
+                <AIChat offerData={offerData} selectedServices={selectedServices} setSelectedServices={setSelectedServices} />
 
                 {offerData.categories.map((category, index) => (
                     <ServiceCategory
