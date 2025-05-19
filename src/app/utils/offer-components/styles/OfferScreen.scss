@@ -154,4 +154,222 @@
       }
     }
   }
+}
+
+.ContactForm {
+    background: color.$fourth-color;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-top: 2rem;
+    border: 1px solid rgba(color.$primary-color, 0.1);
+
+    h2 {
+        font-size: 1.8rem;
+        margin-bottom: 1.5rem;
+        color: color.$primary-color;
+        font-weight: 700;
+    }
+
+    .FormModeToggle {
+        display: flex;
+        gap: 1rem;
+        margin-bottom: 2rem;
+
+        .ModeButton {
+            flex: 1;
+            padding: 0.75rem;
+            border: 2px solid color.$primary-color;
+            border-radius: 8px;
+            background: transparent;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            color: color.$primary-color;
+
+            &:hover {
+                background: rgba(color.$primary-color, 0.1);
+            }
+
+            &.active {
+                background: color.$primary-color;
+                color: color.$fourth-color;
+            }
+        }
+    }
+
+    .SelectedServices {
+        background: rgba(color.$primary-color, 0.05);
+        padding: 1.5rem;
+        border-radius: 8px;
+        margin-bottom: 2rem;
+        border: 1px solid rgba(color.$primary-color, 0.1);
+
+        h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: color.$primary-color;
+            font-weight: 600;
+        }
+
+        .ServiceItem {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid rgba(color.$primary-color, 0.1);
+            color: color.$third-color;
+
+            &:last-child {
+                border-bottom: none;
+            }
+        }
+
+        .TotalPrice {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 2px solid rgba(color.$primary-color, 0.1);
+            font-weight: bold;
+            font-size: 1.1rem;
+            color: color.$primary-color;
+        }
+    }
+
+    form {
+        .FormGroup {
+            margin-bottom: 1.5rem;
+
+            label {
+                display: block;
+                margin-bottom: 0.5rem;
+                color: color.$third-color;
+                font-weight: 500;
+            }
+
+            input, textarea {
+                width: 100%;
+                padding: 0.75rem;
+                border: 2px solid rgba(color.$primary-color, 0.2);
+                border-radius: 8px;
+                font-size: 1rem;
+                transition: all 0.3s ease;
+                background: color.$fourth-color;
+                color: color.$third-color;
+
+                &:focus {
+                    outline: none;
+                    border-color: color.$primary-color;
+                    box-shadow: 0 0 0 3px rgba(color.$primary-color, 0.1);
+                }
+
+                &::placeholder {
+                    color: rgba(color.$third-color, 0.5);
+                }
+            }
+
+            textarea {
+                resize: vertical;
+                min-height: 100px;
+            }
+        }
+
+        .SubmitButton {
+            width: 100%;
+            padding: 1rem;
+            background: color.$primary-color;
+            color: color.$fourth-color;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+
+            &:hover {
+                background: color.$accent-color-light;
+                transform: translateY(-1px);
+            }
+
+            &:disabled {
+                background: rgba(color.$primary-color, 0.5);
+                cursor: not-allowed;
+                transform: none;
+            }
+
+            svg {
+                transition: transform 0.3s ease;
+            }
+
+            &:hover:not(:disabled) svg {
+                transform: translateX(4px);
+            }
+        }
+    }
+
+    .SuccessMessage {
+        text-align: center;
+        padding: 2rem;
+        background: rgba(color.$primary-color, 0.05);
+        border-radius: 8px;
+        border: 1px solid rgba(color.$primary-color, 0.1);
+
+        h3 {
+            color: color.$primary-color;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        p {
+            color: color.$third-color;
+            line-height: 1.6;
+        }
+    }
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .ContactForm {
+        padding: 1.5rem;
+
+        h2 {
+            font-size: 1.5rem;
+        }
+
+        .FormModeToggle {
+            .ModeButton {
+                padding: 0.5rem;
+                font-size: 0.9rem;
+            }
+        }
+
+        .SelectedServices {
+            padding: 1rem;
+
+            h3 {
+                font-size: 1.1rem;
+            }
+        }
+    }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+    .ContactForm {
+        padding: 1rem;
+
+        h2 {
+            font-size: 1.3rem;
+        }
+
+        .FormModeToggle {
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+    }
 } 

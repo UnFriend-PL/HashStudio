@@ -100,6 +100,8 @@
     "priceDisclaimer": "* Ceny są orientacyjne i mogą się różnić w zależności od specyfiki projektu. Skontaktuj się z nami, aby otrzymać spersonalizowaną ofertę.",
     "contactForm": {
       "title": "Rozpocznij Współpracę",
+      "simpleMode": "Tryb Uproszczony",
+      "advancedMode": "Tryb Zaawansowany",
       "selectedServices": "Wybrane usługi:",
       "total": "Suma:",
       "name": "Twoje imię:",
@@ -108,7 +110,8 @@
       "message": "Dodatkowe informacje:",
       "send": "Wyślij zapytanie",
       "sending": "Wysyłanie...",
-      "sent": "Wysłano pomyślnie!"
+      "sent": "Wysłano pomyślnie!",
+      "successMessage": "Dziękujemy za przesłanie zapytania. Skontaktujemy się z Tobą najszybciej jak to możliwe."
     }
   },
   "langSwitcher": {

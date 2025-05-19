@@ -100,6 +100,8 @@
     "priceDisclaimer": "* Prices are indicative and may vary depending on project specifics. Contact us for a personalized quote.",
     "contactForm": {
       "title": "Start Your Project",
+      "simpleMode": "Simple Mode",
+      "advancedMode": "Advanced Mode",
       "selectedServices": "Selected services:",
       "total": "Total:",
       "name": "Your name:",
@@ -108,7 +110,8 @@
       "message": "Additional information:",
       "send": "Send Inquiry",
       "sending": "Sending...",
-      "sent": "Sent Successfully!"
+      "sent": "Sent Successfully!",
+      "successMessage": "Thank you for your inquiry. We will contact you as soon as possible."
     }
   },
   "freelance": {
