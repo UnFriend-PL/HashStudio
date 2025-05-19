@@ -112,6 +112,12 @@
       "sending": "Sending...",
       "sent": "Sent Successfully!",
       "successMessage": "Thank you for your inquiry. We will contact you as soon as possible."
+    },
+    "chat": {
+      "title": "AI Assistant",
+      "subtitle": "I'll help you choose the best package for your needs",
+      "placeholder": "Describe your needs...",
+      "error": "Sorry, an error occurred. Please try again later."
     }
   },
   "freelance": {

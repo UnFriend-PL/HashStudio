@@ -2,6 +2,9 @@
 const nextConfig = {
     output: "standalone",
     distDir: 'build',
+    sassOptions: {
+        includePaths: ['./src'],
+    },
     experimental: {
         turbo: {
             rules: {

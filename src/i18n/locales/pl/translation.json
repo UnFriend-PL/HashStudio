@@ -112,6 +112,12 @@
       "sending": "Wysyłanie...",
       "sent": "Wysłano pomyślnie!",
       "successMessage": "Dziękujemy za przesłanie zapytania. Skontaktujemy się z Tobą najszybciej jak to możliwe."
+    },
+    "chat": {
+      "title": "Asystent AI",
+      "subtitle": "Pomogę Ci wybrać najlepszy pakiet dla Twoich potrzeb",
+      "placeholder": "Opisz swoje potrzeby...",
+      "error": "Przepraszamy, wystąpił błąd. Spróbuj ponownie później."
     }
   },
   "langSwitcher": {

@@ -2,7 +2,7 @@ import { useTranslation } from 'react-i18next';
 import PackageHeader from './PackageHeader';
 import FeatureRow from './FeatureRow';
 
-const PackageGrid = ({ packages, isExpanded, selectedPackageIndex, onPackageSelect }) => {
+const PackageGrid = ({ packages, isExpanded, onServiceSelect, selectedServices }) => {
     const { t } = useTranslation();
     return (
         <div className={`PackagesGrid ${isExpanded ? 'expanded' : ''}`}>
@@ -13,8 +13,10 @@ const PackageGrid = ({ packages, isExpanded, selectedPackageIndex, onPackageSele
                         key={index} 
                         name={pkg.name} 
                         price={pkg.price}
-                        isSelected={index === selectedPackageIndex}
-                        onSelect={() => onPackageSelect(index)}
+                        isSelected={selectedServices.some(service => 
+                            service.packageName === pkg.name
+                        )}
+                        onSelect={() => onServiceSelect(pkg.name, pkg.price)}
                     />
                 ))}
             </div>
@@ -24,7 +26,7 @@ const PackageGrid = ({ packages, isExpanded, selectedPackageIndex, onPackageSele
                         key={featureIndex} 
                         featureIndex={featureIndex}
                         packages={packages}
-                        selectedPackageIndex={selectedPackageIndex}
+                        selectedServices={selectedServices}
                     />
                 ))}
             </div>
