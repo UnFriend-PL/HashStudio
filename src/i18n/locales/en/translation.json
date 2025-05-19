@@ -36,80 +36,82 @@
   "offer": {
     "title": "Your Digital Partner",
     "subtitle": "We create solutions that make your business stand out in the digital world",
-    "selectionGuide": "Choose the package that best fits your needs",
-    "features": "What's included?",
+    "selectionGuide": "Choose a package that best suits your needs",
+    "features": "What's included in the package?",
     "packageNames": {
-      "mini": "Start",
-      "standard": "Business",
-      "pro": "Premium",
+      "basic": "Basic",
+      "standard": "Standard",
+      "premium": "Premium",
       "startup": "Startup",
       "business": "Business",
       "enterprise": "Enterprise"
     },
-    "website": {
-      "category": "Websites",
+    "webDevelopment": {
       "features": {
-        "onePage": "One Page Website",
-        "responsive": "Responsive Design",
-        "revisions2": "2 Revision Rounds",
-        "revisions4": "4 Revision Rounds",
-        "basicSeo": "Basic SEO",
-        "advancedSeo": "Advanced SEO",
-        "premiumSeo": "Premium SEO",
-        "contactForm": "Contact Form",
-        "advancedForms": "Advanced Forms",
-        "hosting1": "Hosting (1 year)",
-        "hosting2": "Hosting (2 years)",
-        "customGraphics": "Custom Graphics",
-        "cms": "CMS System",
-        "pages3": "Up to 3 Subpages",
-        "pagesUnlimited": "Unlimited Subpages"
+        "landingPage": "Landing page (up to 5 subpages)",
+        "responsive": "Responsive design",
+        "basicSeo": "Basic SEO optimization",
+        "contactForm": "Contact form",
+        "googleAnalytics": "Google Analytics integration",
+        "support1month": "1 month support",
+        "cms": "Content Management System (CMS)",
+        "socialMedia": "Social media integration",
+        "newsletter": "Newsletter system",
+        "booking": "Booking/appointment system",
+        "adminPanel": "Admin panel"
       }
     },
-    "graphics": {
-      "category": "Graphic Design",
+    "webApplications": {
       "features": {
-        "banners3": "Advertising Banners (3 pcs)",
-        "banners5": "Advertising Banners (5 pcs)",
-        "banners10": "Advertising Banners (10 pcs)",
-        "socialMedia5": "Social Media Graphics (5 pcs)",
-        "socialMedia10": "Social Media Graphics (10 pcs)",
-        "socialMedia20": "Social Media Graphics (20 pcs)",
-        "revisions2": "2 Revision Rounds",
-        "revisions4": "4 Revision Rounds",
-        "sourceFiles": "Source Files",
-        "facebookPosts": "Facebook Posts",
-        "facebookPostsMonthly": "Facebook Posts (monthly package)",
-        "facebookPosts3Monthly": "Facebook Posts (3-month package)",
-        "websiteGraphics": "Website Graphics",
-        "logoAndBranding": "Logo and Branding",
-        "brandBook": "Brand Book"
+        "basicApp": "Web application with basic features",
+        "adminPanel": "Admin panel",
+        "auth": "User authentication system",
+        "responsive": "Responsive interface",
+        "basicDocs": "Basic documentation",
+        "support3months": "3 months support",
+        "api": "External API integration",
+        "notifications": "Notification system",
+        "fullDocs": "Full documentation",
+        "automation": "Process automation"
       }
     },
-    "customSolutions": {
-      "category": "Custom Solutions",
+    "uiUxDesign": {
       "features": {
-        "needsAnalysis": "Needs Analysis",
-        "businessAnalysis": "Comprehensive Business Analysis",
-        "strategyAnalysis": "Full Analysis and Strategy",
-        "uiuxBasic": "UI/UX Design",
-        "uiuxAdvanced": "Advanced UI/UX Design",
-        "uiuxComplex": "Comprehensive UI/UX Design",
-        "basicFunctionality": "Basic Functionality",
-        "extendedFunctionality": "Extended Functionality",
-        "unlimitedFunctionality": "Unlimited Functionality",
-        "revisions2": "2 Revision Rounds",
-        "revisions4": "4 Revision Rounds",
-        "documentation": "Documentation",
-        "extendedDocumentation": "Extended Documentation",
-        "support1month": "Technical Support (1 month)",
-        "support3months": "Technical Support (3 months)",
-        "support6months": "Technical Support (6 months)",
-        "externalSystems": "Integrations with External Systems",
-        "teamTraining": "Team Training",
-        "teamTrainingSupport": "Team Training and Support"
+        "basicUI": "User interface design",
+        "basicPrototypes": "Basic prototypes",
+        "styleGuide": "Style guide",
+        "assets": "Assets export",
+        "revisions1": "1 round of revisions",
+        "uxResearch": "UX research",
+        "teamTraining": "Team training"
       }
     },
+    "graphicsDesign": {
+      "features": {
+        "logo": "Logo design",
+        "basicBranding": "Basic visual identity",
+        "basicFormats": "Export in basic formats",
+        "revisions1": "1 round of revisions",
+        "marketingMaterials": "Marketing materials design",
+        "socialMedia": "Social media graphics",
+        "brandingTraining": "Branding training"
+      }
+    },
+    "priceDisclaimer": "* Prices are indicative and may vary depending on project specifics. Contact us for a personalized quote.",
+    "contactForm": {
+      "title": "Start Your Project",
+      "selectedServices": "Selected services:",
+      "total": "Total:",
+      "name": "Your name:",
+      "email": "Your email:",
+      "phone": "Phone number:",
+      "message": "Additional information:",
+      "send": "Send Inquiry",
+      "sending": "Sending...",
+      "sent": "Sent Successfully!"
+    }
+  },
+  "freelance": {
     "priceDisclaimer": "* Prices are indicative and may vary depending on project specifics. Contact us for a personalized quote.",
     "contactForm": {
       "title": "Start Your Project",

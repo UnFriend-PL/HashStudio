@@ -39,75 +39,62 @@
     "selectionGuide": "Wybierz pakiet, który najlepiej odpowiada Twoim potrzebom",
     "features": "Co zawiera pakiet?",
     "packageNames": {
-      "mini": "Start",
-      "standard": "Business",
-      "pro": "Premium",
+      "basic": "Basic",
+      "standard": "Standard",
+      "premium": "Premium",
       "startup": "Startup",
       "business": "Business",
       "enterprise": "Enterprise"
     },
-    "website": {
-      "category": "Strony Internetowe",
+    "webDevelopment": {
       "features": {
-        "onePage": "Strona One Page",
-        "responsive": "Responsywny Design",
-        "revisions2": "2 Rundy Poprawek",
-        "revisions4": "4 Rundy Poprawek",
-        "basicSeo": "Podstawowe SEO",
-        "advancedSeo": "Zaawansowane SEO",
-        "premiumSeo": "Premium SEO",
-        "contactForm": "Formularz Kontaktowy",
-        "advancedForms": "Zaawansowane Formularze",
-        "hosting1": "Hosting (1 rok)",
-        "hosting2": "Hosting (2 lata)",
-        "customGraphics": "Indywidualne Grafiki",
-        "cms": "System CMS",
-        "pages3": "Do 3 Podstron",
-        "pagesUnlimited": "Nielimitowana Liczba Podstron"
+        "landingPage": "Strona wizytówka (do 5 podstron)",
+        "responsive": "Responsywny design",
+        "basicSeo": "Podstawowa optymalizacja SEO",
+        "contactForm": "Formularz kontaktowy",
+        "googleAnalytics": "Integracja z Google Analytics",
+        "support1month": "Wsparcie przez 1 miesiąc",
+        "cms": "System zarządzania treścią (CMS)",
+        "socialMedia": "Integracja z mediami społecznościowymi",
+        "newsletter": "System newslettera",
+        "booking": "System rezerwacji/umawiania wizyt",
+        "adminPanel": "Panel administracyjny"
       }
     },
-    "graphics": {
-      "category": "Projektowanie Graficzne",
+    "webApplications": {
       "features": {
-        "banners3": "Bannery Reklamowe (3 szt)",
-        "banners5": "Bannery Reklamowe (5 szt)",
-        "banners10": "Bannery Reklamowe (10 szt)",
-        "socialMedia5": "Grafiki na Social Media (5 szt)",
-        "socialMedia10": "Grafiki na Social Media (10 szt)",
-        "socialMedia20": "Grafiki na Social Media (20 szt)",
-        "revisions2": "2 Rundy Poprawek",
-        "revisions4": "4 Rundy Poprawek",
-        "sourceFiles": "Pliki Źródłowe",
-        "facebookPosts": "Posty na Facebook",
-        "facebookPostsMonthly": "Posty na Facebook (miesięczny pakiet)",
-        "facebookPosts3Monthly": "Posty na Facebook (3-miesięczny pakiet)",
-        "websiteGraphics": "Oprawa Graficzna Strony",
-        "logoAndBranding": "Logo i Branding",
-        "brandBook": "Księga Znaku"
+        "basicApp": "Aplikacja webowa z podstawowymi funkcjami",
+        "adminPanel": "Panel administracyjny",
+        "auth": "System autoryzacji użytkowników",
+        "responsive": "Responsywny interfejs",
+        "basicDocs": "Podstawowa dokumentacja",
+        "support3months": "Wsparcie przez 3 miesiące",
+        "api": "Integracja z zewnętrznymi API",
+        "notifications": "System powiadomień",
+        "fullDocs": "Pełna dokumentacja",
+        "automation": "Automatyzacja procesów"
       }
     },
-    "customSolutions": {
-      "category": "Rozwiązania Dedykowane",
+    "uiUxDesign": {
       "features": {
-        "needsAnalysis": "Analiza Potrzeb",
-        "businessAnalysis": "Kompleksowa Analiza Biznesowa",
-        "strategyAnalysis": "Pełna Analiza i Strategia",
-        "uiuxBasic": "Projekt UI/UX",
-        "uiuxAdvanced": "Zaawansowany Projekt UI/UX",
-        "uiuxComplex": "Kompleksowy Projekt UI/UX",
-        "basicFunctionality": "Podstawowa Funkcjonalność",
-        "extendedFunctionality": "Rozszerzona Funkcjonalność",
-        "unlimitedFunctionality": "Nielimitowana Funkcjonalność",
-        "revisions2": "2 Rundy Poprawek",
-        "revisions4": "4 Rundy Poprawek",
-        "documentation": "Dokumentacja",
-        "extendedDocumentation": "Rozszerzona Dokumentacja",
-        "support1month": "Wsparcie Techniczne (1 miesiąc)",
-        "support3months": "Wsparcie Techniczne (3 miesiące)",
-        "support6months": "Wsparcie Techniczne (6 miesięcy)",
-        "externalSystems": "Integracje z Zewnętrznymi Systemami",
-        "teamTraining": "Szkolenie Zespołu",
-        "teamTrainingSupport": "Szkolenie i Wsparcie Zespołu"
+        "basicUI": "Projekt interfejsu użytkownika",
+        "basicPrototypes": "Podstawowe prototypy",
+        "styleGuide": "Style guide",
+        "assets": "Eksport assetów",
+        "revisions1": "1 runda poprawek",
+        "uxResearch": "Badania UX",
+        "teamTraining": "Szkolenie zespołu"
+      }
+    },
+    "graphicsDesign": {
+      "features": {
+        "logo": "Projekt logo",
+        "basicBranding": "Podstawowa identyfikacja wizualna",
+        "basicFormats": "Eksport w podstawowych formatach",
+        "revisions1": "1 runda poprawek",
+        "marketingMaterials": "Projekt materiałów marketingowych",
+        "socialMedia": "Projekt grafik do social media",
+        "brandingTraining": "Szkolenie z brandingu"
       }
     },
     "priceDisclaimer": "* Ceny są orientacyjne i mogą się różnić w zależności od specyfiki projektu. Skontaktuj się z nami, aby otrzymać spersonalizowaną ofertę.",
