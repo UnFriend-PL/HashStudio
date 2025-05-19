@@ -31,18 +31,35 @@ const AnimatedMenu = () => {
     useEffect(() => {
         const observer = new IntersectionObserver(
             (entries) => {
-                const visibleEntry = entries.find((entry) => entry.isIntersecting);
-                if (visibleEntry) {
-                    const index = items.findIndex((item) => item.sectionId === visibleEntry.target.id);
-                    if (index !== -1) setActive(index);
+                // Filter out entries with very low intersection ratio to reduce jitter
+                const visibleEntries = entries.filter(entry => entry.intersectionRatio > 0.3);
+                
+                if (visibleEntries.length > 0) {
+                    // Find the section with the highest intersection ratio
+                    const mostVisibleEntry = visibleEntries.reduce((max, entry) => {
+                        return entry.intersectionRatio > max.intersectionRatio ? entry : max;
+                    }, visibleEntries[0]);
+
+                    const index = items.findIndex((item) => item.sectionId === mostVisibleEntry.target.id);
+                    if (index !== -1) {
+                        setActive(index);
+                    }
                 }
             },
-            {threshold: 0.1}
+            {
+                // Reduce number of thresholds and increase the minimum visibility required
+                threshold: [0.3, 0.5, 0.7, 0.9],
+                // Add some margin to make transitions smoother
+                rootMargin: '-10% 0px -10% 0px'
+            }
         );
 
+        // Only observe sections that exist
         items.forEach((item) => {
             const section = document.getElementById(item.sectionId);
-            if (section) observer.observe(section);
+            if (section) {
+                observer.observe(section);
+            }
         });
 
         return () => observer.disconnect();

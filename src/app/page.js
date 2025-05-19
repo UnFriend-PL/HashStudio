@@ -21,7 +21,7 @@ import smarcinkowski from "@/app/assets/smarcinkowski.png";
 import {FaGithub, FaLinkedin} from "react-icons/fa";
 import {TbWorldWww} from "react-icons/tb"
 import avatar from "@/app/assets/avatar_szymon.png"
-import OfferScreen from "@/app/components/OfferScreen";
+import FreelanceScreen from "@/app/components/FreelanceScreen";
 
 export default function Home() {
     const { t } = useTranslation();
@@ -110,7 +110,7 @@ export default function Home() {
             {!loading && (
                 <ParallaxProvider>
                     <Cursor/>
-                    <main>
+                    <main style={{ position: 'relative' }}>
                         <section id={"welcome"}>
                             <WelcomeScreen/>
                         </section>
@@ -129,8 +129,8 @@ export default function Home() {
                                 <Portfolio data={portfolioData}/>
                             </div>
                         </section>
-                        <section id={"offer"}>
-                            <OfferScreen />
+                        <section id={"freelance"} className={styles.freelanceSection}>
+                            <FreelanceScreen />
                         </section>
                     </main>
                 </ParallaxProvider>

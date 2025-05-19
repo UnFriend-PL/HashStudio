@@ -7,7 +7,7 @@ import ContactForm from "@/app/utils/offer-components/ContactForm";
 
 import "@/app/utils/offer-components/styles/OfferScreen.scss";
 
-export default function OfferScreen() {
+export default function FreelanceScreen() {
     const { t } = useTranslation();
     const [selectedPackages, setSelectedPackages] = useState({});
 
@@ -33,7 +33,7 @@ export default function OfferScreen() {
         }));
 
     return (
-        <div className="OfferScreen">
+        <section className="OfferScreen">
             <div className="OfferPanel">
                 <div className="OfferTitle">
                     <h1>{t('offer.title')}</h1>
@@ -54,6 +54,6 @@ export default function OfferScreen() {
                     <ContactForm selectedServices={selectedServices} />
                 )}
             </div>
-        </div>
+        </section>
     );
 }
