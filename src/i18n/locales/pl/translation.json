@@ -124,5 +124,15 @@
     "pl": "Polski",
     "en": "Angielski",
     "chooseLanguage": "Wybierz język"
+  },
+  "categories": {
+    "Web Development": "Strony internetowe",
+    "Web Development_desc": "Profesjonalne strony internetowe i aplikacje webowe",
+    "Aplikacje Webowe": "Aplikacje Webowe",
+    "Aplikacje Webowe_desc": "Zaawansowane aplikacje webowe i systemy",
+    "UI/UX Design": "UI/UX Design",
+    "UI/UX Design_desc": "Projektowanie interfejsów użytkownika i doświadczeń",
+    "Grafika Komputerowa": "Grafika Komputerowa",
+    "Grafika Komputerowa_desc": "Projektowanie graficzne i identyfikacja wizualna"
   }
 } 

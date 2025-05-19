@@ -1,8 +1,10 @@
 import { useState } from "react";
+import { useTranslation } from 'react-i18next';
 import CategoryHeader from './CategoryHeader';
 import PackageGrid from './PackageGrid';
 
 const ServiceCategory = ({ category, onServiceSelect, selectedServices }) => {
+    const { t } = useTranslation();
     const [isExpanded, setIsExpanded] = useState(false);
 
     const isSelected = selectedServices.some(service => service.category === category.name);
@@ -10,8 +12,8 @@ const ServiceCategory = ({ category, onServiceSelect, selectedServices }) => {
     return (
         <div className="ServiceCategory">
             <CategoryHeader 
-                title={category.name}
-                description={category.description}
+                title={t(`categories.${category.name}`) || category.name}
+                description={t(`categories.${category.name}_desc`) || category.description}
                 isExpanded={isExpanded}
                 onToggle={() => setIsExpanded(!isExpanded)}
                 isSelected={isSelected}
@@ -19,6 +21,7 @@ const ServiceCategory = ({ category, onServiceSelect, selectedServices }) => {
             <PackageGrid 
                 packages={category.packages}
                 isExpanded={isExpanded}
+                category={category}
                 onServiceSelect={(packageName, price) => {
                     onServiceSelect({
                         category: category.name,

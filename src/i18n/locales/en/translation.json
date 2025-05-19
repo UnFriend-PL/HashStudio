@@ -139,5 +139,15 @@
     "pl": "Polish",
     "en": "English",
     "chooseLanguage": "Choose language"
+  },
+  "categories": {
+    "Web Development": "Web Development",
+    "Web Development_desc": "Professional websites and web applications",
+    "Aplikacje Webowe": "Web Applications",
+    "Aplikacje Webowe_desc": "Advanced web applications and systems",
+    "UI/UX Design": "UI/UX Design",
+    "UI/UX Design_desc": "User interface and experience design",
+    "Grafika Komputerowa": "Computer Graphics",
+    "Grafika Komputerowa_desc": "Graphic design and visual identity"
   }
 } 
