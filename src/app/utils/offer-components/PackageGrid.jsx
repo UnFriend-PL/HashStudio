@@ -14,7 +14,8 @@ const PackageGrid = ({ packages, isExpanded, onServiceSelect, selectedServices }
                         name={pkg.name} 
                         price={pkg.price}
                         isSelected={selectedServices.some(service => 
-                            service.packageName === pkg.name
+                            service.packageName === pkg.name &&
+                            service.category === (pkg.category || '')
                         )}
                         onSelect={() => onServiceSelect(pkg.name, pkg.price)}
                     />
