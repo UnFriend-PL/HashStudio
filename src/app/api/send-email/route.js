@@ -21,6 +21,9 @@ const validateOrigin = (req) => {
     const origin = req.headers.get('origin');
     const allowedOrigin = process.env.ALLOWED_ORIGIN;
     
+    console.log('Request origin:', origin);
+    console.log('Allowed origin:', allowedOrigin);
+    
     if (!origin || origin !== allowedOrigin) {
         throw new Error('Unauthorized origin');
     }
