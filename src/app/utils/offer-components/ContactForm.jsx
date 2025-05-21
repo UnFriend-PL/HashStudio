@@ -13,6 +13,7 @@ const ContactForm = ({ selectedServices }) => {
     });
     const [isSending, setIsSending] = useState(false);
     const [isSent, setIsSent] = useState(false);
+    const [error, setError] = useState(null);
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
@@ -25,12 +26,36 @@ const ContactForm = ({ selectedServices }) => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         setIsSending(true);
-        
-        // TODO: Implement actual form submission
-        await new Promise(resolve => setTimeout(resolve, 1000)); // Simulated API call
-        
-        setIsSending(false);
-        setIsSent(true);
+        setError(null);
+
+        try {
+            const response = await fetch('/api/send-email', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    ...formData,
+                    selectedServices: selectedServices.map(service => ({
+                        category: service.category,
+                        package: service.packageName, 
+                        price: service.price
+                    }))
+                })
+            });
+
+            const result = await response.json();
+
+            if (!response.ok) {
+                throw new Error(result.message || 'Unknown error');
+            }
+
+            setIsSent(true);
+        } catch (err) {
+            setError(err.message);
+        } finally {
+            setIsSending(false);
+        }
     };
 
     const totalPrice = selectedServices.reduce((sum, service) => sum + service.price, 0);
@@ -38,7 +63,7 @@ const ContactForm = ({ selectedServices }) => {
     return (
         <div className="ContactForm">
             <h2>{t('offer.contactForm.title')}</h2>
-            
+
             <div className="FormModeToggle">
                 <button 
                     className={`ModeButton ${!isAdvanced ? 'active' : ''}`}
@@ -134,6 +159,8 @@ const ContactForm = ({ selectedServices }) => {
                             </>
                         )}
                     </button>
+
+                    {error && <div className="ErrorMessage">{t('offer.contactForm.error')}: {error}</div>}
                 </form>
             ) : (
                 <div className="SuccessMessage">
@@ -145,4 +172,4 @@ const ContactForm = ({ selectedServices }) => {
     );
 };
 
-export default ContactForm; 
+export default ContactForm;
