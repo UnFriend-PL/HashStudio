@@ -18,8 +18,8 @@ const ipRequestCounts = new Map();
 
 // Validate request origin
 const validateOrigin = (req) => {
-    const origin = req.headers.get('origin');
-    const allowedOrigin = process.env.ALLOWED_ORIGIN;
+    const origin = req.headers.get('origin')?.replace(/\/$/, '');
+    const allowedOrigin = process.env.ALLOWED_ORIGIN?.replace(/\/$/, '');
     
     console.log('Request origin:', origin);
     console.log('Allowed origin:', allowedOrigin);
