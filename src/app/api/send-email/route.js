@@ -1,6 +1,5 @@
 import { NextResponse } from 'next/server';
-import { validateOrigin, validateInput } from './validators';
-import { checkRateLimit, createTransporter, verifyTransporter, sendEmail } from './emailService';
+import nodemailer from 'nodemailer';
 import { generateEmailContent } from './emailTemplate';
 
 // Add environment variable validation
@@ -125,6 +124,18 @@ const verifyTransporter = async (transporter) => {
             response: error.response
         });
         return false;
+    }
+};
+
+// Send email using the provided transporter
+const sendEmail = async (transporter, mailOptions) => {
+    try {
+        const info = await transporter.sendMail(mailOptions);
+        console.log('Message sent: %s', info.messageId);
+        return info;
+    } catch (error) {
+        console.error('Error sending email:', error);
+        throw new Error('Failed to send email: ' + error.message);
     }
 };
 
