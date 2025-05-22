@@ -117,7 +117,10 @@
       "title": "Asystent AI",
       "subtitle": "Pomogę Ci wybrać najlepszy pakiet dla Twoich potrzeb",
       "placeholder": "Opisz swoje potrzeby...",
-      "error": "Przepraszamy, wystąpił błąd. Spróbuj ponownie później."
+      "error": "Przepraszamy, wystąpił błąd. Spróbuj ponownie później.",
+      "welcome": "Cześć! Jestem Twoim asystentem AI. W czym mogę Ci dzisiaj pomóc?",
+      "categoryIntro": "Pomogę Ci poznać nasze usługi z kategorii {{category}}. Co chciałbyś o nich wiedzieć?",
+      "globalButton": "Zapytaj AI o tę usługę"
     }
   },
   "langSwitcher": {

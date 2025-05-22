@@ -66,14 +66,18 @@ export const extractSelectedServices = (text, offerData) => {
             if (parts.length === 2) {
                 const categoryName = parts[0].trim();
                 const packageName = parts[1].trim();
-                
-                const category = offerData.categories.find(cat => cat.name === categoryName);
+                // Compare case-insensitively and trimmed
+                const category = offerData.categories.find(cat => 
+                    cat.name.trim().toLowerCase() === categoryName.toLowerCase()
+                );
                 if (category) {
-                    const pkg = category.packages.find(p => p.name === packageName);
+                    const pkg = category.packages.find(p => 
+                        p.name.trim().toLowerCase() === packageName.toLowerCase()
+                    );
                     if (pkg) {
                         return {
-                            category: categoryName,
-                            packageName: packageName,
+                            category: category.name,
+                            packageName: pkg.name,
                             price: pkg.price
                         };
                     }

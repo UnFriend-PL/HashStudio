@@ -117,7 +117,10 @@
       "title": "AI Assistant",
       "subtitle": "I'll help you choose the best package for your needs",
       "placeholder": "Describe your needs...",
-      "error": "Sorry, an error occurred. Please try again later."
+      "error": "Sorry, an error occurred. Please try again later.",
+      "welcome": "Hello! I'm your AI assistant. How can I help you today?",
+      "categoryIntro": "I'll help you explore our {{category}} services. What would you like to know about?",
+      "globalButton": "Ask AI about this service"
     }
   },
   "freelance": {

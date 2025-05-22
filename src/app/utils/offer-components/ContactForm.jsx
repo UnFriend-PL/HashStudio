@@ -1,9 +1,11 @@
 import { useState } from "react";
 import { useTranslation } from 'react-i18next';
 import { BsArrowRight } from "react-icons/bs";
+import { useChatContext } from '@/app/context/ChatContext';
 
-const ContactForm = ({ selectedServices }) => {
+const ContactForm = () => {
     const { t } = useTranslation();
+    const { selectedServices } = useChatContext();
     const [isAdvanced, setIsAdvanced] = useState(false);
     const [formData, setFormData] = useState({
         name: '',
@@ -106,7 +108,6 @@ const ContactForm = ({ selectedServices }) => {
                             required
                         />
                     </div>
-
                     <div className="FormGroup">
                         <label htmlFor="email">{t('offer.contactForm.email')}</label>
                         <input
@@ -118,49 +119,30 @@ const ContactForm = ({ selectedServices }) => {
                             required
                         />
                     </div>
-
-                    {isAdvanced && (
-                        <>
-                            <div className="FormGroup">
-                                <label htmlFor="phone">{t('offer.contactForm.phone')}</label>
-                                <input
-                                    type="tel"
-                                    id="phone"
-                                    name="phone"
-                                    value={formData.phone}
-                                    onChange={handleInputChange}
-                                />
-                            </div>
-
-                            <div className="FormGroup">
-                                <label htmlFor="message">{t('offer.contactForm.message')}</label>
-                                <textarea
-                                    id="message"
-                                    name="message"
-                                    value={formData.message}
-                                    onChange={handleInputChange}
-                                    rows="4"
-                                />
-                            </div>
-                        </>
-                    )}
-
-                    <button 
-                        type="submit" 
-                        className="SubmitButton"
-                        disabled={isSending}
-                    >
-                        {isSending ? (
-                            t('offer.contactForm.sending')
-                        ) : (
-                            <>
-                                {t('offer.contactForm.send')}
-                                <BsArrowRight />
-                            </>
-                        )}
+                    <div className="FormGroup">
+                        <label htmlFor="phone">{t('offer.contactForm.phone')}</label>
+                        <input
+                            type="tel"
+                            id="phone"
+                            name="phone"
+                            value={formData.phone}
+                            onChange={handleInputChange}
+                        />
+                    </div>
+                    <div className="FormGroup">
+                        <label htmlFor="message">{t('offer.contactForm.message')}</label>
+                        <textarea
+                            id="message"
+                            name="message"
+                            value={formData.message}
+                            onChange={handleInputChange}
+                        />
+                    </div>
+                    <button type="submit" className={`SubmitButton${isSending ? ' sending' : ''}${isSent ? ' success' : ''}`} disabled={isSending}>
+                        {isSending ? t('offer.contactForm.sending') : t('offer.contactForm.send')}
+                        <BsArrowRight />
                     </button>
-
-                    {error && <div className="ErrorMessage">{t('offer.contactForm.error')}: {error}</div>}
+                    {error && <div className="ErrorMessage">{error}</div>}
                 </form>
             ) : (
                 <div className="SuccessMessage">

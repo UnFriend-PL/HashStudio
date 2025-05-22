@@ -71,7 +71,7 @@ class ChatContextManager {
     }
 
     /**
-     * Clean up old contexts (older than 24 hours)
+     * Clean up old contexts (older than 2 hours)
      */
     cleanupOldContexts() {
         const now = Date.now();

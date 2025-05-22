@@ -4,11 +4,20 @@ import ServiceCategory from '@/app/utils/offer-components/ServiceCategory';
 import ContactForm from '@/app/utils/offer-components/ContactForm';
 import AIChat from '@/app/utils/offer-components/AIChat';
 import { offerData } from '@/app/data/offerData';
+import { BsRobot } from 'react-icons/bs';
 import '@/app/utils/offer-components/styles/OfferScreen.scss';
+import { useChatContext } from '@/app/context/ChatContext';
 
 const FreelanceScreen = () => {
     const { t } = useTranslation();
-    const [selectedServices, setSelectedServices] = useState([]);
+    const { selectedServices, setSelectedServices } = useChatContext();
+    const [isChatOpen, setIsChatOpen] = useState(false);
+    const [selectedCategory, setSelectedCategory] = useState(null);
+
+    const handleChatOpen = (category) => {
+        setSelectedCategory(category);
+        setIsChatOpen(true);
+    };
 
     return (
         <div className="OfferScreen">
@@ -18,9 +27,24 @@ const FreelanceScreen = () => {
                     <p>{t('offer.subtitle')}</p>
                     <p className="SelectionGuide">{t('offer.selectionGuide')}</p>
                     <p className="PriceDisclaimer">{t('offer.priceDisclaimer')}</p>
+                    <button 
+                        className="GlobalChatButton"
+                        onClick={() => handleChatOpen(null)}
+                        title={t('offer.chat.globalButton')}
+                    >
+                        <BsRobot />
+                        <span>{t('offer.chat.globalButton')}</span>
+                    </button>
                 </div>
 
-                <AIChat offerData={offerData} selectedServices={selectedServices} setSelectedServices={setSelectedServices} />
+                <AIChat 
+                    isOpen={isChatOpen}
+                    onClose={() => {
+                        setIsChatOpen(false);
+                        setSelectedCategory(null);
+                    }}
+                    initialCategory={selectedCategory}
+                />
 
                 {offerData.categories.map((category, index) => (
                     <ServiceCategory
@@ -42,12 +66,11 @@ const FreelanceScreen = () => {
                             });
                         }}
                         selectedServices={selectedServices}
+                        onChatOpen={handleChatOpen}
                     />
                 ))}
 
-                {selectedServices.length > 0 && (
-                    <ContactForm selectedServices={selectedServices} />
-                )}
+                <ContactForm selectedServices={selectedServices} />
             </div>
         </div>
     );

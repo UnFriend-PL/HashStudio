@@ -23,25 +23,38 @@
       background-color: rgba(color.$primary-color, 0.15);
     }
 
-    h2 {
-      margin: 0;
-      color: color.$third-color;
-      font-size: 1.5rem;
+    .CategoryInfo {
+      flex: 1;
+
+      h2 {
+        margin: 0 0 0.5rem;
+        color: color.$primary-color;
+        font-size: 1.5rem;
+        font-weight: 600;
+      }
+
+      p {
+        font-size: 1rem;
+        color: color.$third-color;
+        margin: 0;
+        opacity: 0.8;
+      }
     }
 
-    svg {
-      font-size: 1.5rem;
-      color: color.$primary-color;
-      transition: transform 0.3s ease;
-      pointer-events: none;
-    }
+    .CategoryActions {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
 
-    &.expanded svg {
-      transform: rotate(0deg);
-    }
+      .ChevronIcon {
+        font-size: 1.5rem;
+        color: color.$primary-color;
+        transition: transform 0.3s ease;
 
-    &:not(.expanded) svg {
-      transform: rotate(-90deg);
+        &.expanded {
+          transform: rotate(180deg);
+        }
+      }
     }
   }
 }
@@ -52,12 +65,22 @@
     .CategoryHeader {
       padding: 1rem;
       
-      h2 {
-        font-size: 1.2rem;
+      .CategoryInfo {
+        h2 {
+          font-size: 1.3rem;
+        }
+        
+        p {
+          font-size: 0.9rem;
+        }
       }
       
-      svg {
-        font-size: 1.2rem;
+      .CategoryActions {
+        gap: 0.5rem;
+
+        .ChevronIcon {
+          font-size: 1.3rem;
+        }
       }
     }
   }

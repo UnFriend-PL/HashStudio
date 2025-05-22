@@ -1,33 +1,20 @@
-import { useState, useRef, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import { IoClose } from 'react-icons/io5';
 import { useTranslation } from 'react-i18next';
-import { BsSend } from 'react-icons/bs';
-import { marked } from 'marked';
-import ChatMessage from './ChatMessage';
-import { generatePrompt, extractSelectedServices, formatServicesDescription } from './chatUtils';
-import chatContextManager from './chatContext';
+import { useChatContext } from '@/app/context/ChatContext';
+import ReactMarkdown from 'react-markdown';
+import { generatePrompt, extractSelectedServices } from './chatUtils';
+import { offerData } from '@/app/data/offerData';
 
-const AIChat = ({ offerData, selectedServices, setSelectedServices }) => {
-    const { t, i18n } = useTranslation();
+const AIChat = ({ isOpen, onClose, initialCategory }) => {
+    const { t } = useTranslation();
+    const language = t.i18n?.language || 'pl';
     const [messages, setMessages] = useState([]);
     const [input, setInput] = useState('');
     const [isLoading, setIsLoading] = useState(false);
+    const [error, setError] = useState(null);
     const messagesEndRef = useRef(null);
-    const clientIdRef = useRef(null);
-
-    // Initialize client ID and load context on component mount
-    useEffect(() => {
-        // Generate a unique client ID if not exists
-        if (!clientIdRef.current) {
-            clientIdRef.current = `client_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
-        }
-
-        // Load existing context
-        const context = chatContextManager.getContext(clientIdRef.current);
-        setMessages(context.messages);
-        if (context.selectedServices.length > 0) {
-            setSelectedServices(context.selectedServices);
-        }
-    }, []);
+    const { selectedServices, setSelectedServices } = useChatContext();
 
     const scrollToBottom = () => {
         messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -37,112 +24,130 @@ const AIChat = ({ offerData, selectedServices, setSelectedServices }) => {
         scrollToBottom();
     }, [messages]);
 
-    const handleSend = async () => {
+    useEffect(() => {
+        if (isOpen && messages.length === 0) {
+            let welcomeMessage;
+            if (initialCategory) {
+                // Find the category name from offerData
+                const categoryObj = offerData.categories.find(cat => cat.name === initialCategory || cat.key === initialCategory);
+                const categoryName = categoryObj ? t(`offer.categories.${categoryObj.name}`) || categoryObj.name : initialCategory;
+                welcomeMessage = t('offer.chat.categoryIntro', { category: categoryName });
+            } else {
+                welcomeMessage = t('offer.chat.welcome');
+            }
+            setMessages([{ role: 'assistant', content: welcomeMessage }]);
+        }
+    }, [isOpen, initialCategory, t]);
+
+    const handleSendMessage = async () => {
         if (!input.trim()) return;
-
-        const userMessage = {
-            type: 'user',
-            content: input,
-            timestamp: Date.now()
-        };
-
-        // Add message to context and state
-        chatContextManager.addMessage(clientIdRef.current, userMessage);
-        setMessages(prev => [...prev, userMessage]);
+        setError(null);
+        const userMessage = { role: 'user', content: input };
+        const updatedMessages = [...messages, userMessage];
+        setMessages(updatedMessages);
         setInput('');
         setIsLoading(true);
 
         try {
-            const servicesDescription = formatServicesDescription(offerData);
-            const context = chatContextManager.getContext(clientIdRef.current);
+            // Build prompt using generatePrompt
             const prompt = generatePrompt(
                 input,
-                servicesDescription,
-                i18n.language,
-                context.messages,
-                context.selectedServices
+                offerData.categories,
+                language,
+                updatedMessages,
+                selectedServices
             );
 
             const response = await fetch('/api/gemini', {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
+                headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ prompt }),
             });
 
-            if (!response.ok) {
-                const errorData = await response.json();
-                throw new Error(errorData.details || 'Failed to get response from API');
-            }
-
+            if (!response.ok) throw new Error('Network response was not ok');
             const data = await response.json();
-            const text = data.response;
 
-            const newSelectedServices = extractSelectedServices(text, offerData);
-            setSelectedServices(newSelectedServices);
-            chatContextManager.updateSelectedServices(clientIdRef.current, newSelectedServices);
+            setMessages(prev => [...prev, { role: 'assistant', content: data.content }]);
 
-            const html = marked.parse(text);
-            const aiMessage = {
-                type: 'ai',
-                content: html,
-                timestamp: Date.now()
-            };
-
-            // Add AI message to context and state
-            chatContextManager.addMessage(clientIdRef.current, aiMessage);
-            setMessages(prev => [...prev, aiMessage]);
+            // Extract selected services from AI response
+            const extracted = extractSelectedServices(data.content, offerData);
+            console.log('AI response:', data.content);
+            console.log('Extracted services:', extracted);
+            console.log('OfferData categories:', offerData.categories.map(c => c.name));
+            if (extracted.length > 0 && setSelectedServices) {
+                setSelectedServices(extracted);
+            }
         } catch (error) {
-            console.error('Error:', error);
-            const errorMessage = {
-                type: 'ai',
-                content: t('offer.chat.error'),
-                timestamp: Date.now()
-            };
-            chatContextManager.addMessage(clientIdRef.current, errorMessage);
-            setMessages(prev => [...prev, errorMessage]);
+            setError(t('offer.chat.error'));
+            setMessages(prev => [...prev, { role: 'assistant', content: t('offer.chat.error') }]);
+        } finally {
+            setIsLoading(false);
         }
-
-        setIsLoading(false);
     };
 
     const handleKeyPress = (e) => {
         if (e.key === 'Enter' && !e.shiftKey) {
             e.preventDefault();
-            handleSend();
+            handleSendMessage();
         }
     };
 
+    if (!isOpen) return null;
+
     return (
-        <div className="AIChat">
-            <div className="ChatHeader">
-                <h3>{t('offer.chat.title')}</h3>
-                <p>{t('offer.chat.subtitle')}</p>
-            </div>
-
-            <div className="MessagesContainer">
-                {messages.map((message, index) => (
-                    <ChatMessage key={index} message={message} />
-                ))}
-                {isLoading && <ChatMessage isLoading={true} />}
-                <div ref={messagesEndRef} />
-            </div>
-
-            <div className="InputContainer">
-                <textarea
-                    value={input}
-                    onChange={(e) => setInput(e.target.value)}
-                    onKeyPress={handleKeyPress}
-                    placeholder={t('offer.chat.placeholder')}
-                    rows={1}
-                />
-                <button 
-                    onClick={handleSend}
-                    disabled={isLoading || !input.trim()}
-                >
-                    <BsSend />
-                </button>
+        <div className="AIChatModal">
+            <div className="AIChat">
+                <div className="ChatHeader">
+                    <button className="CloseButton" onClick={onClose}>
+                        <IoClose />
+                    </button>
+                    <h3>{t('offer.chat.title')}</h3>
+                    <p>{t('offer.chat.subtitle')}</p>
+                </div>
+                <div className="MessagesContainer">
+                    {messages.map((message, index) => (
+                        <div key={index} className={`Message ${message.role === 'assistant' ? 'ai' : 'user'}`}>
+                            <div className="MessageIcon">
+                                {message.role === 'assistant' ? '🤖' : '👤'}
+                            </div>
+                            <div className="MessageContent">
+                                {message.role === 'assistant' ? (
+                                    <ReactMarkdown>{message.content}</ReactMarkdown>
+                                ) : (
+                                    message.content
+                                )}
+                            </div>
+                        </div>
+                    ))}
+                    {isLoading && (
+                        <div className="Message ai">
+                            <div className="MessageIcon">🤖</div>
+                            <div className="MessageContent">
+                                <div className="LoadingDots">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </div>
+                            </div>
+                        </div>
+                    )}
+                    <div ref={messagesEndRef} />
+                </div>
+                <div className="InputContainer">
+                    <textarea
+                        value={input}
+                        onChange={(e) => setInput(e.target.value)}
+                        onKeyPress={handleKeyPress}
+                        placeholder={t('offer.chat.placeholder')}
+                        rows={1}
+                    />
+                    <button onClick={handleSendMessage} disabled={isLoading || !input.trim()}>
+                        ➤
+                    </button>
+                </div>
+                {error && (
+                    <div style={{ color: 'red', textAlign: 'center', marginTop: '0.5rem' }}>{error}</div>
+                )}
             </div>
         </div>
     );
