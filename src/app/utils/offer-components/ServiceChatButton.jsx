@@ -1,4 +1,5 @@
 import { RiBardFill } from "react-icons/ri";
+import '@/app/utils/offer-components/styles/AIChat.scss';
 
 const ServiceChatButton = ({ onClick }) => {
     return (

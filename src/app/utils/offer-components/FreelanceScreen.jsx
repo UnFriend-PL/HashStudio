@@ -5,7 +5,7 @@ import ContactForm from '@/app/utils/offer-components/ContactForm';
 import AIChat from '@/app/utils/offer-components/AIChat';
 import { offerData } from '@/app/data/offerData';
 import { RiBardFill  } from 'react-icons/ri';
-import '@/app/utils/offer-components/styles/OfferScreen.scss';
+import '@/app/utils/offer-components/styles/FreelanceScreen.scss';
 import { useChatContext } from '@/app/context/ChatContext';
 
 const FreelanceScreen = () => {
@@ -20,9 +20,9 @@ const FreelanceScreen = () => {
     };
 
     return (
-        <div className="OfferScreen">
-            <div className="OfferPanel">
-                <div className="OfferTitle">
+        <div className="FreelanceScreen">
+            <div className="FreelancePanel">
+                <div className="FreelanceTitle">
                     <h1>{t('offer.title')}</h1>
                     <p>{t('offer.subtitle')}</p>
                     <p className="SelectionGuide">{t('offer.selectionGuide')}</p>

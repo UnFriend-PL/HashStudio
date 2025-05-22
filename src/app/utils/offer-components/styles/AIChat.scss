@@ -1,0 +1,501 @@
+@use "@/app/styles/Colors" as color;
+
+.AIChat {
+  background: color.$fourth-color;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin: 2rem auto;
+  border: 1px solid rgba(color.$primary-color, 0.1);
+  display: flex;
+  flex-direction: column;
+  height: 600px;
+  max-width: 800px;
+  width: 100%;
+
+  .ChatHeader {
+    padding: 1.5rem;
+    border-bottom: 1px solid rgba(color.$primary-color, 0.1);
+    text-align: center;
+
+    h3 {
+      color: color.$primary-color;
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+    }
+
+    p {
+      color: color.$third-color;
+      font-size: 0.9rem;
+      opacity: 0.8;
+    }
+  }
+
+  .MessagesContainer {
+    flex: 1;
+    overflow-y: auto;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    .Message {
+      display: flex;
+      gap: 1rem;
+      max-width: 80%;
+
+      &.user {
+        margin-left: auto;
+        flex-direction: row-reverse;
+        display: flex;
+        align-items: flex-end;
+
+        .MessageContent {
+          background: color.$primary-color;
+          color: color.$fourth-color;
+          border-radius: 12px 12px 0 12px;
+        }
+      }
+
+      &.ai {
+        margin-right: auto;
+        display: flex;
+        align-items: flex-end;
+
+        .MessageContent {
+          background: rgba(color.$primary-color, 0.1);
+          color: color.$third-color;
+          border-radius: 12px 12px 12px 0;
+        }
+      }
+
+      .MessageIcon {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(color.$primary-color, 0.1);
+        color: color.$primary-color;
+        flex-shrink: 0;
+      }
+
+      .MessageContent {
+        padding: 1rem;
+        font-size: 0.95rem;
+        line-height: 1.5;
+        white-space: pre-wrap;
+
+        .LoadingDots {
+          display: flex;
+          gap: 0.5rem;
+          padding: 0.5rem;
+
+          span {
+            width: 8px;
+            height: 8px;
+            background: color.$primary-color;
+            border-radius: 50%;
+            animation: bounce 1.4s infinite ease-in-out;
+
+            &:nth-child(1) { animation-delay: -0.32s; }
+            &:nth-child(2) { animation-delay: -0.16s; }
+          }
+        }
+      }
+    }
+  }
+
+  .InputContainer {
+    padding: 1.5rem;
+    border-top: 1px solid rgba(color.$primary-color, 0.1);
+    display: flex;
+    gap: 1rem;
+    align-items: flex-end;
+
+    textarea {
+      flex: 1;
+      padding: 0.75rem;
+      border: 2px solid rgba(color.$primary-color, 0.2);
+      border-radius: 8px;
+      resize: none;
+      font-size: 0.95rem;
+      line-height: 1.5;
+      background: color.$fourth-color;
+      color: color.$third-color;
+      transition: all 0.3s ease;
+
+      &:focus {
+        outline: none;
+        border-color: color.$primary-color;
+        box-shadow: 0 0 0 3px rgba(color.$primary-color, 0.1);
+      }
+
+      &::placeholder {
+        color: rgba(color.$third-color, 0.5);
+      }
+    }
+
+    button {
+      width: 40px;
+      height: 40px;
+      border-radius: 8px;
+      border: none;
+      background: color.$primary-color;
+      color: color.$fourth-color;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+
+      &:hover:not(:disabled) {
+        background: color.$accent-color-light;
+        transform: translateY(-1px);
+      }
+
+      &:disabled {
+        background: rgba(color.$primary-color, 0.5);
+        cursor: not-allowed;
+      }
+    }
+  }
+}
+
+@keyframes bounce {
+  0%, 80%, 100% { transform: scale(0); }
+  40% { transform: scale(1); }
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .AIChat {
+    height: 500px;
+    margin: 1rem;
+
+    .ChatHeader {
+      padding: 1rem;
+
+      h3 {
+        font-size: 1.3rem;
+      }
+    }
+
+    .MessagesContainer {
+      padding: 1rem;
+
+      .Message {
+        max-width: 90%;
+      }
+    }
+
+    .InputContainer {
+      padding: 1rem;
+    }
+  }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+  .AIChat {
+    height: 450px;
+    margin: 0.5rem;
+
+    .Message {
+      max-width: 95%;
+    }
+  }
+}
+
+.AIChatModal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 1rem;
+
+  .AIChat {
+    position: relative;
+    background: color.$fourth-color;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(color.$primary-color, 0.1);
+    display: flex;
+    flex-direction: column;
+    height: 70vh;
+    max-width: 800px;
+    width: 100%;
+
+    .ChatHeader {
+      padding: 1.5rem;
+      border-bottom: 1px solid rgba(color.$primary-color, 0.1);
+      text-align: center;
+      position: relative;
+
+      .CloseButton {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        background: none;
+        border: none;
+        color: color.$primary-color;
+        font-size: 1.5rem;
+        padding: 0.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+
+        &:hover {
+          color: color.$accent-color-light;
+          transform: scale(1.1);
+        }
+      }
+
+      h3 {
+        color: color.$primary-color;
+        font-size: 1.5rem;
+        margin-bottom: 0.5rem;
+        font-weight: 600;
+      }
+
+      p {
+        color: color.$third-color;
+        font-size: 0.9rem;
+        opacity: 0.8;
+      }
+    }
+
+    .MessagesContainer {
+      flex: 1;
+      overflow-y: auto;
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+
+      .Message {
+        display: flex;
+        gap: 1rem;
+        max-width: 80%;
+
+        &.user {
+          margin-left: auto;
+          flex-direction: row-reverse;
+          display: flex;
+          align-items: flex-end;
+          .MessageContent {
+            background: color.$primary-color;
+            color: color.$fourth-color;
+            border-radius: 12px 12px 0 12px;
+          }
+        }
+
+        &.ai {
+          margin-right: auto;
+          display: flex;
+          align-items: flex-end;
+
+          .MessageContent {
+            background: rgba(color.$primary-color, 0.1);
+            color: color.$third-color;
+            border-radius: 12px 12px 12px 0;
+          }
+        }
+
+        .MessageIcon {
+          width: 32px;
+          height: 32px;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background: rgba(color.$primary-color, 0.1);
+          color: color.$primary-color;
+          flex-shrink: 0;
+        }
+
+        .MessageContent {
+          padding: 1rem;
+          font-size: 0.95rem;
+          line-height: 1.5;
+          white-space: pre-wrap;
+
+          .LoadingDots {
+            display: flex;
+            gap: 0.5rem;
+            padding: 0.5rem;
+
+            span {
+              width: 8px;
+              height: 8px;
+              background: color.$primary-color;
+              border-radius: 50%;
+              animation: bounce 1.4s infinite ease-in-out;
+
+              &:nth-child(1) { animation-delay: -0.32s; }
+              &:nth-child(2) { animation-delay: -0.16s; }
+            }
+          }
+        }
+      }
+    }
+
+    .InputContainer {
+      padding: 1.5rem;
+      border-top: 1px solid rgba(color.$primary-color, 0.1);
+      display: flex;
+      gap: 1rem;
+      align-items: flex-end;
+
+      textarea {
+        flex: 1;
+        padding: 0.75rem;
+        border: 2px solid rgba(color.$primary-color, 0.2);
+        border-radius: 8px;
+        resize: none;
+        font-size: 0.95rem;
+        line-height: 1.5;
+        background: color.$fourth-color;
+        color: color.$third-color;
+        transition: all 0.3s ease;
+
+        &:focus {
+          outline: none;
+          border-color: color.$primary-color;
+          box-shadow: 0 0 0 3px rgba(color.$primary-color, 0.1);
+        }
+
+        &::placeholder {
+          color: rgba(color.$third-color, 0.5);
+        }
+      }
+
+      button {
+        width: 40px;
+        height: 40px;
+        border-radius: 8px;
+        border: none;
+        background: color.$primary-color;
+        color: color.$fourth-color;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+
+        &:hover:not(:disabled) {
+          background: color.$accent-color-light;
+          transform: translateY(-1px);
+        }
+
+        &:disabled {
+          background: rgba(color.$primary-color, 0.5);
+          cursor: not-allowed;
+        }
+      }
+    }
+  }
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .AIChatModal {
+    padding: 0.5rem;
+
+    .AIChat {
+      height: 70vh;
+
+      .ChatHeader {
+        padding: 1rem;
+
+        h3 {
+          font-size: 1.3rem;
+        }
+      }
+
+      .MessagesContainer {
+        padding: 1rem;
+
+        .Message {
+          max-width: 90%;
+        }
+      }
+
+      .InputContainer {
+        padding: 1rem;
+      }
+    }
+  }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+  .AIChatModal {
+    padding: 0;
+
+    .AIChat {
+      height: 70vh;
+      border-radius: 12px;
+
+      .Message {
+        max-width: 95%;
+      }
+    }
+  }
+}
+
+.ServiceChatButtonContainer {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-left: auto;
+  padding: 0.5rem;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: rgba(color.$primary-color, 0.05);
+  }
+
+  .ServiceChatButton {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: none;
+    background: transparent;
+    color: color.$primary-color;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    padding: 0;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+
+    svg {
+      font-size: 1.2rem;
+    }
+  }
+
+  .ServiceChatText {
+    font-size: 0.9rem;
+    color: color.$third-color;
+    opacity: 1;
+    transition: color 0.3s ease;
+    white-space: nowrap;
+  }
+
+  &:hover {
+    .ServiceChatText {
+      color: color.$primary-color;
+    }
+  }
+} 

@@ -1,16 +1,41 @@
 @use "@/app/styles/Colors" as color;
 
 .ServiceCategory {
-  background-color: color.$secondary-color;
+  background: color.$fourth-color;
   border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+  border: 1px solid rgba(color.$primary-color, 0.1);
   overflow: hidden;
-  transition: all 0.3s ease-in-out;
-  margin-bottom: 1rem;
+  transition: box-shadow 0.3s ease;
+
+  &:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  }
+
+  .CategoryContent {
+    padding: 1.5rem;
+  }
 }
 
 /* Mobile Responsive */
 @media (max-width: 768px) {
   .ServiceCategory {
-    border-radius: 8px;
+    margin-bottom: 1.5rem;
+
+    .CategoryContent {
+      padding: 1rem;
+    }
+  }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+  .ServiceCategory {
+    margin-bottom: 1rem;
+
+    .CategoryContent {
+      padding: 0.75rem;
+    }
   }
 } 

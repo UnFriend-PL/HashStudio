@@ -7,6 +7,7 @@ import ReactMarkdown from 'react-markdown';
 import { generatePrompt, extractSelectedServices } from './chatUtils';
 import { offerData } from '@/app/data/offerData';
 import ChatMessage from './ChatMessage';
+import '@/app/utils/offer-components/styles/AIChat.scss';
 
 const AIChat = ({ isOpen, onClose, initialCategory }) => {
     const { t } = useTranslation();

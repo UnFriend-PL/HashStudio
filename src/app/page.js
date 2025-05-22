@@ -4,12 +4,12 @@ import {useEffect, useState} from 'react';
 import {ParallaxProvider} from "react-scroll-parallax";
 import WelcomeScreen from "@/app/components/WelcomeScreen";
 import Cursor from "@/app/decorators/Cursor";
-import ParallaxScrollScreen from "@/app/components/ParallaxScrollScreen";
+// import ParallaxScrollScreen from "@/app/components/ParallaxScrollScreen";
 import Menu from "@/app/components/Menu";
 import {usePathname} from 'next/navigation';
 import { useTranslation } from 'react-i18next';
 
-import TextFit from "@/app/decorators/TextFit";
+// import TextFit from "@/app/decorators/TextFit";
 import styles from "@/app/styles/Main.module.scss";
 import Preloader from '@/app/components/Preloader';
 import Portfolio from "@/app/components/Portfolio";
@@ -116,13 +116,13 @@ export default function Home() {
                         </section>
                         <Menu/>
                         <section id={"design"}>
-                            <ParallaxScrollScreen>
-                                <div className={styles.slogan}>
-                                    <TextFit minFontSize={50} maxFontSize={150}>
-                                        TEXT
-                                    </TextFit>
-                                </div>
-                            </ParallaxScrollScreen>
+                            {/* <ParallaxScrollScreen> */}
+                                {/* <div className={styles.slogan}> */}
+                                    {/* <TextFit minFontSize={50} maxFontSize={150}> */}
+                                        {/* TEXT */}
+                                    {/* </TextFit> */}
+                                {/* </div> */}
+                            {/* </ParallaxScrollScreen> */}
                         </section>
                         <section id={"portfolio"}>
                             <div className={styles.portfolioSection}>

@@ -4,6 +4,7 @@ import CategoryHeader from './CategoryHeader';
 import PackageGrid from './PackageGrid';
 import ServiceChatButton from './ServiceChatButton';
 import { useChatContext } from '@/app/context/ChatContext';
+import '@/app/utils/offer-components/styles/ServiceCategory.scss';
 
 const ServiceCategory = ({ category, onChatOpen }) => {
     const { t } = useTranslation();

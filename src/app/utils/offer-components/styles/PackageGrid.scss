@@ -1,118 +1,44 @@
 @use "@/app/styles/Colors" as color;
 
-.PackagesGrid {
-  max-height: 0;
-  opacity: 0;
-  transition: all 0.3s ease-in-out;
-  overflow: hidden;
-
-  &.expanded {
-    max-height: 2000px;
-    opacity: 1;
-    padding: 1.5rem;
-  }
-
-  .PackageHeaders {
-    display: grid;
-    grid-template-columns: 2fr repeat(3, 1fr);
-    gap: 1rem;
-    margin-bottom: 2rem;
-
-    .FeatureCell {
-      color: color.$third-color;
-      font-weight: bold;
-      display: flex;
-      align-items: center;
+.PackageGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+  
+  .PackageCard {
+    background: color.$fourth-color;
+    border-radius: 8px;
+    border: 1px solid rgba(color.$primary-color, 0.1);
+    overflow: hidden;
+    transition: all 0.3s ease;
+    
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
     }
-  }
-
-  .Features {
-    .FeatureRow {
-      display: grid;
-      grid-template-columns: 2fr repeat(3, 1fr);
-      gap: 1rem;
-      align-items: center;
-      padding: 0.75rem 0;
-      border-bottom: 1px solid rgba(color.$third-color, 0.1);
-
-      &:last-child {
-        border-bottom: none;
-      }
-
-      .FeatureCell {
-        color: color.$third-color;
-      }
-
-      .PackageCell {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        transition: all 0.3s ease;
-
-        &.highlighted {
-          background-color: rgba(color.$primary-color, 0.1);
-          border-radius: 4px;
-        }
-
-        svg {
-          font-size: 1.25rem;
-
-          &.included {
-            color: color.$primary-color;
-          }
-
-          &.not-included {
-            color: rgba(color.$third-color, 0.3);
-          }
-        }
-      }
+    
+    &.selected {
+      border: 2px solid color.$primary-color;
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
     }
   }
 }
 
 /* Mobile Responsive */
 @media (max-width: 768px) {
-  .PackagesGrid {
-    &.expanded {
-      padding: 1rem 0.5rem;
-    }
-
-    .PackageHeaders {
-      grid-template-columns: 1.5fr repeat(3, 1fr);
-      gap: 0.5rem;
-      margin-bottom: 1rem;
-      
-      .FeatureCell {
-        font-size: 0.9rem;
-      }
-    }
-    
-    .Features {
-      .FeatureRow {
-        grid-template-columns: 1.5fr repeat(3, 1fr);
-        gap: 0.5rem;
-        padding: 0.5rem 0;
-        font-size: 0.9rem;
-        
-        .PackageCell svg {
-          font-size: 1rem;
-        }
-      }
-    }
+  .PackageGrid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin-top: 1rem;
   }
 }
 
 /* Small Mobile */
 @media (max-width: 480px) {
-  .PackagesGrid {
-    .PackageHeaders, 
-    .Features .FeatureRow {
-      grid-template-columns: 1.2fr repeat(3, 1fr);
-      font-size: 0.8rem;
-    }
-    
-    .Features .FeatureRow .PackageCell svg {
-      font-size: 0.9rem;
-    }
+  .PackageGrid {
+    gap: 0.75rem;
+    margin-top: 0.75rem;
   }
 } 

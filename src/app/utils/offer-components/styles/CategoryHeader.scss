@@ -1,86 +1,81 @@
 @use "@/app/styles/Colors" as color;
 
-.CategoryHeaderWrapper {
-  border-bottom: 2px solid color.$fourth-color;
-
-  .CategoryHeader {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1.5rem;
-    transition: all 0.3s ease-in-out;
-    user-select: none;
-
-    &:hover {
-      background-color: rgba(color.$primary-color, 0.1);
+.CategoryHeader {
+  display: flex;
+  align-items: center;
+  padding: 1.5rem;
+  background: rgba(color.$primary-color, 0.05);
+  border-bottom: 1px solid rgba(color.$primary-color, 0.1);
+  position: relative;
+  
+  .CategoryIcon {
+    font-size: 1.8rem;
+    color: color.$primary-color;
+    margin-right: 1rem;
+    padding: 0.5rem;
+    border-radius: 8px;
+    background: rgba(color.$primary-color, 0.1);
+  }
+  
+  .CategoryDetails {
+    flex-grow: 1;
+    
+    h2 {
+      font-size: 1.5rem;
+      color: color.$primary-color;
+      margin-bottom: 0.25rem;
+      font-weight: 600;
     }
-
-    &.expanded {
-      border-bottom-color: color.$primary-color;
-    }
-
-    &.selected {
-      background-color: rgba(color.$primary-color, 0.15);
-    }
-
-    .CategoryInfo {
-      flex: 1;
-
-      h2 {
-        margin: 0 0 0.5rem;
-        color: color.$primary-color;
-        font-size: 1.5rem;
-        font-weight: 600;
-      }
-
-      p {
-        font-size: 1rem;
-        color: color.$third-color;
-        margin: 0;
-        opacity: 0.8;
-      }
-    }
-
-    .CategoryActions {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-
-      .ChevronIcon {
-        font-size: 1.5rem;
-        color: color.$primary-color;
-        transition: transform 0.3s ease;
-
-        &.expanded {
-          transform: rotate(180deg);
-        }
-      }
+    
+    p {
+      font-size: 0.95rem;
+      color: color.$third-color;
+      margin: 0;
+      opacity: 0.8;
+      line-height: 1.5;
     }
   }
 }
 
 /* Mobile Responsive */
 @media (max-width: 768px) {
-  .CategoryHeaderWrapper {
-    .CategoryHeader {
-      padding: 1rem;
-      
-      .CategoryInfo {
-        h2 {
-          font-size: 1.3rem;
-        }
-        
-        p {
-          font-size: 0.9rem;
-        }
+  .CategoryHeader {
+    padding: 1.2rem;
+    
+    .CategoryIcon {
+      font-size: 1.5rem;
+    }
+    
+    .CategoryDetails {
+      h2 {
+        font-size: 1.3rem;
       }
       
-      .CategoryActions {
-        gap: 0.5rem;
+      p {
+        font-size: 0.85rem;
+      }
+    }
+  }
+}
 
-        .ChevronIcon {
-          font-size: 1.3rem;
-        }
+/* Small Mobile */
+@media (max-width: 480px) {
+  .CategoryHeader {
+    padding: 1rem;
+    
+    .CategoryIcon {
+      font-size: 1.3rem;
+      margin-right: 0.75rem;
+      padding: 0.4rem;
+    }
+    
+    .CategoryDetails {
+      h2 {
+        font-size: 1.1rem;
+      }
+      
+      p {
+        font-size: 0.8rem;
       }
     }
   }

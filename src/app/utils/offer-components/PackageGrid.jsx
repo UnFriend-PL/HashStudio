@@ -1,16 +1,24 @@
 import { useTranslation } from 'react-i18next';
 import PackageHeader from './PackageHeader';
 import FeatureRow from './FeatureRow';
+import '@/app/utils/offer-components/styles/PackageGrid.scss';
 
 const PackageGrid = ({ packages, isExpanded, onServiceSelect, selectedServices, category }) => {
     const { t } = useTranslation();
+    
+    if (!isExpanded) return null;
+    
     return (
-        <div className={`PackagesGrid ${isExpanded ? 'expanded' : ''}`}>
-            <div className="PackageHeaders">
-                <div className="FeatureCell">{t("offer.features")}</div>
-                {packages.map((pkg, index) => (
+        <div className="PackageGrid">
+            {packages.map((pkg, index) => (
+                <div 
+                    key={index} 
+                    className={`PackageCard ${selectedServices.some(service => 
+                        service.packageName === pkg.name &&
+                        service.category === category.name
+                    ) ? 'selected' : ''}`}
+                >
                     <PackageHeader 
-                        key={index} 
                         name={pkg.name} 
                         price={pkg.price}
                         isSelected={selectedServices.some(service => 
@@ -19,18 +27,18 @@ const PackageGrid = ({ packages, isExpanded, onServiceSelect, selectedServices, 
                         )}
                         onSelect={() => onServiceSelect(pkg.name, pkg.price)}
                     />
-                ))}
-            </div>
-            <div className="Features">
-                {packages[0].features.map((_, featureIndex) => (
-                    <FeatureRow 
-                        key={featureIndex} 
-                        featureIndex={featureIndex}
-                        packages={packages}
-                        selectedServices={selectedServices}
-                    />
-                ))}
-            </div>
+                    
+                    <div className="FeaturesList">
+                        {pkg.features.map((feature, featureIndex) => (
+                            <FeatureRow 
+                                key={featureIndex}
+                                feature={feature}
+                                isIncluded={feature.included}
+                            />
+                        ))}
+                    </div>
+                </div>
+            ))}
         </div>
     );
 };
