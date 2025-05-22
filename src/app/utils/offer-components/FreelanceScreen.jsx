@@ -4,7 +4,7 @@ import ServiceCategory from '@/app/utils/offer-components/ServiceCategory';
 import ContactForm from '@/app/utils/offer-components/ContactForm';
 import AIChat from '@/app/utils/offer-components/AIChat';
 import { offerData } from '@/app/data/offerData';
-import { BsRobot } from 'react-icons/bs';
+import { RiBardFill  } from 'react-icons/ri';
 import '@/app/utils/offer-components/styles/OfferScreen.scss';
 import { useChatContext } from '@/app/context/ChatContext';
 
@@ -32,7 +32,7 @@ const FreelanceScreen = () => {
                         onClick={() => handleChatOpen(null)}
                         title={t('offer.chat.globalButton')}
                     >
-                        <BsRobot />
+                        <RiBardFill />
                         <span>{t('offer.chat.globalButton')}</span>
                     </button>
                 </div>
@@ -70,7 +70,7 @@ const FreelanceScreen = () => {
                     />
                 ))}
 
-                <ContactForm selectedServices={selectedServices} />
+                {selectedServices.length > 0 && <ContactForm />}
             </div>
         </div>
     );

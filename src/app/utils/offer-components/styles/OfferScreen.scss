@@ -163,6 +163,8 @@
       &.user {
         margin-left: auto;
         flex-direction: row-reverse;
+        display: flex;
+        align-items: flex-end;
 
         .MessageContent {
           background: color.$primary-color;
@@ -173,6 +175,8 @@
 
       &.ai {
         margin-right: auto;
+        display: flex;
+        align-items: flex-end;
 
         .MessageContent {
           background: rgba(color.$primary-color, 0.1);
@@ -674,7 +678,8 @@
         &.user {
           margin-left: auto;
           flex-direction: row-reverse;
-
+          display: flex;
+          align-items: flex-end;
           .MessageContent {
             background: color.$primary-color;
             color: color.$fourth-color;
@@ -684,6 +689,8 @@
 
         &.ai {
           margin-right: auto;
+          display: flex;
+          align-items: flex-end;
 
           .MessageContent {
             background: rgba(color.$primary-color, 0.1);
@@ -792,7 +799,7 @@
     padding: 0.5rem;
 
     .AIChat {
-      height: 90vh;
+      height: 70vh;
 
       .ChatHeader {
         padding: 1rem;
@@ -823,8 +830,8 @@
     padding: 0;
 
     .AIChat {
-      height: 100vh;
-      border-radius: 0;
+      height: 70vh;
+      border-radius: 12px;
 
       .Message {
         max-width: 95%;

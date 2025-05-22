@@ -138,11 +138,14 @@ const ContactForm = () => {
                             onChange={handleInputChange}
                         />
                     </div>
-                    <button type="submit" className={`SubmitButton${isSending ? ' sending' : ''}${isSent ? ' success' : ''}`} disabled={isSending}>
+                    <button 
+                        type="submit" 
+                        className={`SubmitButton ${isSending ? 'sending' : ''}`}
+                        disabled={isSending}
+                    >
                         {isSending ? t('offer.contactForm.sending') : t('offer.contactForm.send')}
-                        <BsArrowRight />
+                        {!isSending && <BsArrowRight />}
                     </button>
-                    {error && <div className="ErrorMessage">{error}</div>}
                 </form>
             ) : (
                 <div className="SuccessMessage">
@@ -150,6 +153,7 @@ const ContactForm = () => {
                     <p>{t('offer.contactForm.successMessage')}</p>
                 </div>
             )}
+            {error && <div className="ErrorMessage">{error}</div>}
         </div>
     );
 };

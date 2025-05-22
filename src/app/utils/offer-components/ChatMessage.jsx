@@ -1,11 +1,12 @@
-import { BsRobot, BsPerson } from 'react-icons/bs';
+import { RiBardFill  } from 'react-icons/ri';
+import { GoPerson } from "react-icons/go";
 
 const ChatMessage = ({ message, isLoading }) => {
     if (isLoading) {
         return (
             <div className="Message ai">
                 <div className="MessageIcon">
-                    <BsRobot />
+                    <RiBardFill />
                 </div>
                 <div className="MessageContent">
                     <div className="LoadingDots">
@@ -21,7 +22,7 @@ const ChatMessage = ({ message, isLoading }) => {
     return (
         <div className={`Message ${message.type}`}>
             <div className="MessageIcon">
-                {message.type === 'ai' ? <BsRobot /> : <BsPerson />}
+                {message.type === 'ai' ? <RiBardFill /> : <GoPerson />}
             </div>
             {message.type === 'ai' ? (
                 <div className="MessageContent" dangerouslySetInnerHTML={{ __html: message.content }} />

@@ -1,10 +1,12 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { IoClose } from 'react-icons/io5';
+import { RiBardFill, GoPerson } from 'react-icons/bs';
 import { useTranslation } from 'react-i18next';
 import { useChatContext } from '@/app/context/ChatContext';
 import ReactMarkdown from 'react-markdown';
 import { generatePrompt, extractSelectedServices } from './chatUtils';
 import { offerData } from '@/app/data/offerData';
+import ChatMessage from './ChatMessage';
 
 const AIChat = ({ isOpen, onClose, initialCategory }) => {
     const { t } = useTranslation();
@@ -106,30 +108,19 @@ const AIChat = ({ isOpen, onClose, initialCategory }) => {
                 </div>
                 <div className="MessagesContainer">
                     {messages.map((message, index) => (
-                        <div key={index} className={`Message ${message.role === 'assistant' ? 'ai' : 'user'}`}>
-                            <div className="MessageIcon">
-                                {message.role === 'assistant' ? '🤖' : '👤'}
-                            </div>
-                            <div className="MessageContent">
-                                {message.role === 'assistant' ? (
-                                    <ReactMarkdown>{message.content}</ReactMarkdown>
-                                ) : (
-                                    message.content
-                                )}
-                            </div>
-                        </div>
+                        <ChatMessage 
+                            key={index}
+                            message={{
+                                type: message.role === 'assistant' ? 'ai' : 'user',
+                                content: message.role === 'assistant' ? message.content : message.content
+                            }}
+                        />
                     ))}
                     {isLoading && (
-                        <div className="Message ai">
-                            <div className="MessageIcon">🤖</div>
-                            <div className="MessageContent">
-                                <div className="LoadingDots">
-                                    <span></span>
-                                    <span></span>
-                                    <span></span>
-                                </div>
-                            </div>
-                        </div>
+                        <ChatMessage 
+                            message={{ type: 'ai', content: '' }}
+                            isLoading={true}
+                        />
                     )}
                     <div ref={messagesEndRef} />
                 </div>
