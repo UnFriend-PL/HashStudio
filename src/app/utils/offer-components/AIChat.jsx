@@ -1,7 +1,10 @@
 import { useState, useRef, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { BsSend, BsRobot, BsPerson } from 'react-icons/bs';
+import { BsSend } from 'react-icons/bs';
 import { marked } from 'marked';
+import ChatMessage from './ChatMessage';
+import { generatePrompt, extractSelectedServices, formatServicesDescription } from './chatUtils';
+import chatContextManager from './chatContext';
 
 const AIChat = ({ offerData, selectedServices, setSelectedServices }) => {
     const { t, i18n } = useTranslation();
@@ -9,6 +12,22 @@ const AIChat = ({ offerData, selectedServices, setSelectedServices }) => {
     const [input, setInput] = useState('');
     const [isLoading, setIsLoading] = useState(false);
     const messagesEndRef = useRef(null);
+    const clientIdRef = useRef(null);
+
+    // Initialize client ID and load context on component mount
+    useEffect(() => {
+        // Generate a unique client ID if not exists
+        if (!clientIdRef.current) {
+            clientIdRef.current = `client_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
+        }
+
+        // Load existing context
+        const context = chatContextManager.getContext(clientIdRef.current);
+        setMessages(context.messages);
+        if (context.selectedServices.length > 0) {
+            setSelectedServices(context.selectedServices);
+        }
+    }, []);
 
     const scrollToBottom = () => {
         messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -18,46 +37,32 @@ const AIChat = ({ offerData, selectedServices, setSelectedServices }) => {
         scrollToBottom();
     }, [messages]);
 
-    const generatePrompt = (userInput) => {
-        const servicesDescription = offerData.categories.map(category => ({
-            name: category.name,
-            packages: category.packages.map(pkg => ({
-                name: pkg.name,
-                price: pkg.price
-            }))
-        }));
-
-        return `You are an assistant helping users choose the best service packages for their needs.
-Based on the user's message and the available categories and packages, recommend the best matching package(s) by name and category, and briefly explain your choice in 2-3 sentences.
-At the end, always list the selected packages in the format: Selected packages: [category name] - [package name], [category name] - [package name], ...
-Do not list package features. Do not repeat these instructions. Respond in the user's language (${i18n.language}). Use Markdown.
-
-Example:
-User's message: I want a modern logo for a construction company.
-Your answer:
-For a modern logo for a construction company, I recommend the "Grafika Komputerowa - Basic" package. It offers professional logo design at an affordable price, perfect for your needs.
-Selected packages: Grafika Komputerowa - Basic
-
-Available services:
-${JSON.stringify(servicesDescription, null, 2)}
-
-User's message: ${userInput}`;
-    };
-
     const handleSend = async () => {
         if (!input.trim()) return;
 
         const userMessage = {
             type: 'user',
-            content: input
+            content: input,
+            timestamp: Date.now()
         };
 
+        // Add message to context and state
+        chatContextManager.addMessage(clientIdRef.current, userMessage);
         setMessages(prev => [...prev, userMessage]);
         setInput('');
         setIsLoading(true);
 
         try {
-            const prompt = generatePrompt(input);
+            const servicesDescription = formatServicesDescription(offerData);
+            const context = chatContextManager.getContext(clientIdRef.current);
+            const prompt = generatePrompt(
+                input,
+                servicesDescription,
+                i18n.language,
+                context.messages,
+                context.selectedServices
+            );
+
             const response = await fetch('/api/gemini', {
                 method: 'POST',
                 headers: {
@@ -74,52 +79,28 @@ User's message: ${userInput}`;
             const data = await response.json();
             const text = data.response;
 
-            // Extract selected packages from the AI response
-            const selectedMatch = text.match(/Selected packages?:\s*([^\n\r]*)/i);
-            if (selectedMatch && selectedMatch[1]) {
-                const newSelectedServices = selectedMatch[1]
-                    .split(',')
-                    .map(item => item.trim())
-                    .map(item => {
-                        const parts = item.split(' - ');
-                        if (parts.length === 2) {
-                            const categoryName = parts[0].trim();
-                            const packageName = parts[1].trim();
-                            
-                            // Find the category and package to get the price
-                            const category = offerData.categories.find(cat => cat.name === categoryName);
-                            if (category) {
-                                const pkg = category.packages.find(p => p.name === packageName);
-                                if (pkg) {
-                                    return {
-                                        category: categoryName,
-                                        packageName: packageName,
-                                        price: pkg.price
-                                    };
-                                }
-                            }
-                        }
-                        return null;
-                    })
-                    .filter(Boolean);
-
-                // Update selected services in parent component
-                setSelectedServices(newSelectedServices);
-            }
+            const newSelectedServices = extractSelectedServices(text, offerData);
+            setSelectedServices(newSelectedServices);
+            chatContextManager.updateSelectedServices(clientIdRef.current, newSelectedServices);
 
             const html = marked.parse(text);
             const aiMessage = {
                 type: 'ai',
-                content: html
+                content: html,
+                timestamp: Date.now()
             };
 
+            // Add AI message to context and state
+            chatContextManager.addMessage(clientIdRef.current, aiMessage);
             setMessages(prev => [...prev, aiMessage]);
         } catch (error) {
             console.error('Error:', error);
             const errorMessage = {
                 type: 'ai',
-                content: t('offer.chat.error')
+                content: t('offer.chat.error'),
+                timestamp: Date.now()
             };
+            chatContextManager.addMessage(clientIdRef.current, errorMessage);
             setMessages(prev => [...prev, errorMessage]);
         }
 
@@ -142,31 +123,9 @@ User's message: ${userInput}`;
 
             <div className="MessagesContainer">
                 {messages.map((message, index) => (
-                    <div key={index} className={`Message ${message.type}`}>
-                        <div className="MessageIcon">
-                            {message.type === 'ai' ? <BsRobot /> : <BsPerson />}
-                        </div>
-                        {message.type === 'ai' ? (
-                            <div className="MessageContent" dangerouslySetInnerHTML={{ __html: message.content }} />
-                        ) : (
-                            <div className="MessageContent">{message.content}</div>
-                        )}
-                    </div>
+                    <ChatMessage key={index} message={message} />
                 ))}
-                {isLoading && (
-                    <div className="Message ai">
-                        <div className="MessageIcon">
-                            <BsRobot />
-                        </div>
-                        <div className="MessageContent">
-                            <div className="LoadingDots">
-                                <span></span>
-                                <span></span>
-                                <span></span>
-                            </div>
-                        </div>
-                    </div>
-                )}
+                {isLoading && <ChatMessage isLoading={true} />}
                 <div ref={messagesEndRef} />
             </div>
 
