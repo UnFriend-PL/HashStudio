@@ -119,25 +119,31 @@ const ContactForm = () => {
                             required
                         />
                     </div>
-                    <div className="FormGroup">
-                        <label htmlFor="phone">{t('offer.contactForm.phone')}</label>
-                        <input
-                            type="tel"
-                            id="phone"
-                            name="phone"
-                            value={formData.phone}
-                            onChange={handleInputChange}
-                        />
-                    </div>
-                    <div className="FormGroup">
-                        <label htmlFor="message">{t('offer.contactForm.message')}</label>
-                        <textarea
-                            id="message"
-                            name="message"
-                            value={formData.message}
-                            onChange={handleInputChange}
-                        />
-                    </div>
+                    
+                    {isAdvanced && (
+                        <>
+                            <div className="FormGroup">
+                                <label htmlFor="phone">{t('offer.contactForm.phone')}</label>
+                                <input
+                                    type="tel"
+                                    id="phone"
+                                    name="phone"
+                                    value={formData.phone}
+                                    onChange={handleInputChange}
+                                />
+                            </div>
+                            <div className="FormGroup">
+                                <label htmlFor="message">{t('offer.contactForm.message')}</label>
+                                <textarea
+                                    id="message"
+                                    name="message"
+                                    value={formData.message}
+                                    onChange={handleInputChange}
+                                />
+                            </div>
+                        </>
+                    )}
+                    
                     <button 
                         type="submit" 
                         className={`SubmitButton ${isSending ? 'sending' : ''}`}
