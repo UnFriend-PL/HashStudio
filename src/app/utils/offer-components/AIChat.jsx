@@ -1,9 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { IoClose } from 'react-icons/io5';
-import { RiBardFill, GoPerson } from 'react-icons/bs';
 import { useTranslation } from 'react-i18next';
 import { useChatContext } from '@/app/context/ChatContext';
-import ReactMarkdown from 'react-markdown';
 import { generatePrompt, extractSelectedServices } from './chatUtils';
 import { offerData } from '@/app/data/offerData';
 import ChatMessage from './ChatMessage';
@@ -29,15 +27,8 @@ const AIChat = ({ isOpen, onClose, initialCategory }) => {
 
     useEffect(() => {
         if (isOpen && messages.length === 0) {
-            let welcomeMessage;
-            if (initialCategory) {
-                // Find the category name from offerData
-                const categoryObj = offerData.categories.find(cat => cat.name === initialCategory || cat.key === initialCategory);
-                const categoryName = categoryObj ? t(`offer.categories.${categoryObj.name}`) || categoryObj.name : initialCategory;
-                welcomeMessage = t('offer.chat.categoryIntro', { category: categoryName });
-            } else {
-                welcomeMessage = t('offer.chat.welcome');
-            }
+            let welcomeMessage = t('offer.chat.welcome');
+        
             setMessages([{ role: 'assistant', content: welcomeMessage }]);
         }
     }, [isOpen, initialCategory, t]);
@@ -129,7 +120,7 @@ const AIChat = ({ isOpen, onClose, initialCategory }) => {
                     <textarea
                         value={input}
                         onChange={(e) => setInput(e.target.value)}
-                        onClick={handleKeyPress}
+                        onKeyDown={handleKeyPress}
                         placeholder={t('offer.chat.placeholder')}
                         rows={1}
                     />

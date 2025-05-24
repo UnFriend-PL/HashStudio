@@ -119,7 +119,7 @@
       "placeholder": "Describe your needs...",
       "error": "Sorry, an error occurred. Please try again later.",
       "welcome": "Hello! I'm your AI assistant. How can I help you today?",
-      "categoryIntro": "I'll help you explore our {{category}} services. What would you like to know about?",
+      "categoryIntro": "I'll help you explore our services. What would you like to know about?",
       "globalButton": "Ask AI about offer"
     }
   },
