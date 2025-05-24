@@ -16,4 +16,16 @@
     margin-left: auto;
     margin-right: auto;
   }
+}
+
+@media (max-width: 480px) {
+  .ServiceCategory {
+    border-radius: 6px;
+    max-width: 90vw;
+    width: 90vw;
+    margin: 0 auto;
+    padding: 0.5rem 0;
+    box-sizing: border-box;
+    overflow-x: hidden;
+  }
 } 
