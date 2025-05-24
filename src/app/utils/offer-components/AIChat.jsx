@@ -7,6 +7,7 @@ import ReactMarkdown from 'react-markdown';
 import { generatePrompt, extractSelectedServices } from './chatUtils';
 import { offerData } from '@/app/data/offerData';
 import ChatMessage from './ChatMessage';
+import './styles/AIChat.scss';
 
 const AIChat = ({ isOpen, onClose, initialCategory }) => {
     const { t } = useTranslation();
@@ -128,7 +129,7 @@ const AIChat = ({ isOpen, onClose, initialCategory }) => {
                     <textarea
                         value={input}
                         onChange={(e) => setInput(e.target.value)}
-                        onKeyPress={handleKeyPress}
+                        onClick={handleKeyPress}
                         placeholder={t('offer.chat.placeholder')}
                         rows={1}
                     />

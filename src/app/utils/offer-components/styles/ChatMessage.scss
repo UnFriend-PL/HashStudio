@@ -1,0 +1,75 @@
+@use "@/app/styles/Colors" as color;
+
+.Message {
+  display: flex;
+  gap: 1rem;
+  max-width: 80%;
+
+  &.user {
+    margin-left: auto;
+    flex-direction: row-reverse;
+    display: flex;
+    align-items: flex-end;
+    .MessageContent {
+      background: color.$primary-color;
+      color: color.$fourth-color;
+      border-radius: 12px 12px 0 12px;
+    }
+  }
+
+  &.ai {
+    margin-right: auto;
+    display: flex;
+    align-items: flex-end;
+    .MessageContent {
+      background: rgba(color.$primary-color, 0.1);
+      color: color.$third-color;
+      border-radius: 12px 12px 12px 0;
+    }
+  }
+
+  .MessageIcon {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(color.$primary-color, 0.1);
+    color: color.$primary-color;
+    flex-shrink: 0;
+  }
+
+  .MessageContent {
+    padding: 1rem;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    white-space: pre-wrap;
+    .LoadingDots {
+      display: flex;
+      gap: 0.5rem;
+      padding: 0.5rem;
+      span {
+        width: 8px;
+        height: 8px;
+        background: color.$primary-color;
+        border-radius: 50%;
+        animation: bounce 1.4s infinite ease-in-out;
+        &:nth-child(1) { animation-delay: -0.32s; }
+        &:nth-child(2) { animation-delay: -0.16s; }
+      }
+    }
+  }
+}
+
+@keyframes bounce {
+  0%, 80%, 100% { transform: scale(0); }
+  40% { transform: scale(1); }
+}
+
+@media (max-width: 768px) {
+  .Message { max-width: 90%; .MessageContent { padding: 1rem; font-size: 0.95rem; } }
+}
+@media (max-width: 480px) {
+  .Message { max-width: 95%; .MessageContent { padding: 0.75rem; font-size: 0.9rem; } }
+} 

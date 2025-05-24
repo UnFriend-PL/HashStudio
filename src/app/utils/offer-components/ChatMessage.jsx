@@ -1,3 +1,4 @@
+import './styles/ChatMessage.scss';
 import { RiBardFill  } from 'react-icons/ri';
 import { GoPerson } from "react-icons/go";
 
