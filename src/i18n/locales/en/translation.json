@@ -179,5 +179,34 @@
         "description": "After thorough testing, we deploy your solution and provide ongoing support to ensure everything runs smoothly."
       }
     }
+  },
+  "design": {
+    "title": "Design Inspiration",
+    "subtitle": "Get creative color palettes and inspiration for your projects",
+    "colorInput": {
+      "placeholder": "Enter a color name, RGB, or hex code...",
+      "getInspire": "Get Inspired",
+      "loading": "Generating color palette...",
+      "symbolism": "Symbolism",
+      "pairings": "Perfect Pairings"
+    },
+    "categories": {
+      "all": "All",
+      "frontend": "Frontend",
+      "mobile": "Mobile",
+      "desktop": "Desktop",
+      "backend": "Backend",
+      "database": "Database"
+    },
+    "projects": {
+      "project1": {
+        "title": "Modern Web Application",
+        "description": "A responsive web application with modern design principles"
+      },
+      "project2": {
+        "title": "Mobile App Design",
+        "description": "User-friendly mobile application with intuitive interface"
+      }
+    }
   }
 } 

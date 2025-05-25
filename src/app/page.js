@@ -118,24 +118,24 @@ export default function Home() {
                 <ParallaxProvider>
                     <Cursor/>
                     <LanguageSwitcher />
-                    <main style={{ position: 'relative' }}>
+                    <main style={{position: 'relative'}}>
                         <section id={"welcome"}>
                             <WelcomeScreen/>
                         </section>
                         <Menu/>
-                        <section id={"design"}>
-                            <DesignScreen />
-                        </section>
                         <section id={"portfolio"}>
                             <div className={styles.portfolioSection}>
                                 <Portfolio data={portfolioData}/>
                             </div>
                         </section>
                         <section data-hide-menu id={"collaboration"} className={styles.collaborationSection}>
-                            <CollaborationProcessScreen />
+                            <CollaborationProcessScreen/>
+                        </section>
+                        <section id={"design"}>
+                            <DesignScreen/>
                         </section>
                         <section id={"freelance"} className={styles.freelanceSection}>
-                            <FreelanceScreen />
+                            <FreelanceScreen/>
                         </section>
                     </main>
                 </ParallaxProvider>

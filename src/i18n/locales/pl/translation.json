@@ -164,5 +164,34 @@
         "description": "Po dokładnym przetestowaniu, wdrażamy Twoje rozwiązanie i zapewniamy stałe wsparcie, aby wszystko działało bez zarzutu."
       }
     }
+  },
+  "design": {
+    "title": "Inspiracje Projektowe",
+    "subtitle": "Odkryj kreatywne palety kolorów i inspiracje dla swoich projektów",
+    "colorInput": {
+      "placeholder": "Wprowadź nazwę koloru, RGB lub kod hex...",
+      "getInspire": "Zainspiruj się",
+      "loading": "Generowanie palety kolorów...",
+      "symbolism": "Symbolika",
+      "pairings": "Idealne Połączenia"
+    },
+    "categories": {
+      "all": "Wszystkie",
+      "frontend": "Frontend",
+      "mobile": "Mobile",
+      "desktop": "Desktop",
+      "backend": "Backend",
+      "database": "Bazy danych"
+    },
+    "projects": {
+      "project1": {
+        "title": "Nowoczesna Aplikacja Webowa",
+        "description": "Responsywna aplikacja webowa z nowoczesnymi zasadami projektowania"
+      },
+      "project2": {
+        "title": "Projekt Aplikacji Mobilnej",
+        "description": "Przyjazna aplikacja mobilna z intuicyjnym interfejsem"
+      }
+    }
   }
 } 
