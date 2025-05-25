@@ -24,6 +24,7 @@ import avatar from "@/app/assets/avatar_szymon.png"
 import FreelanceScreen from '@/app/components/partials/FreelanceScreen';
 import CollaborationProcessScreen from '@/app/components/partials/CollaborationProcessScreen';
 import LanguageSwitcher from "@/app/components/LanguageSwitcher";
+import DesignScreen from '@/app/components/partials/DesignScreen';
 
 export default function Home() {
     const { t } = useTranslation();
@@ -39,6 +40,7 @@ export default function Home() {
                 description: t('portfolio.projects.studio.description'),
                 ico: <FaGithub/>,
                 link: "https://github.com/UnFriend-PL",
+                categories: ['web', 'backend']
             },
             {
                 src: bankIMG.src,
@@ -47,6 +49,7 @@ export default function Home() {
                 description: t('portfolio.projects.bank.description'),
                 ico: <FaGithub/>,
                 link: "https://github.com/UnFriend-PL",
+                categories: ['web', 'backend', 'database']
             },
             {
                 src: inz.src,
@@ -55,6 +58,7 @@ export default function Home() {
                 description: t('portfolio.projects.fizjo.description'),
                 ico: <FaGithub/>,
                 link: "https://github.com/UnFriend-PL",
+                categories: ['web', 'mobile', 'backend', 'database']
             },
             {
                 src: smarcinkowski.src,
@@ -63,6 +67,7 @@ export default function Home() {
                 description: t('portfolio.projects.cv.description'),
                 ico: <TbWorldWww/>,
                 link: "https://smarcinkowski.pl/",
+                categories: ['web']
             },
         ],
         about: {
@@ -112,19 +117,14 @@ export default function Home() {
             {!loading && (
                 <ParallaxProvider>
                     <Cursor/>
+                    <LanguageSwitcher />
                     <main style={{ position: 'relative' }}>
                         <section id={"welcome"}>
                             <WelcomeScreen/>
                         </section>
                         <Menu/>
                         <section id={"design"}>
-                            <ParallaxScrollScreen>
-                                <div className={styles.slogan}>
-                                    <TextFit minFontSize={50} maxFontSize={150}>
-                                        TEXT
-                                    </TextFit>
-                                </div>
-                            </ParallaxScrollScreen>
+                            <DesignScreen />
                         </section>
                         <section id={"portfolio"}>
                             <div className={styles.portfolioSection}>
@@ -137,8 +137,6 @@ export default function Home() {
                         <section id={"freelance"} className={styles.freelanceSection}>
                             <FreelanceScreen />
                         </section>
-                        <LanguageSwitcher />
-
                     </main>
                 </ParallaxProvider>
             )}

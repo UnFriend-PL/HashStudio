@@ -1,56 +1,33 @@
-import React, {useEffect, useState} from "react";
+import React, {useState} from "react";
 import styles from "@/app/styles/Portfolio.module.scss";
-import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
-import { IoClose } from "react-icons/io5";
-import Pill from "@/app/components/partials/Pill";
+import {FaChevronLeft, FaChevronRight, FaCode, FaMobile, FaDesktop, FaServer, FaDatabase} from "react-icons/fa";
+import {IoClose} from "react-icons/io5";
 import AboutMe from "@/app/components/partials/AbouotMe";
+import {motion} from "framer-motion";
 
-const Portfolio = ({ data }) => {
-    const { images, about, skills } = data;
+const Portfolio = ({data}) => {
+    const {images, about, skills} = data;
     const [selectedIndex, setSelectedIndex] = useState(null);
-    const [currentSlide, setCurrentSlide] = useState(0);
-    const [imagesPerSlide, setImagesPerSlide] = useState(6);
+    const [activeCategory, setActiveCategory] = useState('all');
+
+    const categories = [
+        {id: 'all', icon: <FaCode/>, label: 'All Projects'},
+        {id: 'web', icon: <FaDesktop/>, label: 'Web Development'},
+        {id: 'mobile', icon: <FaMobile/>, label: 'Mobile Apps'},
+        {id: 'backend', icon: <FaServer/>, label: 'Backend'},
+        {id: 'database', icon: <FaDatabase/>, label: 'Database'}
+    ];
+
     const openModal = (index) => setSelectedIndex(index);
     const closeModal = () => setSelectedIndex(null);
     const nextImage = () => setSelectedIndex((prev) => (prev + 1) % images.length);
-    const prevImage = () =>
-        setSelectedIndex((prev) => (prev - 1 + images.length) % images.length);
+    const prevImage = () => setSelectedIndex((prev) => (prev - 1 + images.length) % images.length);
 
     const selectedImage = selectedIndex !== null ? images[selectedIndex] : null;
-    const updateImagesPerSlide = () => {
-        const width = window.innerWidth;
-        if (width < 600) { // Mobile
-            setImagesPerSlide(1);
-        } else if (width < 900) { // Tablet
-            setImagesPerSlide(4);
-        } else { // Desktop
-            setImagesPerSlide(6);
-        }
-    };
+    const filteredImages = activeCategory === 'all'
+        ? images
+        : images.filter(image => image.categories && image.categories.includes(activeCategory));
 
-    useEffect(() => {
-        updateImagesPerSlide();
-        window.addEventListener('resize', updateImagesPerSlide);
-
-        return () => {
-            window.removeEventListener('resize', updateImagesPerSlide);
-        };
-    }, []);
-    const nextSlide = () => {
-        setCurrentSlide(prev =>
-            Math.min(prev + 1, Math.ceil(images.length / imagesPerSlide) - 1)
-        );
-    };
-
-    const prevSlide = () => {
-        setCurrentSlide(prev => Math.max(prev - 1, 0));
-    };
-
-    // Filtrujemy obrazy do aktualnego slajdu
-    const displayedImages = images.slice(
-        currentSlide * imagesPerSlide,
-        (currentSlide + 1) * imagesPerSlide
-    );
     return (
         <section className={styles.portfolioContainer}>
             <AboutMe links={about.links} avatar={about.avatar} skills={skills}>
@@ -62,20 +39,58 @@ const Portfolio = ({ data }) => {
                     ))}
             </AboutMe>
 
+            <div className={styles.categories}>
+                {categories.map(category => (
+                    <motion.button
+                        key={category.id}
+                        className={`${styles.categoryButton} ${activeCategory === category.id ? styles.active : ''}`}
+                        onClick={() => setActiveCategory(category.id)}
+                        whileHover={{scale: 1.05}}
+                        whileTap={{scale: 0.95}}
+                    >
+                        <span className={styles.icon}>{category.icon}</span>
+                        <span className={styles.label}>{category.label}</span>
+                    </motion.button>
+                ))}
+            </div>
+
             <div className={styles.imageGrid}>
-                {images.map((image, index) => (
-                    <div
+                {filteredImages.map((image, index) => (
+                    <motion.div
                         key={index}
                         className={styles.imageItem}
                         onClick={() => openModal(index)}
+                        initial={{opacity: 0, y: 20}}
+                        animate={{opacity: 1, y: 0}}
+                        transition={{duration: 0.5}}
+                        whileHover={{y: -10}}
                     >
-                        <img
-                            src={image.src}
-                            alt={image.alt}
-                            data-follow={image.dataFollowText}
-                            loading="lazy"
-                        />
-                    </div>
+                        <div className={styles.imageWrapper}>
+                            <img
+                                src={image.src}
+                                alt={image.alt}
+                                data-follow={image.dataFollowText}
+                                loading="lazy"
+                            />
+                            <a>
+                                <div className={styles.imageOverlay}>
+                                    <h3>{image.dataFollowText}</h3>
+                                    <p>{image.description}</p>
+                                    <div className={styles.projectCategories}>
+                                        {image.categories && image.categories.map(categoryId => {
+                                            const category = categories.find(cat => cat.id === categoryId);
+                                            return category ? (
+                                                <span key={categoryId} className={styles.categoryTag}>
+                                                {category.icon}
+                                                    {category.label}
+                                            </span>
+                                            ) : null;
+                                        })}
+                                    </div>
+                                </div>
+                            </a> 
+                        </div>
+                    </motion.div>
                 ))}
             </div>
 
@@ -93,7 +108,7 @@ const Portfolio = ({ data }) => {
                             />
                             {selectedImage.link && (
                                 <div className={styles.linkIcon}>
-                                    <a target="_blank" href={selectedImage.link}>
+                                    <a target="_blank" href={selectedImage.link} rel="noreferrer">
                                         {selectedImage.ico}
                                     </a>
                                 </div>
@@ -108,13 +123,13 @@ const Portfolio = ({ data }) => {
 
                         <div className={styles.modalControls}>
                             <button onClick={prevImage}>
-                                <FaChevronLeft />
+                                <FaChevronLeft/>
                             </button>
                             <button onClick={nextImage}>
-                                <FaChevronRight />
+                                <FaChevronRight/>
                             </button>
                             <button onClick={closeModal}>
-                                <IoClose />
+                                <IoClose/>
                             </button>
                         </div>
                     </div>
