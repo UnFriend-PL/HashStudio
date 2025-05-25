@@ -1,11 +1,11 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import ServiceCategory from '@/app/utils/offer-components/ServiceCategory';
+import ServiceCategory from '@/app/components/partials/ServiceCategory';
 import ContactForm from './ContactForm';
-import AIChat from '@/app/utils/offer-components/AIChat';
+import AIChat from '@/app/components/partials/AIChat';
 import { offerData } from '@/app/data/offerData';
 import { RiBardFill  } from 'react-icons/ri';
-import '@/app/utils/offer-components/styles/OfferScreen.scss';
+import '@/app/styles/OfferScreen.scss';
 import { useChatContext } from '@/app/context/ChatContext';
 
 const FreelanceScreen = () => {

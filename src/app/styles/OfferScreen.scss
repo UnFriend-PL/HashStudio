@@ -1,11 +1,11 @@
 @use "@/app/styles/Colors" as color;
 
-@import "./CategoryHeader.scss";
-@import "./PackageGrid.scss";
-@import "./PackageHeader.scss";
-@import "./FeatureRow.scss";
-@import "./ServiceCategory.scss";
-@import "./ContactForm.scss";
+@import "partials/CategoryHeader";
+@import "partials/PackageGrid";
+@import "partials/PackageHeader";
+@import "partials/FeatureRow";
+@import "partials/ServiceCategory";
+@import "partials/ContactForm";
 
 .OfferScreen {
   width: 100%;

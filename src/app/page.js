@@ -21,7 +21,7 @@ import smarcinkowski from "@/app/assets/smarcinkowski.png";
 import {FaGithub, FaLinkedin} from "react-icons/fa";
 import {TbWorldWww} from "react-icons/tb"
 import avatar from "@/app/assets/avatar_szymon.png"
-import FreelanceScreen from '@/app/utils/offer-components/FreelanceScreen';
+import FreelanceScreen from '@/app/components/partials/FreelanceScreen';
 
 export default function Home() {
     const { t } = useTranslation();
