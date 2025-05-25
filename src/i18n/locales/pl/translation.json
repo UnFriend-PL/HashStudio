@@ -165,6 +165,43 @@
       }
     }
   },
+  "footer" : {
+    "title": "HashStudio",
+    "description" : "Tworzenie innowacyjnych rozwiązań cyfrowych, które przyczyniają się do rozwijania biznesu i sukcesu.",
+    "navigationLabel" : "Nawigacja w stopce",
+    "company" : "Firma",
+    "services" : "Usługi",
+    "contact" : "Skontaktuj się z nami",
+    "address" : {
+      "line1" : "123 Digital Street",
+      "city" : "Warszawa, 00-001",
+      "country" : "Poland",
+      "nip" : "NIP: 1234567890",
+      "email" : "contact@hashstudio.pl"
+    },
+    "servicesList" : [
+      "Strony internetowe",
+      "Aplikacje webowe",
+      "UI/UX Design",
+      "Grafika Komputerowa"
+    ],
+    "legal" : {
+      "title" : "Legal",
+      "privacy" : "Polityka Prywatności",
+      "terms" : "Warunki Korzystania",
+      "cookies" : "Polityka Cookies"
+    },
+    "social" : "Folowuj nas",
+    "newsletter" : {
+      "title" : "Newsletter",
+      "description" : "Zapisz się do naszego newslettera, aby być na bieżąco z naszymi aktualizacjami i wiedzą.",
+      "placeholder" : "Twój adres email",
+      "button" : "Zapisz się",
+      "success" : "Dziękujemy za zapisanie się do newslettera!"
+    },
+    "copyright" : "Wszelkie prawa zastrzeżone.",
+    "madeWith" : "Stworzone z <3 w Gdańsku"
+  },
   "design": {
     "title": "Inspiracje Projektowe",
     "subtitle": "Odkryj kreatywne palety kolorów i inspiracje dla swoich projektów",

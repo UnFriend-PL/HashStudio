@@ -180,6 +180,43 @@
       }
     }
   },
+  "footer": {
+    "title": "HashStudio",
+    "description": "Creating innovative digital solutions that drive business growth and success.",
+    "navigationLabel": "Footer Navigation",
+    "company": "Company",
+    "services": "Services",
+    "contact": "Contact Us",
+    "address": {
+      "line1": "123 Digital Street",
+      "city": "Warsaw, 00-001",
+      "country": "Poland",
+      "nip": "NIP: 1234567890",
+      "email": "contact@hashstudio.pl"
+    },
+    "servicesList": [
+      "Web Development",
+      "Web Applications",
+      "UI/UX Design",
+      "Graphic Design"
+    ],
+    "legal": {
+      "title": "Legal",
+      "privacy": "Privacy Policy",
+      "terms": "Terms of Service",
+      "cookies": "Cookie Policy"
+    },
+    "social": "Follow Us",
+    "newsletter": {
+      "title": "Newsletter",
+      "description": "Subscribe to our newsletter for the latest updates and insights.",
+      "placeholder": "Your email address",
+      "button": "Subscribe",
+      "success": "Thank you for subscribing!"
+    },
+    "copyright": "All rights reserved.",
+    "madeWith": "Made with ❤️ in Warsaw"
+  },
   "design": {
     "title": "Design Inspiration",
     "subtitle": "Get creative color palettes and inspiration for your projects",

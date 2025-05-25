@@ -1,0 +1,214 @@
+@import '@/app/styles/Colors';
+
+.footer {
+  background-color: $secondary-color;
+  color: $third-color;
+  padding: 3rem 1rem 1rem;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin-top: 4rem;
+  
+  &Content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 2rem;
+    padding: 0 1rem 2rem;
+    
+    @media (min-width: 768px) {
+      grid-template-columns: repeat(3, 1fr);
+      padding: 0 2rem 2rem;
+    }
+  }
+  
+  h2, h3, h4 {
+    color: $primary-color;
+    margin-bottom: 1rem;
+    font-weight: 600;
+  }
+  
+  a {
+    color: $third-color;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    
+    &:hover {
+      color: $primary-color;
+    }
+  }
+  
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    
+    li {
+      margin-bottom: 0.5rem;
+    }
+  }
+}
+
+.companyInfo {
+  grid-column: 1 / -1;
+  
+  @media (min-width: 768px) {
+    grid-column: auto;
+  }
+  
+  p {
+    margin-bottom: 1rem;
+    max-width: 300px;
+  }
+  
+  address {
+    font-style: normal;
+    margin-top: 1rem;
+    
+    a {
+      display: block;
+      margin-top: 0.5rem;
+    }
+  }
+}
+
+.footerLinks {
+  nav {
+    ul {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+  }
+}
+
+.legalSection, .servicesSection {
+  h4 {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    color: $primary-color;
+  }
+  
+  ul {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}
+
+.socialLinks {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+  
+  a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    
+    &:hover {
+      background-color: $primary-color;
+      color: $secondary-color;
+      transform: translateY(-2px);
+    }
+    
+    svg {
+      width: 18px;
+      height: 18px;
+    }
+  }
+}
+
+.newsletter {
+  margin-top: 1.5rem;
+  
+  p {
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+  }
+  
+  form {
+    display: flex;
+    gap: 0.5rem;
+    
+    input {
+      flex: 1;
+      padding: 0.5rem;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+      border-radius: 4px;
+      
+      &::placeholder {
+        color: rgba(255, 255, 255, 0.6);
+      }
+      
+      &:focus {
+        outline: none;
+        border-color: $primary-color;
+      }
+    }
+    
+    button {
+      background-color: $primary-color;
+      color: $secondary-color;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      
+      &:hover {
+        background-color: darken($primary-color, 10%);
+        transform: translateY(-1px);
+      }
+    }
+  }
+  
+  .successMessage {
+    color: $primary-color;
+    margin-top: 0.5rem;
+    font-size: 0.85rem;
+    display: none;
+    
+    &.show {
+      display: block;
+    }
+  }
+}
+
+.copyright {
+  text-align: center;
+  padding: 1.5rem 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  margin-top: 2rem;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.6);
+  
+  a {
+    color: $primary-color;
+    margin: 0 0.25rem;
+  }
+}
+
+// Responsive adjustments
+@media (max-width: 767px) {
+  .footer {
+    padding-top: 2rem;
+    
+    &Content {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+    
+    .companyInfo, .footerLinks, .legalSection, .servicesSection {
+      margin-bottom: 1.5rem;
+    }
+  }
+}

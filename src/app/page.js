@@ -25,6 +25,7 @@ import FreelanceScreen from '@/app/components/partials/FreelanceScreen';
 import CollaborationProcessScreen from '@/app/components/partials/CollaborationProcessScreen';
 import LanguageSwitcher from "@/app/components/LanguageSwitcher";
 import DesignScreen from '@/app/components/partials/DesignScreen';
+import Footer from "@/app/components/partials/Footer";
 
 export default function Home() {
     const { t } = useTranslation();
@@ -137,6 +138,9 @@ export default function Home() {
                         <section id={"freelance"} className={styles.freelanceSection}>
                             <FreelanceScreen/>
                         </section>
+                        <footer>
+                            <Footer/>
+                        </footer>
                     </main>
                 </ParallaxProvider>
             )}
