@@ -17,7 +17,7 @@ const CollaborationProcessScreen = () => {
         if (isPlaying) {
             interval = setInterval(() => {
                 setActiveStep(prev => (prev === null || prev === 4) ? 0 : prev + 1);
-            }, 3000);
+            }, 4000);
         }
         return () => clearInterval(interval);
     }, [isPlaying]);
@@ -29,9 +29,9 @@ const CollaborationProcessScreen = () => {
             description: t('collaboration.steps.consultation.description'),
             icon: <FaRegHandshake />,
             animation: {
-                initial: { scale: 0, rotate: -180 },
-                animate: { scale: 1, rotate: 0 },
-                exit: { scale: 0, rotate: 180 }
+                initial: { opacity: 0, y: 20 },
+                animate: { opacity: 1, y: 0 },
+                exit: { opacity: 0, y: -20 }
             }
         },
         {
@@ -40,9 +40,9 @@ const CollaborationProcessScreen = () => {
             description: t('collaboration.steps.planning.description'),
             icon: <RiFileList3Line />,
             animation: {
-                initial: { x: -100, opacity: 0 },
-                animate: { x: 0, opacity: 1 },
-                exit: { x: 100, opacity: 0 }
+                initial: { opacity: 0, x: -20 },
+                animate: { opacity: 1, x: 0 },
+                exit: { opacity: 0, x: 20 }
             }
         },
         {
@@ -51,9 +51,9 @@ const CollaborationProcessScreen = () => {
             description: t('collaboration.steps.development.description'),
             icon: <RiCodeLine />,
             animation: {
-                initial: { y: 100, opacity: 0 },
-                animate: { y: 0, opacity: 1 },
-                exit: { y: -100, opacity: 0 }
+                initial: { opacity: 0, scale: 0.95 },
+                animate: { opacity: 1, scale: 1 },
+                exit: { opacity: 0, scale: 1.05 }
             }
         },
         {
@@ -62,9 +62,9 @@ const CollaborationProcessScreen = () => {
             description: t('collaboration.steps.review.description'),
             icon: <RiEyeLine />,
             animation: {
-                initial: { scale: 0, rotate: 180 },
-                animate: { scale: 1, rotate: 0 },
-                exit: { scale: 0, rotate: -180 }
+                initial: { opacity: 0, rotate: -5 },
+                animate: { opacity: 1, rotate: 0 },
+                exit: { opacity: 0, rotate: 5 }
             }
         },
         {
@@ -73,9 +73,9 @@ const CollaborationProcessScreen = () => {
             description: t('collaboration.steps.launch.description'),
             icon: <RiRocketLine />,
             animation: {
-                initial: { y: -100, opacity: 0 },
-                animate: { y: 0, opacity: 1 },
-                exit: { y: 100, opacity: 0 }
+                initial: { opacity: 0, y: 20 },
+                animate: { opacity: 1, y: 0 },
+                exit: { opacity: 0, y: -20 }
             }
         }
     ];
@@ -86,13 +86,13 @@ const CollaborationProcessScreen = () => {
                 className="ProcessPanel"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ duration: 0.8 }}
+                transition={{ duration: 1.2, ease: "easeOut" }}
             >
                 <motion.div 
                     className="ProcessTitle"
-                    initial={{ opacity: 0, y: 30 }}
+                    initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, delay: 0.2 }}
+                    transition={{ duration: 1, delay: 0.3 }}
                 >
                     <h1>{t('collaboration.title')}</h1>
                     <p>{t('collaboration.subtitle')}</p>
@@ -100,12 +100,15 @@ const CollaborationProcessScreen = () => {
 
                 <div className="ProcessContainer">
                     <div className="ProcessControls">
-                        <button 
+                        <motion.button 
                             className={`ControlButton ${isPlaying ? 'active' : ''}`}
                             onClick={() => setIsPlaying(!isPlaying)}
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.95 }}
+                            transition={{ duration: 0.2 }}
                         >
                             {isPlaying ? 'Pause' : 'Play'}
-                        </button>
+                        </motion.button>
                     </div>
 
                     <div className="ProcessSteps">
@@ -117,17 +120,46 @@ const CollaborationProcessScreen = () => {
                                     initial={steps[activeStep].animation.initial}
                                     animate={steps[activeStep].animation.animate}
                                     exit={steps[activeStep].animation.exit}
-                                    transition={{ duration: 0.5, ease: "easeInOut" }}
+                                    transition={{ 
+                                        duration: 0.8,
+                                        ease: [0.4, 0, 0.2, 1]
+                                    }}
                                     onHoverStart={() => setIsPlaying(false)}
                                     onHoverEnd={() => setIsPlaying(true)}
                                 >
-                                    <div className="StepIcon">
+                                    <motion.div 
+                                        className="StepIcon"
+                                        whileHover={{ 
+                                            scale: 1.05,
+                                            rotate: 5,
+                                            transition: { duration: 0.3 }
+                                        }}
+                                    >
                                         {steps[activeStep].icon}
-                                    </div>
+                                    </motion.div>
                                     <div className="StepContent">
-                                        <span className="StepNumber">{steps[activeStep].number}</span>
-                                        <h3>{steps[activeStep].title}</h3>
-                                        <p>{steps[activeStep].description}</p>
+                                        <motion.span 
+                                            className="StepNumber"
+                                            initial={{ opacity: 0 }}
+                                            animate={{ opacity: 1 }}
+                                            transition={{ delay: 0.2 }}
+                                        >
+                                            {steps[activeStep].number}
+                                        </motion.span>
+                                        <motion.h3
+                                            initial={{ opacity: 0, y: 10 }}
+                                            animate={{ opacity: 1, y: 0 }}
+                                            transition={{ delay: 0.3 }}
+                                        >
+                                            {steps[activeStep].title}
+                                        </motion.h3>
+                                        <motion.p
+                                            initial={{ opacity: 0, y: 10 }}
+                                            animate={{ opacity: 1, y: 0 }}
+                                            transition={{ delay: 0.4 }}
+                                        >
+                                            {steps[activeStep].description}
+                                        </motion.p>
                                     </div>
                                 </motion.div>
                             )}
@@ -143,8 +175,9 @@ const CollaborationProcessScreen = () => {
                                     setActiveStep(index);
                                     setIsPlaying(false);
                                 }}
-                                whileHover={{ scale: 1.2 }}
+                                whileHover={{ scale: 1.1 }}
                                 whileTap={{ scale: 0.9 }}
+                                transition={{ duration: 0.2 }}
                             />
                         ))}
                     </div>
