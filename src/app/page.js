@@ -22,6 +22,7 @@ import {FaGithub, FaLinkedin} from "react-icons/fa";
 import {TbWorldWww} from "react-icons/tb"
 import avatar from "@/app/assets/avatar_szymon.png"
 import FreelanceScreen from '@/app/components/partials/FreelanceScreen';
+import CollaborationProcessScreen from '@/app/components/partials/CollaborationProcessScreen';
 
 export default function Home() {
     const { t } = useTranslation();
@@ -128,6 +129,9 @@ export default function Home() {
                             <div className={styles.portfolioSection}>
                                 <Portfolio data={portfolioData}/>
                             </div>
+                        </section>
+                        <section id={"collaboration"} className={styles.collaborationSection}>
+                            <CollaborationProcessScreen />
                         </section>
                         <section id={"freelance"} className={styles.freelanceSection}>
                             <FreelanceScreen />

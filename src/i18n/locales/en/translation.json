@@ -3,6 +3,7 @@
     "welcome": "Welcome",
     "design": "Design",
     "portfolio": "Portfolio",
+    "collaboration": "Process",
     "freelance": "Freelance",
     "contact": "Contact"
   },
@@ -152,5 +153,31 @@
     "UI/UX Design_desc": "User interface and experience design",
     "Grafika Komputerowa": "Computer Graphics",
     "Grafika Komputerowa_desc": "Graphic design and visual identity"
+  },
+  "collaboration": {
+    "title": "Our Collaboration Process",
+    "subtitle": "A clear and transparent journey from idea to implementation",
+    "steps": {
+      "consultation": {
+        "title": "Initial Consultation",
+        "description": "We start with a detailed discussion about your needs, goals, and vision. This helps us understand your requirements and create a tailored solution."
+      },
+      "planning": {
+        "title": "Project Planning",
+        "description": "We create a detailed project roadmap, define milestones, and establish clear communication channels to ensure smooth collaboration."
+      },
+      "development": {
+        "title": "Development Phase",
+        "description": "Our team works on implementing your solution, keeping you updated with regular progress reports and demos."
+      },
+      "review": {
+        "title": "Review & Feedback",
+        "description": "We present the work-in-progress for your review, gather feedback, and make necessary adjustments to meet your expectations."
+      },
+      "launch": {
+        "title": "Launch & Support",
+        "description": "After thorough testing, we deploy your solution and provide ongoing support to ensure everything runs smoothly."
+      }
+    }
   }
 } 

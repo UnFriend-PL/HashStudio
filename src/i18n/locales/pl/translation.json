@@ -3,6 +3,7 @@
     "welcome": "Witaj",
     "design": "Design",
     "portfolio": "Portfolio",
+    "collaboration": "Proces",
     "freelance": "Freelance",
     "contact": "Kontakt"
   },
@@ -137,5 +138,31 @@
     "UI/UX Design_desc": "Projektowanie interfejsów użytkownika i doświadczeń",
     "Grafika Komputerowa": "Grafika Komputerowa",
     "Grafika Komputerowa_desc": "Projektowanie graficzne i identyfikacja wizualna"
+  },
+  "collaboration": {
+    "title": "Proces Współpracy",
+    "subtitle": "Jasna i przejrzysta droga od pomysłu do realizacji",
+    "steps": {
+      "consultation": {
+        "title": "Konsultacja Wstępna",
+        "description": "Rozpoczynamy od szczegółowej rozmowy o Twoich potrzebach, celach i wizji. Pomaga nam to zrozumieć Twoje wymagania i stworzyć dopasowane rozwiązanie."
+      },
+      "planning": {
+        "title": "Planowanie Projektu",
+        "description": "Tworzymy szczegółowy harmonogram projektu, definiujemy kamienie milowe i ustalamy jasne kanały komunikacji, aby zapewnić płynną współpracę."
+      },
+      "development": {
+        "title": "Faza Rozwoju",
+        "description": "Nasz zespół pracuje nad wdrożeniem Twojego rozwiązania, regularnie informując Cię o postępach i prezentując dema."
+      },
+      "review": {
+        "title": "Przegląd i Opinie",
+        "description": "Prezentujemy postępy prac do Twojej oceny, zbieramy opinie i wprowadzamy niezbędne modyfikacje, aby sprostać Twoim oczekiwaniom."
+      },
+      "launch": {
+        "title": "Uruchomienie i Wsparcie",
+        "description": "Po dokładnym przetestowaniu, wdrażamy Twoje rozwiązanie i zapewniamy stałe wsparcie, aby wszystko działało bez zarzutu."
+      }
+    }
   }
 } 

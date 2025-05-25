@@ -19,8 +19,9 @@ const AnimatedMenu = () => {
         {name: t('menu.welcome'), color: '#f44336', href: '#welcome', sectionId: 'welcome'},
         {name: t('menu.design'), color: '#e91e63', href: '#design', sectionId: 'design'},
         {name: t('menu.portfolio'), color: '#9c27b0', href: '#portfolio', sectionId: 'portfolio'},
-        {name: t('menu.freelance'), color: '#673ab7', href: '#freelance', sectionId: 'freelance'},
-        {name: t('menu.contact'), color: '#3f51b5', href: '#contact', sectionId: 'contact'},
+        {name: t('menu.collaboration'), color: '#673ab7', href: '#collaboration', sectionId: 'collaboration'},
+        {name: t('menu.freelance'), color: '#3f51b5', href: '#freelance', sectionId: 'freelance'},
+        {name: t('menu.contact'), color: '#2196f3', href: '#contact', sectionId: 'contact'},
     ];
     
     const itemRefs = useRef(items.map(() => createRef()));
