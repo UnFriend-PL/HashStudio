@@ -14,6 +14,8 @@ const AnimatedMenu = () => {
     const indicator1Ref = useRef(null);
     const indicator2Ref = useRef(null);
     const navItemsRef = useRef(null);
+    const [isMenuHidden, setIsMenuHidden] = useState(false);
+    const [isHoveringMenuArea, setIsHoveringMenuArea] = useState(false);
     
     const items = [
         {name: t('menu.welcome'), color: '#f44336', href: '#welcome', sectionId: 'welcome'},
@@ -32,11 +34,9 @@ const AnimatedMenu = () => {
     useEffect(() => {
         const observer = new IntersectionObserver(
             (entries) => {
-                // Filter out entries with very low intersection ratio to reduce jitter
                 const visibleEntries = entries.filter(entry => entry.intersectionRatio > 0.3);
                 
                 if (visibleEntries.length > 0) {
-                    // Find the section with the highest intersection ratio
                     const mostVisibleEntry = visibleEntries.reduce((max, entry) => {
                         return entry.intersectionRatio > max.intersectionRatio ? entry : max;
                     }, visibleEntries[0]);
@@ -45,17 +45,17 @@ const AnimatedMenu = () => {
                     if (index !== -1) {
                         setActive(index);
                     }
+
+                    const shouldHideMenu = mostVisibleEntry.target.hasAttribute('data-hide-menu');
+                    setIsMenuHidden(shouldHideMenu);
                 }
             },
             {
-                // Reduce number of thresholds and increase the minimum visibility required
                 threshold: [0.3, 0.5, 0.7, 0.9],
-                // Add some margin to make transitions smoother
                 rootMargin: '-10% 0px -10% 0px'
             }
         );
 
-        // Only observe sections that exist
         items.forEach((item) => {
             const section = document.getElementById(item.sectionId);
             if (section) {
@@ -113,11 +113,34 @@ const AnimatedMenu = () => {
             opacity: 0,
             ease: 'power2.in'
         });
-
     }, [burger]);
 
+    // Obsługa pokazywania/ukrywania menu
+    useEffect(() => {
+        if (isMenuHidden && !isHoveringMenuArea) {
+            gsap.to(rootRef.current, {
+                y: -100,
+                opacity: 0,
+                duration: 0.8,
+                ease: "power3.inOut"
+            });
+        } else {
+            gsap.to(rootRef.current, {
+                y: 0,
+                opacity: 1,
+                duration: 0.8,
+                ease: "power3.inOut"
+            });
+        }
+    }, [isMenuHidden, isHoveringMenuArea]);
+
     return (
-        <div ref={rootRef} className={`menu ${burger ? 'open' : ''}`}>
+        <div 
+            ref={rootRef} 
+            className={`menu ${burger ? 'open' : ''}`}
+            onMouseEnter={() => setIsHoveringMenuArea(true)}
+            onMouseLeave={() => setIsHoveringMenuArea(false)}
+        >
             <a className="burger" onClick={() => setBurger(!burger)}>
                 {burger ? <IoMdClose/> : <CiMenuBurger/>}
             </a>

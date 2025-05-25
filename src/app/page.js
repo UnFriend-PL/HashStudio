@@ -130,7 +130,7 @@ export default function Home() {
                                 <Portfolio data={portfolioData}/>
                             </div>
                         </section>
-                        <section id={"collaboration"} className={styles.collaborationSection}>
+                        <section data-hide-menu id={"collaboration"} className={styles.collaborationSection}>
                             <CollaborationProcessScreen />
                         </section>
                         <section id={"freelance"} className={styles.freelanceSection}>
