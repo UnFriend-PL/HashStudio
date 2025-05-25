@@ -6,7 +6,6 @@ import '../styles/Menu.scss';
 import {CiMenuBurger} from "react-icons/ci";
 import {IoMdClose} from "react-icons/io";
 import { useTranslation } from 'react-i18next';
-import LanguageSwitcher from './LanguageSwitcher';
 
 const AnimatedMenu = () => {
     const { t } = useTranslation();
@@ -159,7 +158,6 @@ const AnimatedMenu = () => {
                 ))}
             </div>
             
-            <LanguageSwitcher />
 
             <div ref={indicator1Ref} className="indicator"/>
             <div ref={indicator2Ref} className="indicator"/>

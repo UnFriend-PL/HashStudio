@@ -23,6 +23,7 @@ import {TbWorldWww} from "react-icons/tb"
 import avatar from "@/app/assets/avatar_szymon.png"
 import FreelanceScreen from '@/app/components/partials/FreelanceScreen';
 import CollaborationProcessScreen from '@/app/components/partials/CollaborationProcessScreen';
+import LanguageSwitcher from "@/app/components/LanguageSwitcher";
 
 export default function Home() {
     const { t } = useTranslation();
@@ -136,6 +137,8 @@ export default function Home() {
                         <section id={"freelance"} className={styles.freelanceSection}>
                             <FreelanceScreen />
                         </section>
+                        <LanguageSwitcher />
+
                     </main>
                 </ParallaxProvider>
             )}
