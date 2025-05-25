@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import ServiceCategory from '@/app/utils/offer-components/ServiceCategory';
-import ContactForm from '@/app/utils/offer-components/ContactForm';
+import ContactForm from './ContactForm';
 import AIChat from '@/app/utils/offer-components/AIChat';
 import { offerData } from '@/app/data/offerData';
 import { RiBardFill  } from 'react-icons/ri';

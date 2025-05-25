@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useTranslation } from 'react-i18next';
 import { BsArrowRight } from "react-icons/bs";
 import { useChatContext } from '@/app/context/ChatContext';
-
+import './styles/ContactForm.scss';
 const ContactForm = () => {
     const { t } = useTranslation();
     const { selectedServices } = useChatContext();
