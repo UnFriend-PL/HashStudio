@@ -180,6 +180,27 @@
       }
     }
   },
+  "cookieConsent": {
+    "title": "Cookie Settings",
+    "description": "We use cookies to improve your experience on our website. You can manage your preferences below.",
+    "modalDescription": "We use cookies to enhance your browsing experience, serve personalized content, and analyze our traffic. By clicking 'Accept All', you consent to our use of cookies.",
+    "analytics": "Analytics",
+    "analyticsDescription": "Analytical cookies help us understand how visitors interact with our website.",
+    "necessary": "Necessary",
+    "necessaryDescription": "Necessary cookies are required for the website to function properly.",
+    "preferences": "Preferences",
+    "preferencesDescription": "Preference cookies enable the website to remember information that changes the way the site behaves or looks.",
+    "marketing": "Marketing",
+    "marketingDescription": "Marketing cookies are used to track visitors across websites and display relevant ads."
+  },
+  "common": {
+    "accept": "Accept",
+    "acceptAll": "Accept All",
+    "decline": "Decline",
+    "save": "Save Settings",
+    "close": "Close",
+    "learnMore": "Learn More"
+  },
   "footer": {
     "title": "HashStudio",
     "description": "Creating innovative digital solutions that drive business growth and success.",
@@ -204,7 +225,8 @@
       "title": "Legal",
       "privacy": "Privacy Policy",
       "terms": "Terms of Service",
-      "cookies": "Cookie Policy"
+      "cookies": "Cookie Policy",
+      "lastUpdated": "Last updated: May 26, 2025"
     },
     "social": "Follow Us",
     "newsletter": {

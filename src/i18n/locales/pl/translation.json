@@ -165,6 +165,27 @@
       }
     }
   },
+  "cookieConsent": {
+    "title": "Ustawienia plików cookie",
+    "description": "Używamy plików cookie, aby poprawić Twoje doświadczenie na naszej stronie. Możesz zarządzać swoimi preferencjami poniżej.",
+    "modalDescription": "Używamy plików cookie, aby poprawić jakość przeglądania, dostarczać spersonalizowane treści i analizować ruch na stronie. Klikając 'Zaakceptuj wszystko', wyrażasz zgodę na używanie plików cookie.",
+    "analytics": "Analityka",
+    "analyticsDescription": "Analityczne pliki cookie pomagają nam zrozumieć, w jaki sposób odwiedzający wchodzą w interakcję z naszą stroną internetową.",
+    "necessary": "Niezbędne",
+    "necessaryDescription": "Niezbędne pliki cookie są wymagane do prawidłowego działania strony internetowej.",
+    "preferences": "Preferencje",
+    "preferencesDescription": "Pliki cookie preferencji umożliwiają stronie zapamiętywanie informacji, które zmieniają sposób zachowania lub wyglądu witryny.",
+    "marketing": "Marketing",
+    "marketingDescription": "Marketingowe pliki cookie służą do śledzenia odwiedzających w witrynach i wyświetlania odpowiednich reklam."
+  },
+  "common": {
+    "accept": "Akceptuję",
+    "acceptAll": "Zaakceptuj wszystko",
+    "decline": "Odrzuć",
+    "save": "Zapisz ustawienia",
+    "close": "Zamknij",
+    "learnMore": "Dowiedz się więcej"
+  },
   "footer" : {
     "title": "HashStudio",
     "description" : "Tworzenie innowacyjnych rozwiązań cyfrowych, które przyczyniają się do rozwijania biznesu i sukcesu.",
@@ -186,10 +207,58 @@
       "Grafika Komputerowa"
     ],
     "legal" : {
-      "title" : "Legal",
+      "title" : "Prawne",
       "privacy" : "Polityka Prywatności",
       "terms" : "Warunki Korzystania",
-      "cookies" : "Polityka Cookies"
+      "cookies" : "Polityka Cookies",
+      "lastUpdated": "Ostatnia aktualizacja: 26 maja 2025"
+    },
+    "privacyPolicy": {
+      "title": "Polityka Prywatności",
+      "lastUpdated": "Ostatnia aktualizacja: 26 maja 2025",
+      "introduction": "W HashStudio szanujemy Twoją prywatność i jesteśmy zobowiązani do ochrony Twoich danych osobowych. Niniejsza polityka prywatności poinformuje Cię, w jaki sposób dbamy o Twoje dane osobowe podczas odwiedzania naszej strony internetowej oraz poinformuje Cię o Twoich prawach do prywatności i jak prawo Cię chroni.",
+      "dataCollection": {
+        "title": "Dane, Które Zbieramy",
+        "content": "Możemy zbierać, używać, przechowywać i przekazywać różne rodzaje danych osobowych na Twój temat, które zgrupowaliśmy w następujący sposób: Dane Identyfikacyjne, Dane Kontaktowe, Dane Techniczne, Dane o Użytkowaniu oraz Dane Marketingowe i Komunikacyjne."
+      },
+      "howWeUseData": {
+        "title": "Jak Wykorzystujemy Twoje Dane",
+        "content": "Będziemy wykorzystywać Twoje dane osobowe tylko wtedy, gdy pozwala na to prawo. Najczęściej będziemy używać Twoich danych osobowych w celu świadczenia i ulepszania naszych usług, zarządzania naszą relacją z Tobą oraz wypełniania zobowiązań prawnych."
+      },
+      "dataSecurity": {
+        "title": "Bezpieczeństwo Danych",
+        "content": "Wdrożyliśmy odpowiednie środki bezpieczeństwa, aby zapobiec przypadkowej utracie, nieuprawnionemu użyciu lub dostępowi do Twoich danych osobowych, ich zmianie lub ujawnieniu."
+      }
+    },
+    "termsOfService": {
+      "title": "Warunki Korzystania",
+      "lastUpdated": "Ostatnia aktualizacja: 26 maja 2025",
+      "introduction": "Korzystając z naszej strony internetowej, zgadzasz się przestrzegać niniejszych Warunków Korzystania oraz wszystkich obowiązujących przepisów prawa. Jeśli nie zgadzasz się z którymkolwiek z tych warunków, zabrania się korzystania z tej strony.",
+      "useLicense": {
+        "title": "Licencja Użytkownika",
+        "content": "Przyznajemy zezwolenie na tymczasowe pobranie jednej kopii materiałów znajdujących się na stronie internetowej HashStudio wyłącznie do osobistego, niekomercyjnego przeglądania."
+      },
+      "disclaimer": {
+        "title": "Zastrzeżenie",
+        "content": "Materiały na stronie internetowej HashStudio są udostępniane 'tak, jak są'. HashStudio nie udziela żadnych gwarancji, wyraźnych ani dorozumianych, i w tym zakresie wyłącza wszelkie inne gwarancje, w tym bez ograniczeń dorozumiane gwarancje lub warunki handlowości, przydatności do określonego celu lub naruszenia praw własności intelektualnej."
+      }
+    },
+    "cookiePolicy": {
+      "title": "Polityka Plików Cookie",
+      "lastUpdated": "Ostatnia aktualizacja: 26 maja 2025",
+      "introduction": "Niniejsza Polityka Plików Cookie wyjaśnia, w jaki sposób HashStudio używa plików cookie i podobnych technologii do rozpoznawania Cię podczas odwiedzania naszej strony internetowej. Wyjaśnia, czym są te technologie i dlaczego ich używamy, a także Twoje prawa dotyczące kontroli ich używania.",
+      "whatAreCookies": {
+        "title": "Czym Są Pliki Cookie",
+        "content": "Pliki cookie to małe pliki danych umieszczane na Twoim komputerze lub urządzeniu mobilnym podczas odwiedzania witryny internetowej. Pliki cookie są powszechnie używane przez właścicieli witryn, aby ich strony działały lub działały wydajniej, a także w celu dostarczania informacji o ruchu."
+      },
+      "howWeUseCookies": {
+        "title": "Jak Wykorzystujemy Pliki Cookie",
+        "content": "Używamy plików cookie pierwszych i stron trzecich z kilku powodów. Niektóre pliki cookie są wymagane ze względów technicznych, aby nasza strona internetowa działała, i nazywamy je plikami 'niezbędnymi' lub 'ścisłymi'. Inne pliki cookie umożliwiają nam śledzenie i ukierunkowywanie zainteresowań naszych użytkowników w celu ulepszenia doświadczeń na naszej stronie."
+      },
+      "managingCookies": {
+        "title": "Zarządzanie Plikami Cookie",
+        "content": "Możesz ustawić lub zmienić ustawienia swojej przeglądarki internetowej, aby akceptować lub odrzucać pliki cookie. Jeśli zdecydujesz się odrzucić pliki cookie, nadal możesz korzystać z naszej strony internetowej, chociaż dostęp do niektórych funkcji i obszarów naszej witryny może być ograniczony."
+      }
     },
     "social" : "Folowuj nas",
     "newsletter" : {

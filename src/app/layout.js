@@ -3,6 +3,7 @@ import "./globals.css";
 import I18nProvider from "./I18nProvider";
 import { ChatProvider } from "./context/ChatContext";
 import Analytics from "./components/analytics/GoogleAnalytics";
+import CookieConsent from "./components/CookieConsent";
 
 const geistSans = Geist({
     variable: "--font-geist-sans",
@@ -31,6 +32,7 @@ export default function RootLayout({children}) {
                 </ChatProvider>
             </I18nProvider>
             <Analytics />
+            <CookieConsent />
         </body>
         </html>
     );
