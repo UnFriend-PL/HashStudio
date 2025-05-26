@@ -47,16 +47,10 @@ const Footer = () => {
             </a>
           </address>
           <div className={styles.socialLinks}>
-            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-              <FaFacebook />
-            </a>
-            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
-              <FaTwitter />
-            </a>
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+            <a href="https://www.linkedin.com/in/smarcinkowski/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
               <FaLinkedin />
             </a>
-            <a href="https://github.com" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+            <a href="https://github.com/UnFriend-PL" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
               <FaGithub />
             </a>
           </div>
@@ -101,7 +95,7 @@ const Footer = () => {
         </div>
 
         {/* Newsletter */}
-        <div className={styles.newsletter}>
+        {/* <div className={styles.newsletter}>
           <h3>{t('footer.newsletter.title')}</h3>
           <p>{t('footer.newsletter.description')}</p>
           {isSubscribed ? (
@@ -131,7 +125,7 @@ const Footer = () => {
               </div>
             </form>
           )}
-        </div>
+        </div> */}
       </div>
       
       <div className={styles.copyright}>

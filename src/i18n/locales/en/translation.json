@@ -187,12 +187,12 @@
     "company": "Company",
     "services": "Services",
     "contact": "Contact Us",
-    "address": {
-      "line1": "123 Digital Street",
-      "city": "Warsaw, 00-001",
-      "country": "Poland",
-      "nip": "NIP: 1234567890",
-      "email": "contact@hashstudio.pl"
+    "address" : {
+      "line1" : "Macieja Kamińskiego 9e/149",
+      "city" : "Gdańsk, 80-170",
+      "country" : "Poland",
+      "nip" : "NIP: 5833537577",
+      "email" : "szymonecki1233@gmail.com"
     },
     "servicesList": [
       "Web Development",
@@ -215,7 +215,7 @@
       "success": "Thank you for subscribing!"
     },
     "copyright": "All rights reserved.",
-    "madeWith": "Made with ❤️ in Warsaw"
+    "madeWith": "Made with ❤️ in Gdańsk"
   },
   "design": {
     "title": "Design Inspiration",

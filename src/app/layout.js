@@ -2,6 +2,7 @@ import {Geist, Geist_Mono} from "next/font/google";
 import "./globals.css";
 import I18nProvider from "./I18nProvider";
 import { ChatProvider } from "./context/ChatContext";
+import Analytics from "./components/analytics/GoogleAnalytics";
 
 const geistSans = Geist({
     variable: "--font-geist-sans",
@@ -29,6 +30,7 @@ export default function RootLayout({children}) {
                     {children}
                 </ChatProvider>
             </I18nProvider>
+            <Analytics />
         </body>
         </html>
     );

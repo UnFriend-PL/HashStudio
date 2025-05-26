@@ -173,11 +173,11 @@
     "services" : "Usługi",
     "contact" : "Skontaktuj się z nami",
     "address" : {
-      "line1" : "123 Digital Street",
-      "city" : "Warszawa, 00-001",
+      "line1" : "Macieja Kamińskiego 9e/149",
+      "city" : "Gdańsk, 80-170",
       "country" : "Poland",
-      "nip" : "NIP: 1234567890",
-      "email" : "contact@hashstudio.pl"
+      "nip" : "NIP: 5833537577",
+      "email" : "szymonecki1233@gmail.com"
     },
     "servicesList" : [
       "Strony internetowe",
