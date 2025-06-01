@@ -1,3 +1,4 @@
+@use "@/app/styles/Colors" as color;
 @import "tailwindcss";
 
 :root {
@@ -29,3 +30,26 @@ body {
 body{
   overflow-x: hidden;
 }
+
+  .klaro .cookie-modal .cm-bg {
+    background: rgba(0, 0, 0, 0.7);
+  }
+
+  .klaro .cookie-modal .cm-bg-close {
+    color: white;
+    font-size: 24px;
+  }
+
+  .klaro .cookie-modal .cm-header {
+    padding: 20px;
+    background: color.$primary-color;
+    color: #111;
+  }
+
+  .klaro .cookie-modal .cm-header h1 {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 600;
+  }
+
+

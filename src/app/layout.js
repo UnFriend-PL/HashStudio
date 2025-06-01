@@ -1,5 +1,5 @@
 import {Geist, Geist_Mono} from "next/font/google";
-import "./globals.css";
+import "./globals.scss";
 import I18nProvider from "./I18nProvider";
 import { ChatProvider } from "./context/ChatContext";
 import Analytics from "./components/analytics/GoogleAnalytics";

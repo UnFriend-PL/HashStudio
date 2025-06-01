@@ -2,7 +2,6 @@
 
 import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import styles from '../styles/CookieConsent.module.scss';
 import 'klaro/dist/klaro.min.css';
 
 const loadKlaro = () => {
