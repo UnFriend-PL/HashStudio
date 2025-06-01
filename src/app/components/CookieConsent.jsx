@@ -2,7 +2,7 @@
 
 import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import styles from '@/app/styles/CookieConsent.module.scss';
+import styles from '../styles/partials/CookieConsent.module.css';
 import 'klaro/dist/klaro.min.css';
 
 const loadKlaro = () => {
@@ -25,7 +25,7 @@ export default function CookieConsent() {
         cookieName: 'cookie-consent',
         cookieExpiresAfterDays: 365,
         cookieDomain: window.location.hostname,
-        lang: i18n.language,
+        lang: i18n.language.startsWith('pl') ? 'pl' : 'en',
         noticeAsModal: false,
         hideLearnMore: false,
         styling: {
@@ -33,39 +33,138 @@ export default function CookieConsent() {
           checkboxType: 'switch',
         },
         translations: {
-          [i18n.language]: {
+          en: {
             consentNotice: {
-              description: t('cookieConsent.description'),
-              learnMore: t('common.learnMore'),
+              description: t('cookieConsent.description', { lng: 'en' }),
+              learnMore: t('common.learnMore', { lng: 'en' }),
             },
             consentModal: {
-              title: t('cookieConsent.title'),
-              description: t('cookieConsent.modalDescription'),
+              title: t('cookieConsent.title', { lng: 'en' }),
+              description: t('cookieConsent.modalDescription', { lng: 'en' }),
             },
             purposes: {
-              necessary: t('cookieConsent.necessary'),
-              analytics: t('cookieConsent.analytics'),
-              preferences: t('cookieConsent.preferences'),
-              marketing: t('cookieConsent.marketing'),
+              necessary: t('cookieConsent.necessary', { lng: 'en' }),
+              analytics: t('cookieConsent.analytics', { lng: 'en' }),
+              preferences: t('cookieConsent.preferences', { lng: 'en' }),
+              marketing: t('cookieConsent.marketing', { lng: 'en' }),
             },
             googleAnalytics: {
-              description: t('cookieConsent.analyticsDescription'),
+              description: t('cookieConsent.analyticsDescription', { lng: 'en' }),
             },
             necessary: {
-              description: t('cookieConsent.necessaryDescription'),
+              description: t('cookieConsent.necessaryDescription', { lng: 'en' }),
             },
             preferences: {
-              description: t('cookieConsent.preferencesDescription'),
+              description: t('cookieConsent.preferencesDescription', { lng: 'en' }),
             },
             marketing: {
-              description: t('cookieConsent.marketingDescription'),
+              description: t('cookieConsent.marketingDescription', { lng: 'en' }),
             },
-            ok: t('common.accept'),
-            save: t('common.save'),
-            acceptAll: t('common.acceptAll'),
-            decline: t('common.decline'),
-            close: t('common.close'),
+            ok: t('common.accept', { lng: 'en' }),
+            save: t('common.save', { lng: 'en' }),
+            acceptAll: t('common.acceptAll', { lng: 'en' }),
+            decline: t('common.decline', { lng: 'en' }),
+            close: t('common.close', { lng: 'en' }),
+            privacyPolicy: {
+              text: t('privacyPolicy.text', { lng: 'en' })
+            },
+            purposeItem: {
+              service: t('purposeItem.service', { lng: 'en' })
+            },
+            acceptSelected: t('common.acceptSelected', { lng: 'en' }),
+            poweredBy: 'Powered by Klaro',
+            service: {
+              purpose: t('service.purpose', { lng: 'en' })
+            }
           },
+          pl: {
+            consentNotice: {
+              description: t('cookieConsent.description', { lng: 'pl' }),
+              learnMore: t('common.learnMore', { lng: 'pl' }),
+            },
+            consentModal: {
+              title: t('cookieConsent.title', { lng: 'pl' }),
+              description: t('cookieConsent.modalDescription', { lng: 'pl' }),
+            },
+            purposes: {
+              necessary: t('cookieConsent.necessary', { lng: 'pl' }),
+              analytics: t('cookieConsent.analytics', { lng: 'pl' }),
+              preferences: t('cookieConsent.preferences', { lng: 'pl' }),
+              marketing: t('cookieConsent.marketing', { lng: 'pl' }),
+            },
+            googleAnalytics: {
+              description: t('cookieConsent.analyticsDescription', { lng: 'pl' }),
+            },
+            necessary: {
+              description: t('cookieConsent.necessaryDescription', { lng: 'pl' }),
+            },
+            preferences: {
+              description: t('cookieConsent.preferencesDescription', { lng: 'pl' }),
+            },
+            marketing: {
+              description: t('cookieConsent.marketingDescription', { lng: 'pl' }),
+            },
+            ok: t('common.accept', { lng: 'pl' }),
+            save: t('common.save', { lng: 'pl' }),
+            acceptAll: t('common.acceptAll', { lng: 'pl' }),
+            decline: t('common.decline', { lng: 'pl' }),
+            close: t('common.close', { lng: 'pl' }),
+            privacyPolicy: {
+              text: t('privacyPolicy.text', { lng: 'pl' })
+            },
+            purposeItem: {
+              service: t('purposeItem.service', { lng: 'pl' })
+            },
+            acceptSelected: t('common.acceptSelected', { lng: 'pl' }),
+            poweredBy: 'Wspierane przez Klaro',
+            service: {
+              purpose: t('service.purpose', { lng: 'pl' })
+            }
+          },
+          'en-GB': {
+            consentNotice: {
+              description: t('cookieConsent.description', { lng: 'en' }),
+              learnMore: t('common.learnMore', { lng: 'en' }),
+            },
+            consentModal: {
+              title: t('cookieConsent.title', { lng: 'en' }),
+              description: t('cookieConsent.modalDescription', { lng: 'en' }),
+            },
+            purposes: {
+              necessary: t('cookieConsent.necessary', { lng: 'en' }),
+              analytics: t('cookieConsent.analytics', { lng: 'en' }),
+              preferences: t('cookieConsent.preferences', { lng: 'en' }),
+              marketing: t('cookieConsent.marketing', { lng: 'en' }),
+            },
+            googleAnalytics: {
+              description: t('cookieConsent.analyticsDescription', { lng: 'en' }),
+            },
+            necessary: {
+              description: t('cookieConsent.necessaryDescription', { lng: 'en' }),
+            },
+            preferences: {
+              description: t('cookieConsent.preferencesDescription', { lng: 'en' }),
+            },
+            marketing: {
+              description: t('cookieConsent.marketingDescription', { lng: 'en' }),
+            },
+            ok: t('common.accept', { lng: 'en' }),
+            save: t('common.save', { lng: 'en' }),
+            acceptAll: t('common.acceptAll', { lng: 'en' }),
+            decline: t('common.decline', { lng: 'en' }),
+            close: t('common.close', { lng: 'en' }),
+            privacyPolicy: {
+              text: t('privacyPolicy.text', { lng: 'en' })
+            },
+            purposeItem: {
+              service: t('purposeItem.service', { lng: 'en' })
+            },
+            acceptSelected: t('common.acceptSelected', { lng: 'en' }),
+            poweredBy: 'Powered by Klaro',
+            service: {
+              purpose: t('service.purpose', { lng: 'en' })
+            }
+          }
         },
         apps: [
           {

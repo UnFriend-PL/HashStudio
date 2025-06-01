@@ -88,9 +88,18 @@ const Footer = () => {
         <div className={styles.legalSection}>
           <h3>{t('footer.legal.title')}</h3>
           <ul>
-            <li><a href="/privacy">{t('footer.legal.privacy')}</a></li>
-            <li><a href="/terms">{t('footer.legal.terms')}</a></li>
-            <li><a href="/cookies">{t('footer.legal.cookies')}</a></li>
+            <li><Link href="/privacy-policy">{t('footer.legal.privacy')}</Link></li>
+            <li><Link href="/terms-of-service">{t('footer.legal.terms')}</Link></li>
+            <li><Link href="/cookie-policy">{t('footer.legal.cookies')}</Link></li>
+            <li>
+              <button
+                type="button"
+                className={styles.klaroBtn}
+                onClick={() => window.klaro && window.klaro.show && window.klaro.show()}
+              >
+                {t('footer.legal.manageCookies')}
+              </button>
+            </li>
           </ul>
         </div>
 

@@ -167,8 +167,8 @@
   },
   "cookieConsent": {
     "title": "Ustawienia plików cookie",
-    "description": "Używamy plików cookie, aby poprawić Twoje doświadczenie na naszej stronie. Możesz zarządzać swoimi preferencjami poniżej.",
-    "modalDescription": "Używamy plików cookie, aby poprawić jakość przeglądania, dostarczać spersonalizowane treści i analizować ruch na stronie. Klikając 'Zaakceptuj wszystko', wyrażasz zgodę na używanie plików cookie.",
+    "description": "Używamy plików cookie, aby poprawić Twoje doświadczenie przeglądania, dostarczać spersonalizowane treści i analizować ruch na stronie. Klikając 'Zaakceptuj wszystko', wyrażasz zgodę na używanie plików cookie.",
+    "modalDescription": "Używamy plików cookie, aby poprawić Twoje doświadczenie przeglądania, dostarczać spersonalizowane treści i analizować ruch na stronie. Klikając 'Zaakceptuj wszystko', wyrażasz zgodę na używanie plików cookie.",
     "analytics": "Analityka",
     "analyticsDescription": "Analityczne pliki cookie pomagają nam zrozumieć, w jaki sposób odwiedzający wchodzą w interakcję z naszą stroną internetową.",
     "necessary": "Niezbędne",
@@ -184,7 +184,8 @@
     "decline": "Odrzuć",
     "save": "Zapisz ustawienia",
     "close": "Zamknij",
-    "learnMore": "Dowiedz się więcej"
+    "learnMore": "Dowiedz się więcej",
+    "acceptSelected": "Zaakceptuj wybrane"
   },
   "footer" : {
     "title": "HashStudio",
@@ -211,6 +212,7 @@
       "privacy" : "Polityka Prywatności",
       "terms" : "Warunki Korzystania",
       "cookies" : "Polityka Cookies",
+      "manageCookies": "Zarządzaj preferencjami cookies",
       "lastUpdated": "Ostatnia aktualizacja: 26 maja 2025"
     },
     "privacyPolicy": {
@@ -299,5 +301,15 @@
         "description": "Przyjazna aplikacja mobilna z intuicyjnym interfejsem"
       }
     }
-  }
+  },
+  "privacyPolicy": {
+    "text": "Polityka Prywatności"
+  },
+  "purposeItem": {
+    "service": "Usługa"
+  },
+  "service": {
+    "purpose": "Cel"
+  },
+  "poweredBy": "Wspierane przez Klaro"
 } 

@@ -182,7 +182,7 @@
   },
   "cookieConsent": {
     "title": "Cookie Settings",
-    "description": "We use cookies to improve your experience on our website. You can manage your preferences below.",
+    "description": "We use cookies to enhance your browsing experience, serve personalized content, and analyze our traffic. By clicking 'Accept All', you consent to our use of cookies.",
     "modalDescription": "We use cookies to enhance your browsing experience, serve personalized content, and analyze our traffic. By clicking 'Accept All', you consent to our use of cookies.",
     "analytics": "Analytics",
     "analyticsDescription": "Analytical cookies help us understand how visitors interact with our website.",
@@ -199,7 +199,8 @@
     "decline": "Decline",
     "save": "Save Settings",
     "close": "Close",
-    "learnMore": "Learn More"
+    "learnMore": "Learn More",
+    "acceptSelected": "Accept Selected"
   },
   "footer": {
     "title": "HashStudio",
@@ -226,6 +227,7 @@
       "privacy": "Privacy Policy",
       "terms": "Terms of Service",
       "cookies": "Cookie Policy",
+      "manageCookies": "Manage cookie preferences",
       "lastUpdated": "Last updated: May 26, 2025"
     },
     "social": "Follow Us",
@@ -267,5 +269,15 @@
         "description": "User-friendly mobile application with intuitive interface"
       }
     }
-  }
+  },
+  "privacyPolicy": {
+    "text": "Privacy Policy"
+  },
+  "purposeItem": {
+    "service": "Service"
+  },
+  "service": {
+    "purpose": "Purpose"
+  },
+  "poweredBy": "Powered by Klaro"
 } 
