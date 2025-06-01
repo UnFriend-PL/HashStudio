@@ -220,46 +220,88 @@
       "lastUpdated": "Ostatnia aktualizacja: 26 maja 2025",
       "introduction": "W HashStudio szanujemy Twoją prywatność i jesteśmy zobowiązani do ochrony Twoich danych osobowych. Niniejsza polityka prywatności poinformuje Cię, w jaki sposób dbamy o Twoje dane osobowe podczas odwiedzania naszej strony internetowej oraz poinformuje Cię o Twoich prawach do prywatności i jak prawo Cię chroni.",
       "dataCollection": {
-        "title": "Dane, Które Zbieramy",
-        "content": "Możemy zbierać, używać, przechowywać i przekazywać różne rodzaje danych osobowych na Twój temat, które zgrupowaliśmy w następujący sposób: Dane Identyfikacyjne, Dane Kontaktowe, Dane Techniczne, Dane o Użytkowaniu oraz Dane Marketingowe i Komunikacyjne."
+        "title": "Jakie dane zbieramy?",
+        "description": "Możemy zbierać następujące dane: imię i nazwisko, adres e-mail, adres IP, dane o korzystaniu ze strony, pliki cookie oraz inne dane przekazywane dobrowolnie przez użytkownika."
       },
-      "howWeUseData": {
-        "title": "Jak Wykorzystujemy Twoje Dane",
-        "content": "Będziemy wykorzystywać Twoje dane osobowe tylko wtedy, gdy pozwala na to prawo. Najczęściej będziemy używać Twoich danych osobowych w celu świadczenia i ulepszania naszych usług, zarządzania naszą relacją z Tobą oraz wypełniania zobowiązań prawnych."
+      "dataUsage": {
+        "title": "W jaki sposób wykorzystujemy dane?",
+        "description": "Dane wykorzystujemy w celu świadczenia usług, ulepszania strony, kontaktu z użytkownikiem oraz w celach analitycznych i marketingowych.",
+        "provide": "Świadczenie usług i obsługa zapytań",
+        "improve": "Ulepszanie funkcjonalności strony",
+        "communicate": "Kontakt z użytkownikiem (np. newsletter)"
       },
-      "dataSecurity": {
-        "title": "Bezpieczeństwo Danych",
-        "content": "Wdrożyliśmy odpowiednie środki bezpieczeństwa, aby zapobiec przypadkowej utracie, nieuprawnionemu użyciu lub dostępowi do Twoich danych osobowych, ich zmianie lub ujawnieniu."
+      "dataProtection": {
+        "title": "Ochrona danych",
+        "description": "Stosujemy odpowiednie środki techniczne i organizacyjne, aby chronić Twoje dane przed nieuprawnionym dostępem, utratą lub zniszczeniem."
+      },
+      "rights": {
+        "title": "Twoje prawa",
+        "description": "Masz prawo do dostępu do swoich danych, ich poprawiania, usunięcia, ograniczenia przetwarzania oraz wniesienia sprzeciwu.",
+        "access": "Dostęp do danych",
+        "correction": "Sprostowanie danych",
+        "deletion": "Usunięcie danych",
+        "objection": "Sprzeciw wobec przetwarzania"
+      },
+      "contact": {
+        "title": "Kontakt",
+        "description": "W sprawach związanych z ochroną prywatności możesz się z nami skontaktować pod adresem e-mail: szymonecki1233@gmail.com."
       }
     },
     "termsOfService": {
-      "title": "Warunki Korzystania",
+      "title": "Warunki korzystania",
       "lastUpdated": "Ostatnia aktualizacja: 26 maja 2025",
-      "introduction": "Korzystając z naszej strony internetowej, zgadzasz się przestrzegać niniejszych Warunków Korzystania oraz wszystkich obowiązujących przepisów prawa. Jeśli nie zgadzasz się z którymkolwiek z tych warunków, zabrania się korzystania z tej strony.",
-      "useLicense": {
-        "title": "Licencja Użytkownika",
-        "content": "Przyznajemy zezwolenie na tymczasowe pobranie jednej kopii materiałów znajdujących się na stronie internetowej HashStudio wyłącznie do osobistego, niekomercyjnego przeglądania."
+      "introduction": "Korzystając z tej strony, akceptujesz poniższe warunki. Jeśli nie zgadzasz się z którymkolwiek z nich, prosimy o niekorzystanie z serwisu.",
+      "acceptance": {
+        "title": "Akceptacja warunków",
+        "description": "Korzystanie ze strony oznacza akceptację niniejszych warunków."
       },
-      "disclaimer": {
-        "title": "Zastrzeżenie",
-        "content": "Materiały na stronie internetowej HashStudio są udostępniane 'tak, jak są'. HashStudio nie udziela żadnych gwarancji, wyraźnych ani dorozumianych, i w tym zakresie wyłącza wszelkie inne gwarancje, w tym bez ograniczeń dorozumiane gwarancje lub warunki handlowości, przydatności do określonego celu lub naruszenia praw własności intelektualnej."
+      "services": {
+        "title": "Zakres usług",
+        "description": "Oferujemy usługi z zakresu tworzenia stron internetowych, aplikacji webowych, projektowania UI/UX oraz grafiki komputerowej.",
+        "webDevelopment": "Strony internetowe",
+        "webApplications": "Aplikacje webowe",
+        "uiUxDesign": "Projektowanie UI/UX",
+        "graphicDesign": "Grafika komputerowa"
+      },
+      "obligations": {
+        "title": "Obowiązki użytkownika",
+        "description": "Użytkownik zobowiązuje się do korzystania ze strony zgodnie z prawem i dobrymi obyczajami.",
+        "provide": "Podawanie prawdziwych danych",
+        "maintain": "Niedostarczanie treści niezgodnych z prawem",
+        "protect": "Dbanie o bezpieczeństwo swojego konta"
+      },
+      "intellectualProperty": {
+        "title": "Własność intelektualna",
+        "description": "Wszelkie treści na stronie są chronione prawem autorskim i nie mogą być kopiowane bez zgody."
+      },
+      "liability": {
+        "title": "Odpowiedzialność",
+        "description": "Nie ponosimy odpowiedzialności za szkody wynikłe z korzystania ze strony."
+      },
+      "termination": {
+        "title": "Rozwiązanie umowy",
+        "description": "Możemy zablokować dostęp do strony w przypadku naruszenia warunków."
+      },
+      "changes": {
+        "title": "Zmiany warunków",
+        "description": "Zastrzegamy sobie prawo do zmiany warunków w dowolnym momencie."
+      },
+      "contact": {
+        "title": "Kontakt",
+        "description": "W razie pytań prosimy o kontakt: szymonecki1233@gmail.com."
       }
     },
     "cookiePolicy": {
-      "title": "Polityka Plików Cookie",
+      "title": "Polityka Cookies",
       "lastUpdated": "Ostatnia aktualizacja: 26 maja 2025",
-      "introduction": "Niniejsza Polityka Plików Cookie wyjaśnia, w jaki sposób HashStudio używa plików cookie i podobnych technologii do rozpoznawania Cię podczas odwiedzania naszej strony internetowej. Wyjaśnia, czym są te technologie i dlaczego ich używamy, a także Twoje prawa dotyczące kontroli ich używania.",
-      "whatAreCookies": {
-        "title": "Czym Są Pliki Cookie",
-        "content": "Pliki cookie to małe pliki danych umieszczane na Twoim komputerze lub urządzeniu mobilnym podczas odwiedzania witryny internetowej. Pliki cookie są powszechnie używane przez właścicieli witryn, aby ich strony działały lub działały wydajniej, a także w celu dostarczania informacji o ruchu."
+      "introduction": "Ta polityka wyjaśnia, czym są pliki cookie, jak ich używamy oraz jak możesz nimi zarządzać.",
+      "types": {
+        "title": "Rodzaje plików cookie",
+        "description": "Na naszej stronie używamy plików cookie niezbędnych, analitycznych, preferencyjnych i marketingowych."
       },
-      "howWeUseCookies": {
-        "title": "Jak Wykorzystujemy Pliki Cookie",
-        "content": "Używamy plików cookie pierwszych i stron trzecich z kilku powodów. Niektóre pliki cookie są wymagane ze względów technicznych, aby nasza strona internetowa działała, i nazywamy je plikami 'niezbędnymi' lub 'ścisłymi'. Inne pliki cookie umożliwiają nam śledzenie i ukierunkowywanie zainteresowań naszych użytkowników w celu ulepszenia doświadczeń na naszej stronie."
-      },
-      "managingCookies": {
-        "title": "Zarządzanie Plikami Cookie",
-        "content": "Możesz ustawić lub zmienić ustawienia swojej przeglądarki internetowej, aby akceptować lub odrzucać pliki cookie. Jeśli zdecydujesz się odrzucić pliki cookie, nadal możesz korzystać z naszej strony internetowej, chociaż dostęp do niektórych funkcji i obszarów naszej witryny może być ograniczony."
+      "manage": {
+        "title": "Jak zarządzać plikami cookie?",
+        "description": "Możesz zarządzać swoimi preferencjami dotyczącymi plików cookie za pomocą ustawień przeglądarki lub klikając przycisk poniżej."
       }
     },
     "social" : "Folowuj nas",
@@ -303,7 +345,93 @@
     }
   },
   "privacyPolicy": {
-    "text": "Polityka Prywatności"
+    "title": "Polityka Prywatności",
+    "lastUpdated": "Ostatnia aktualizacja: 26 maja 2025",
+    "introduction": "W HashStudio szanujemy Twoją prywatność i jesteśmy zobowiązani do ochrony Twoich danych osobowych. Niniejsza polityka prywatności poinformuje Cię, w jaki sposób dbamy o Twoje dane osobowe podczas odwiedzania naszej strony internetowej oraz poinformuje Cię o Twoich prawach do prywatności i jak prawo Cię chroni.",
+    "dataCollection": {
+      "title": "Jakie dane zbieramy?",
+      "description": "Możemy zbierać następujące dane: imię i nazwisko, adres e-mail, adres IP, dane o korzystaniu ze strony, pliki cookie oraz inne dane przekazywane dobrowolnie przez użytkownika."
+    },
+    "dataUsage": {
+      "title": "W jaki sposób wykorzystujemy dane?",
+      "description": "Dane wykorzystujemy w celu świadczenia usług, ulepszania strony, kontaktu z użytkownikiem oraz w celach analitycznych i marketingowych.",
+      "provide": "Świadczenie usług i obsługa zapytań",
+      "improve": "Ulepszanie funkcjonalności strony",
+      "communicate": "Kontakt z użytkownikiem (np. newsletter)"
+    },
+    "dataProtection": {
+      "title": "Ochrona danych",
+      "description": "Stosujemy odpowiednie środki techniczne i organizacyjne, aby chronić Twoje dane przed nieuprawnionym dostępem, utratą lub zniszczeniem."
+    },
+    "rights": {
+      "title": "Twoje prawa",
+      "description": "Masz prawo do dostępu do swoich danych, ich poprawiania, usunięcia, ograniczenia przetwarzania oraz wniesienia sprzeciwu.",
+      "access": "Dostęp do danych",
+      "correction": "Sprostowanie danych",
+      "deletion": "Usunięcie danych",
+      "objection": "Sprzeciw wobec przetwarzania"
+    },
+    "contact": {
+      "title": "Kontakt",
+      "description": "W sprawach związanych z ochroną prywatności możesz się z nami skontaktować pod adresem e-mail: szymonecki1233@gmail.com."
+    }
+  },
+  "termsOfService": {
+    "title": "Warunki korzystania",
+    "lastUpdated": "Ostatnia aktualizacja: 26 maja 2025",
+    "introduction": "Korzystając z tej strony, akceptujesz poniższe warunki. Jeśli nie zgadzasz się z którymkolwiek z nich, prosimy o niekorzystanie z serwisu.",
+    "acceptance": {
+      "title": "Akceptacja warunków",
+      "description": "Korzystanie ze strony oznacza akceptację niniejszych warunków."
+    },
+    "services": {
+      "title": "Zakres usług",
+      "description": "Oferujemy usługi z zakresu tworzenia stron internetowych, aplikacji webowych, projektowania UI/UX oraz grafiki komputerowej.",
+      "webDevelopment": "Strony internetowe",
+      "webApplications": "Aplikacje webowe",
+      "uiUxDesign": "Projektowanie UI/UX",
+      "graphicDesign": "Grafika komputerowa"
+    },
+    "obligations": {
+      "title": "Obowiązki użytkownika",
+      "description": "Użytkownik zobowiązuje się do korzystania ze strony zgodnie z prawem i dobrymi obyczajami.",
+      "provide": "Podawanie prawdziwych danych",
+      "maintain": "Niedostarczanie treści niezgodnych z prawem",
+      "protect": "Dbanie o bezpieczeństwo swojego konta"
+    },
+    "intellectualProperty": {
+      "title": "Własność intelektualna",
+      "description": "Wszelkie treści na stronie są chronione prawem autorskim i nie mogą być kopiowane bez zgody."
+    },
+    "liability": {
+      "title": "Odpowiedzialność",
+      "description": "Nie ponosimy odpowiedzialności za szkody wynikłe z korzystania ze strony."
+    },
+    "termination": {
+      "title": "Rozwiązanie umowy",
+      "description": "Możemy zablokować dostęp do strony w przypadku naruszenia warunków."
+    },
+    "changes": {
+      "title": "Zmiany warunków",
+      "description": "Zastrzegamy sobie prawo do zmiany warunków w dowolnym momencie."
+    },
+    "contact": {
+      "title": "Kontakt",
+      "description": "W razie pytań prosimy o kontakt: szymonecki1233@gmail.com."
+    }
+  },
+  "cookiePolicy": {
+    "title": "Polityka Cookies",
+    "lastUpdated": "Ostatnia aktualizacja: 26 maja 2025",
+    "introduction": "Ta polityka wyjaśnia, czym są pliki cookie, jak ich używamy oraz jak możesz nimi zarządzać.",
+    "types": {
+      "title": "Rodzaje plików cookie",
+      "description": "Na naszej stronie używamy plików cookie niezbędnych, analitycznych, preferencyjnych i marketingowych."
+    },
+    "manage": {
+      "title": "Jak zarządzać plikami cookie?",
+      "description": "Możesz zarządzać swoimi preferencjami dotyczącymi plików cookie za pomocą ustawień przeglądarki lub klikając przycisk poniżej."
+    }
   },
   "purposeItem": {
     "service": "Usługa"

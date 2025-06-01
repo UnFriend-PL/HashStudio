@@ -271,7 +271,95 @@
     }
   },
   "privacyPolicy": {
-    "text": "Privacy Policy"
+    "title": "Privacy Policy",
+    "introduction": "This Privacy Policy describes how we collect, use, and protect your personal information.",
+    "dataCollection": {
+      "title": "What data do we collect?",
+      "description": "We may collect the following data:",
+      "personalInfo": "Personal information such as name and email address",
+      "usageData": "Usage data including IP address and browsing behavior",
+      "cookies": "Cookies and similar tracking technologies"
+    },
+    "dataUsage": {
+      "title": "How we use your data",
+      "description": "We use your data to:",
+      "provide": "Provide and maintain our services",
+      "improve": "Improve and personalize your experience",
+      "communicate": "Communicate with you about our services"
+    },
+    "dataProtection": {
+      "title": "Data Protection",
+      "description": "We implement appropriate security measures to protect your personal information from unauthorized access, alteration, disclosure, or destruction."
+    },
+    "rights": {
+      "title": "Your Rights",
+      "description": "You have the right to:",
+      "access": "Access your personal data",
+      "correction": "Request correction of your data",
+      "deletion": "Request deletion of your data",
+      "objection": "Object to processing of your data"
+    },
+    "contact": {
+      "title": "Contact Us",
+      "description": "If you have any questions about this Privacy Policy, please contact us at:"
+    }
+  },
+  "termsOfService": {
+    "title": "Terms of Service",
+    "lastUpdated": "Last updated: May 26, 2025",
+    "introduction": "By using this website, you agree to the following terms. If you do not agree with any of them, please do not use the service.",
+    "acceptance": {
+      "title": "Acceptance of terms",
+      "description": "Using the website means you accept these terms."
+    },
+    "services": {
+      "title": "Scope of services",
+      "description": "We offer services in web development, web applications, UI/UX design, and graphic design.",
+      "webDevelopment": "Web Development",
+      "webApplications": "Web Applications",
+      "uiUxDesign": "UI/UX Design",
+      "graphicDesign": "Graphic Design"
+    },
+    "obligations": {
+      "title": "User obligations",
+      "description": "The user agrees to use the website in accordance with the law and good practices.",
+      "provide": "Provide accurate information",
+      "maintain": "Do not provide unlawful content",
+      "protect": "Keep your account secure"
+    },
+    "intellectualProperty": {
+      "title": "Intellectual property",
+      "description": "All content on the website is protected by copyright and may not be copied without permission."
+    },
+    "liability": {
+      "title": "Liability",
+      "description": "We are not liable for damages resulting from the use of the website."
+    },
+    "termination": {
+      "title": "Termination",
+      "description": "We may block access to the website in case of violation of the terms."
+    },
+    "changes": {
+      "title": "Changes to terms",
+      "description": "We reserve the right to change the terms at any time."
+    },
+    "contact": {
+      "title": "Contact",
+      "description": "If you have any questions, please contact: szymonecki1233@gmail.com."
+    }
+  },
+  "cookiePolicy": {
+    "title": "Cookie Policy",
+    "lastUpdated": "Last updated: May 26, 2025",
+    "introduction": "This policy explains what cookies are, how we use them, and how you can manage them.",
+    "types": {
+      "title": "Types of cookies",
+      "description": "We use necessary, analytics, preferences, and marketing cookies on our website."
+    },
+    "manage": {
+      "title": "How to manage cookies?",
+      "description": "You can manage your cookie preferences via your browser settings or by clicking the button below."
+    }
   },
   "purposeItem": {
     "service": "Service"

@@ -29,5 +29,3 @@ body {
 body{
   overflow-x: hidden;
 }
-
-@import './styles/klaro-overrides.scss';

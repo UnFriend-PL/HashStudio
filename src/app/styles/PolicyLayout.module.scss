@@ -1,0 +1,74 @@
+@use "Colors" as color;
+
+.policyContainer {
+  min-height: 100vh;
+  background: linear-gradient(135deg, color.$secondary-color 0%, color.$fourth-color 100%);
+  padding: 2rem 1rem;
+}
+
+.policyContent {
+  max-width: 800px;
+  margin: 0 auto;
+  background: rgba(255,255,255,0.97);
+  padding: 2.5rem 2rem;
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(16, 244, 185, 0.08), 0 1.5px 8px rgba(34,34,34,0.08);
+  border: 1.5px solid color.$primary-color;
+
+  h1 {
+    color: color.$primary-color;
+    margin-bottom: 1rem;
+    font-size: 2.2rem;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+  }
+
+  h2 {
+    color: color.$accent-color;
+    margin: 2rem 0 1rem;
+    font-size: 1.4rem;
+    font-weight: 600;
+  }
+
+  p {
+    color: color.$secondary-color;
+    line-height: 1.7;
+    margin-bottom: 1rem;
+    font-size: 1.08rem;
+  }
+
+  .lastUpdated {
+    color: color.$accent-color-light;
+    font-size: 0.98rem;
+    margin-bottom: 2rem;
+  }
+
+  ul {
+    margin: 1rem 0;
+    padding-left: 2rem;
+
+    li {
+      margin-bottom: 0.5rem;
+      color: color.$secondary-color;
+      font-size: 1.05rem;
+    }
+  }
+
+  button.klaro-btn {
+    background: color.$primary-color;
+    color: color.$secondary-color;
+    border: none;
+    border-radius: 6px;
+    padding: 0.6rem 1.4rem;
+    font-weight: 600;
+    font-size: 1rem;
+    margin-top: 1.5rem;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(16,244,185,0.08);
+    transition: background 0.2s, color 0.2s;
+    &:hover {
+      background: color.$accent-color;
+      color: #fff;
+    }
+  }
+} 
