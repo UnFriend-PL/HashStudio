@@ -367,5 +367,12 @@
   "service": {
     "purpose": "Purpose"
   },
-  "poweredBy": "Powered by Klaro"
+  "poweredBy": "Powered by Klaro",
+  "contact": {
+    "title": "Get in Touch",
+    "subtitle": "Feel free to reach out to me through any of these channels",
+    "email": "szymonecki1233@gmail.com",
+    "phone": "+48 600 029 636",
+    "linkedin": "LinkedIn Profile"
+  }
 } 

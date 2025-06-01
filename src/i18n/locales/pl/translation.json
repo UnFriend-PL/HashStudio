@@ -439,5 +439,12 @@
   "service": {
     "purpose": "Cel"
   },
-  "poweredBy": "Wspierane przez Klaro"
+  "poweredBy": "Wspierane przez Klaro",
+  "contact": {
+    "title": "Skontaktuj się",
+    "subtitle": "Skorzystaj z jednej z poniższych metod kontaktu",
+    "email": "szymonecki1233@gmail.com",
+    "phone": "+48 600 029 636",
+    "linkedin": "Profil LinkedIn"
+  }
 } 

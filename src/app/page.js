@@ -26,6 +26,7 @@ import CollaborationProcessScreen from '@/app/components/partials/CollaborationP
 import LanguageSwitcher from "@/app/components/LanguageSwitcher";
 import DesignScreen from '@/app/components/partials/DesignScreen';
 import Footer from "@/app/components/partials/Footer";
+import ContactScreen from '@/app/components/partials/ContactScreen';
 
 export default function Home() {
     const { t } = useTranslation();
@@ -137,6 +138,9 @@ export default function Home() {
                         </section>
                         <section id={"freelance"} className={styles.freelanceSection}>
                             <FreelanceScreen/>
+                        </section>
+                        <section id={"contact"} className={styles.contactSection}>
+                            <ContactScreen/>
                         </section>
                         <footer>
                             <Footer/>
